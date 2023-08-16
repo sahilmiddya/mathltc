@@ -1,0 +1,22 @@
+*{
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    /* font-size: .8rem; */
+}
+input, button{
+    border-radius: 6px;
+    width: 100%;
+    border: none;
+}
+svg{
+    padding: 5px;
+}
+button:hover{
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+}
+input{
+    background-color: #8b858591;
+}
