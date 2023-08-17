@@ -11,19 +11,6 @@ import { useDispatch, useSelector } from "react-redux";
 // import { loginuser } from "../store/loginslice";
 // import New from './New';
 const Login = () => {
-  // const [email, setemail] = useState("");
-  // const [pw, setpw] = useState("");
-
-  // const dispatch= useDispatch()
-  // const handsub = (e) => {
-  //   e.preventDefault();
-  //   let usercreds = {
-  //     email,
-  //     pw,
-  //   };
-  //   dispatch(loginuser(usercreds))
-  // };
-
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
@@ -37,14 +24,11 @@ const Login = () => {
       alert("Please fill in all fields.");
       return;
     }
-    // alert('ngbfd')
+
     dispatch(loginUserAsync(credentials));
     navig("/new");
   };
 
-  // const formsub = (e) => {
-  //   e.preventDefault;
-  // };
   return (
     <>
       <div className="cont">
@@ -72,7 +56,6 @@ const Login = () => {
 
           <div className="right">Forget password</div>
           <button onClick={handleLogin} className="login">
-            {/* <Link to="/new">Login</Link> */}
             Login
           </button>
           <div className="left">Or login with...</div>
@@ -100,3 +83,15 @@ const Login = () => {
 };
 
 export default Login;
+// const [email, setemail] = useState("");
+// const [pw, setpw] = useState("");
+
+// const dispatch= useDispatch()
+// const handsub = (e) => {
+//   e.preventDefault();
+//   let usercreds = {
+//     email,
+//     pw,
+//   };
+//   dispatch(loginuser(usercreds))
+// };

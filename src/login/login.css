@@ -1,5 +1,6 @@
 .cont {
   background-color: #c7a1d1;
+  color: white;
   height: 25rem;
   width: 17rem;
   /* padding: 2rem; */
@@ -27,7 +28,7 @@ h2 {
   /* display: flex; */
   /* align-items: end; */
 }
-.login {
+.login {  color: white;
   border-radius: 2rem;
   padding: 5px;
   font-size: 0.7rem;
@@ -40,7 +41,7 @@ h2 {
   );
 }
 .signup {
-  padding: 5px;
+  padding: 5px;  color: white;
   font-size: 0.7rem;
   border-radius: 2rem;
   margin-top: 9px;
@@ -62,7 +63,7 @@ h2 {
 .fb,
 .gg {
   margin: 5px;
-  display: flex;
+  display: flex;  color: white;
   align-items: center;
   justify-content: center;
 }

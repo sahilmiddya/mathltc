@@ -1,0 +1,56 @@
+.img {
+  height: 3rem;
+  width: 3rem;
+  background-color: #c1ece4;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 2rem;
+}
+.filter {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  list-style: none;
+  /* background-color: #5f4242; */
+ 
+  text-align: center;
+}
+.box {
+  padding: 1rem;
+}
+.btnav {
+  background-color: #c1ece4;
+  display: flex;
+  margin: 1rem;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.btnavtr {
+  width: 5rem;
+  padding: 1rem;
+  margin: 0.31rem;
+}
+.btnavtr:hover {
+  background-color: #3aa6b9;
+}
+.selimagex {
+  /* background-color: #b4b1b1; */
+  /* margin: auto; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.selimage {
+  background-color: #cdb7cf;
+  width: 7rem;
+  height: 7rem;
+  margin-bottom: 1.6rem;
+  padding: 1rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* clip-path: circle(); */
+}

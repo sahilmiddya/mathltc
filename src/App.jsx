@@ -18,7 +18,7 @@ function App() {
        {/* <Route exact path='/' element={<Signup/>}/>  */}
       {/* <Route exact path='/' element={<Login/>}/>  */}
       {/* <Route  path='/new' element={<New/>}/> */}
-      {/* <Route exact path='/' element={<Otp/>}/> */}
+      <Route exact path='/' element={<Otp/>}/>
       </Routes>
       </BrowserRouter>
     </>

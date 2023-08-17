@@ -1,25 +1,26 @@
 .otpcont {
-  /* background-color: #a97d7d; */
+  background-color: #c9a2c3d2;
+  color: white;
   width: 22rem;
   height: 24rem;
   border: 5px solid #ffe7e7;
   text-align: center;
 }
 
-body {
+.body2 {
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #444;
+  /* background-color: #444; */
 }
 
 .otp-container {
   text-align: center;
   /* background-color: pink; */
-  padding: 20px ;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }

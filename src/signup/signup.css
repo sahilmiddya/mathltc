@@ -1,4 +1,5 @@
 .cont {
+  color: white;
   background-color: #c7a1d1;
   height: 22rem;
   width: 17rem;
@@ -30,6 +31,7 @@ h2 {
 .signup {
   border-radius: 2rem;
   padding: 5px;
+  color: white;
   font-size: 0.7rem;
   background: rgb(189, 13, 13);
   background: linear-gradient(
@@ -40,9 +42,10 @@ h2 {
   );
 }
 .login {
-    margin-top: 19px;
+  margin-top: 19px;
   padding: 5px;
   font-size: 0.7rem;
+  color: white;
   margin-top: 19px;
   border-radius: 2rem;
   /* margin-top: 9px; */
@@ -64,6 +67,7 @@ h2 {
 .fb,
 .gg {
   margin: 5px;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
