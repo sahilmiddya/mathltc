@@ -4,6 +4,7 @@
   height: 25rem;
   width: 17rem;
   /* padding: 2rem; */
+  font-size: 0.71rem;
   display: flex;
 
   -webkit-border-top-left-radius: 44px;
@@ -92,6 +93,4 @@ h2 {
   justify-content: center;
   margin: 5px;
 }
-div {
-  font-size: 0.71rem;
-}
+
