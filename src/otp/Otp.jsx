@@ -4,11 +4,13 @@ import "./otp.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setOtp, setVerificationStatus } from "../store/otpSlice"; // Provide the correct path
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Otp = () => {
   // console.log('gbvfds');
 
   const dispatch = useDispatch();
+  const nav = useNavigate()
   const otp = useSelector((state) => state.otp.otp);
   const verificationStatus = useSelector(
     (state) => state.otp.verificationStatus
@@ -20,7 +22,13 @@ const Otp = () => {
     dispatch(setOtp(newOtp));
   };
 
-  const handleVerifyClick = async () => {
+  const backbtn= ()=>{
+    nav(-1)
+  }
+  const send = async () => {
+    nav('/avtr')
+    console.log('nhtgrfedwsa');
+
     let isEmptyField = false;
     for (let i = 0; i < otp.length; i++) {
       if (otp[i] === "") {
@@ -40,7 +48,7 @@ const Otp = () => {
       const response = await axios.post(
         "http://13.40.14.168/accounts/verify-otp-email",
         {
-          otp: otp.join(""),
+          // otp: otp.join(""),
         }
       ); // Replace with your API endpoint
       const { success } = response.data;
@@ -53,6 +61,8 @@ const Otp = () => {
     } catch (error) {
       console.error("Error verifying OTP:", error);
     }
+
+   
   };
 
   return (
@@ -78,8 +88,8 @@ const Otp = () => {
         <h3>Resend</h3>
         <hr className="hr" />
         <div className="btn2">
-          <button className="buttn">Back</button>
-          <button className="buttn" onClick={handleVerifyClick}>
+          <button className="buttn" onClick={backbtn}>Back</button>
+          <button className="buttn" onClick={send}>
             Send
           </button>{" "}
           <p className="verification-status">{verificationStatus}</p>

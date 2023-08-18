@@ -1,3 +1,10 @@
+.loginx {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
 .cont {
   background-color: #c7a1d1;
   color: white;
@@ -13,6 +20,7 @@
   -moz-border-radius-bottomright: 44px;
   border-top-left-radius: 44px;
   border-bottom-right-radius: 44px;
+  /* align-items: center;justify-content: center; */
 }
 h2 {
   text-align: center;
@@ -29,7 +37,8 @@ h2 {
   /* display: flex; */
   /* align-items: end; */
 }
-.login {  color: white;
+.login {
+  color: white;
   border-radius: 2rem;
   padding: 5px;
   font-size: 0.7rem;
@@ -42,7 +51,8 @@ h2 {
   );
 }
 .signup {
-  padding: 5px;  color: white;
+  padding: 5px;
+  color: white;
   font-size: 0.7rem;
   border-radius: 2rem;
   margin-top: 9px;
@@ -64,7 +74,8 @@ h2 {
 .fb,
 .gg {
   margin: 5px;
-  display: flex;  color: white;
+  display: flex;
+  color: white;
   align-items: center;
   justify-content: center;
 }
@@ -93,4 +104,3 @@ h2 {
   justify-content: center;
   margin: 5px;
 }
-

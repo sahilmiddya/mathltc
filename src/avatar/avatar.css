@@ -11,7 +11,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   list-style: none;
   /* background-color: #5f4242; */
- 
+
   text-align: center;
 }
 .box {
@@ -40,12 +40,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
-
-.selimage {
-  background-color: #cdb7cf;
+.bgimg{
+  border-radius: 50%;
+  /* backgft */
+  background-size: contain ;
   width: 7rem;
   height: 7rem;
+}
+.selimage {
+  /* background-color: #cdb7cf; */
+  width: 7rem;
+  height: 7rem;
+  
   margin-bottom: 1.6rem;
   padding: 1rem;
   border-radius: 50%;
@@ -53,4 +61,24 @@
   justify-content: center;
   align-items: center;
   /* clip-path: circle(); */
+}
+
+.nxtbtn {
+  /* float: right; */
+  /* background-color: #2f1717; */
+  display: flex;
+  justify-content: space-between;
+  flex: end;
+  color: #ffffff;
+  /* background-color: #c5a1c9; */
+  padding: 0.3rem 3rem;
+  /* width: fit-content; */
+  /* width: 5rem; */
+}
+.nxt {
+  background-color: #c68e8e;
+  border-radius: 7px;
+  padding: 0.5rem 1rem;
+  color: #ffffff;
+  width: 5rem;
 }

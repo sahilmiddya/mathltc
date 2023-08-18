@@ -26,11 +26,11 @@ const Login = () => {
     }
 
     dispatch(loginUserAsync(credentials));
-    navig("/new");
+    navig("/otp");
   };
 
   return (
-    <>
+    <div className="loginx">
       <div className="cont">
         {/* <form onSubmit={formsub} className="body"> */}
         <div className="body">
@@ -78,7 +78,7 @@ const Login = () => {
           <button className="signup">Sign up</button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

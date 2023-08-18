@@ -1,11 +1,16 @@
 import React from "react";
 
 import "./hear.css";
+import { useNavigate } from "react-router-dom";
 const Hear = () => {
+  const nav= useNavigate()
+  const back =()=>{
+    nav(-1)
+  }
   return (
     <div className="hearcont ">
       <div className="line1">
-        <div>Back</div>
+        <div className="nxt" onClick={back}>Back</div>
         <div>Done</div>
       </div>
       <div className="qstn">How did you hear about us?</div>

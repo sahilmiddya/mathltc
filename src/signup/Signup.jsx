@@ -4,7 +4,7 @@
 // import { AiOutlineGoogle } from "react-icons/ai";
 
 import "./signup.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 // import { loginuser } from "../store/loginslice";
@@ -29,6 +29,7 @@ const Signup = () => {
   // };
 
   const dispatch = useDispatch();
+  const nav = useNavigate();
   const [userData, setUserData] = useState({
     name: "",
     email: "",
@@ -44,11 +45,21 @@ const Signup = () => {
   };
 
   const handleRegister = () => {
+    if (
+      userData.name.trim() === "" ||
+      userData.email === "" ||
+      userData.password === ""
+    ) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
     dispatch(registerUserAsync(userData));
+    nav("/otp");
   };
 
   return (
-    <>
+    <div className="loginx">
       <div className="cont">
         <div className="body">
           <h2>Sign up</h2>
@@ -86,7 +97,7 @@ const Signup = () => {
           <button className="signup">Log in</button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
