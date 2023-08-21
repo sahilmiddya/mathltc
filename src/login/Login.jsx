@@ -18,6 +18,9 @@ const Login = () => {
   const dispatch = useDispatch();
   const navig = useNavigate();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const auth = useSelector((state) => state.auth);
+
+  console.log({ auth });
 
   const handleLogin = () => {
     if (credentials.username.trim() === "" || credentials.password === "") {
@@ -26,7 +29,12 @@ const Login = () => {
     }
 
     dispatch(loginUserAsync(credentials));
-    navig("/otp");
+    // navig("/home");
+
+    console.log({ handleLogin: auth });
+    if (auth?.user?.token) {
+      console.log("This user has token");
+    }
   };
 
   return (

@@ -6,9 +6,18 @@ import "./card.css";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Link, useNavigate } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
+import { useSelector } from "react-redux";
+import { reverseArrayAsc } from "../../utils/reverseArrayAsc";
 
 const Card = () => {
   const nav = useNavigate();
+
+  const quiz = useSelector((state) => state.quiz);
+  const quizTypes =
+    Array.isArray(quiz?.quizTypes) && reverseArrayAsc(quiz?.quizTypes);
+
+  console.log({ quizTypes });
+
   const prev = () => {
     // alert("nhbgvfcd");
     nav(-1);
@@ -16,6 +25,15 @@ const Card = () => {
   return (
     <div className="card">
       <div className="cardcontent">
+        {quizTypes.slice(0,6).map((type) => (
+          <div className="r1" key={type?.slug}>
+            <Link to="/add" className="a">
+              <AddIcon />
+              <span>{type?.title}</span>
+            </Link>
+          </div>
+        ))}
+
         <div className="r1">
           <Link to="/add" className="a">
             <AddIcon />
@@ -160,3 +178,7 @@ const Card = () => {
 };
 
 export default Card;
+
+/*
+
+*/
