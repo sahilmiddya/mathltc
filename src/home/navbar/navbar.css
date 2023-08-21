@@ -1,0 +1,24 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffd0d0;
+  /* color: #ffffff; */
+  padding: 0.5rem;
+  font-size: 1.32rem;
+  font-weight: 800;
+  align-items: center;
+}
+.nmid {
+  display: flex;
+  gap: 30px;
+}
+.nright {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
