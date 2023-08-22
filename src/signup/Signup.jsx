@@ -94,7 +94,14 @@ const Signup = () => {
           </button>
 
           <hr />
-          <button className="signup">Log in</button>
+          <button
+            className="signup"
+            onClick={() => {
+              nav("/login");
+            }}
+          >
+            Log in
+          </button>
         </div>
       </div>
     </div>
