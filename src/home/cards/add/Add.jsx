@@ -5,21 +5,17 @@ import Navbar from "../../navbar/Navbar";
 // import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 const Add = () => {
-
   const quiz = useSelector((state) => state.quiz);
-  // const quizFormat =
-  // Array.isArray(quiz?.quizFormat)&& reverseArrayAsc(quiz?.quizFormat);
+  const quizFormat = Array.isArray(quiz?.quizFormat) && quiz?.quizFormat;
 
-  console.log({quiz});
+  console.log({ quizFormat, quiz });
   return (
     <>
       <Navbar />
-rfrgtfgtfz5t
-      {quiz.quizFormat?.map?.((e)=>{
-        
+      {quizFormat?.map?.((e) => (
         <div>{e.title}</div>
-      })}
-          {/*  <div className="add">
+      ))}
+      {/*  <div className="add">
    <h2>Addition</h2>
         <div className="cards">
           <div className="r1 addr">
