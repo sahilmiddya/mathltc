@@ -3,7 +3,7 @@ import { loginUser, logoutUser } from "./authSlice";
 // import { loginUserAsync } from "./authActions";
 
 // Simulate API call for user registration
-export const registerUserAsync = (userData) => async (dispatch) => {
+export const registerUserAsync = (userData) => async ( ) => {
   try {
     const response = await axios.post(
       "http://13.40.14.168/accounts/send-otp-email",
