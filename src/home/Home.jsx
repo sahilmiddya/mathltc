@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 // import "./home.css";
 import Navbar from "./navbar/Navbar";
@@ -12,14 +12,15 @@ const Home = () => {
   const auth = useSelector((state) => state.auth);
   const quiz = useSelector((state) => state.quiz);
 
+  console.log({ auth });
+
   console.log({ quiz });
 
   useEffect(() => {
-    if (!quiz?.quizTypes) {
-      dispatch(getQuizTypesAsync(auth?.user?.token));
-    }
-  }, [!quiz?.quizTypes]);
-
+    console.log("inside useeffect");
+    dispatch(getQuizTypesAsync(auth?.user?.token));
+   }, []);
+  
   return (
     <div className="homez">
       <Navbar />

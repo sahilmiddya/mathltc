@@ -59,3 +59,18 @@ a {
   display: flex;
   align-items: center;
  }
+ .qtitle{color: #79cff1;
+  background-color: #e47bd6;
+  padding: 12px;
+  display: flex;align-items: center;
+  justify-content: center;
+  height: 2rem;
+  border-radius: 1rem;
+  margin: 12px;
+ }
+ .cardcontent{
+  margin: 5px;
+ }
+ .cardttl{
+  /* margin: 12px; */
+ }
