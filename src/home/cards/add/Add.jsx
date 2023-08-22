@@ -3,17 +3,27 @@
 import "./add.css";
 import Navbar from "../../navbar/Navbar";
 // import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { getQuizFormatAsync } from "../../../store/quizes/quizAction";
 const Add = () => {
+  const nav= useNavigate()
+  const disp= useDispatch()
   const quiz = useSelector((state) => state.quiz);
   const quizFormat = Array.isArray(quiz?.quizFormat) && quiz?.quizFormat;
 
   console.log({ quizFormat, quiz });
+  const goto =(e)=>{
+    disp(getQuizFormatAsync(e))
+    nav('/level')
+  }
   return (
     <>
       <Navbar />
       {quizFormat?.map?.((e) => (
-        <div>{e.title}</div>
+        <div className="cards" key={e.id} onClick={goto}>
+          <div className="addr r1">{e.title}</div> 
+        </div>
       ))}
       {/*  <div className="add">
    <h2>Addition</h2>

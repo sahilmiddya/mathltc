@@ -3,12 +3,16 @@ import Navbar from "../home/navbar/Navbar";
 
 import "./level.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Level = () => {
+  const quizLevel= useSelector(state=>state.quiz.quizLevel)
+
   return (
+    
     <div>
       <Navbar />
       <h2>Select Level</h2>
-      <div className="lcard">
+      {/* <div className="lcard">
         <Link to='/math'>
         <div className="lcard1">
           <img
@@ -28,7 +32,7 @@ const Level = () => {
           />
           level2
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

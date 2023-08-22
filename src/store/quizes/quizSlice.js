@@ -4,6 +4,7 @@ const initialState = {
   quizTypes: null,
   quizFormat: null,
   quizQuestions: null,
+  quizLevel:null,
 };
 
 const quizSlice = createSlice({
@@ -18,9 +19,12 @@ const quizSlice = createSlice({
      quizFormat: (state, action) => {
       state.quizFormat = action.payload;
     },
+    quizLevel:(state, action) =>{
+      state.quizLevel = action.payload
+    }
   },
 });
 
-export const { quizTypes ,quizFormat} = quizSlice.actions;
+export const { quizTypes ,quizLevel,quizFormat} = quizSlice.actions;
 
 export default quizSlice.reducer;

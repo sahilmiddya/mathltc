@@ -1,7 +1,7 @@
 import axios from "axios";
 import { baseURL } from "../../constants/baseURL";
 
-import { quizTypes,quizFormat } from "./quizSlice";
+import { quizTypes,quizFormat,quizLevel } from "./quizSlice";
 
 export const getQuizTypesAsync = (authToken) => async (dispatch) => {
 
@@ -32,5 +32,23 @@ export const getQuizFormatAsync = (authToken,type) => async (dispatch) => {
     }
   } catch (error) {
     // hgf 
+  }
+};
+
+
+ 
+export const getQuizLevelAsync = (authToken,type,id) => async (dispatch) => {
+
+  console.log("madhu");
+  try {
+    const { data, status } = await axios.get(`${baseURL}/quiz/levels/${type}?quiz_format=${id}`, {
+      headers: { Authorization: `JWT ${authToken}` },
+    });
+
+    if (status === 200) {
+      dispatch(quizLevel(data));
+    }
+  } catch (error) {
+  // jhgh 
   }
 };
