@@ -15,10 +15,8 @@ const Home = () => {
   console.log({ quiz });
 
   useEffect(() => {
-    if (!quiz?.quizTypes) {
-      dispatch(getQuizTypesAsync(auth?.user?.token));
-    }
-  }, [!quiz?.quizTypes]);
+    dispatch(getQuizTypesAsync(auth?.user?.token));
+  }, []);
 
   return (
     <div className="homez">
