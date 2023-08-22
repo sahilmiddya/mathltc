@@ -17,10 +17,16 @@ const Home = () => {
   console.log({ quiz });
 
   useEffect(() => {
+<<<<<<< HEAD
     console.log("inside useeffect");
     dispatch(getQuizTypesAsync(auth?.user?.token));
    }, []);
   
+=======
+    dispatch(getQuizTypesAsync(auth?.user?.token));
+  }, []);
+
+>>>>>>> 27e5a2c62ae2f7e6b193b0512b4a6ec0e10c1978
   return (
     <div className="homez">
       <Navbar />
