@@ -4,7 +4,8 @@ const initialState = {
   quizTypes: null,
   quizFormat: null,
   quizQuestions: null,
-  quizLevel:null,
+  quizLevel: null,
+  selectedQuizType: null,
 };
 
 const quizSlice = createSlice({
@@ -12,19 +13,24 @@ const quizSlice = createSlice({
   initialState: initialState,
 
   reducers: {
-   
     quizTypes: (state, action) => {
       state.quizTypes = action.payload;
     },
-     quizFormat: (state, action) => {
+    selectQuizType: (state, action) => {
+      console.log({ action });
+      state.selectedQuizType = action.payload;
+    },
+
+    quizFormat: (state, action) => {
       state.quizFormat = action.payload;
     },
-    quizLevel:(state, action) =>{
-      state.quizLevel = action.payload
-    }
+    quizLevel: (state, action) => {
+      state.quizLevel = action.payload;
+    },
   },
 });
 
-export const { quizTypes ,quizLevel,quizFormat} = quizSlice.actions;
+export const { quizTypes, quizLevel, quizFormat, selectQuizType } =
+  quizSlice.actions;
 
 export default quizSlice.reducer;

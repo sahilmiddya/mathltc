@@ -10,13 +10,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { reverseArrayAsc } from "../../utils/reverseArrayAsc";
 // import { quizFormat } from "../../store/quizes/quizSlice";
 import { getQuizFormatAsync } from "../../store/quizes/quizAction";
+import { selectQuizType } from "../../store/quizes/quizSlice";
 
 const Card = () => {
   const nav = useNavigate();
-  const dispatch= useDispatch()
+  const dispatch = useDispatch();
 
   const quiz = useSelector((state) => state.quiz);
-  const auth = useSelector((state) => state.auth); 
+  const auth = useSelector((state) => state.auth);
   const quizTypes =
     Array.isArray(quiz?.quizTypes) && reverseArrayAsc(quiz?.quizTypes);
 
@@ -26,26 +27,36 @@ const Card = () => {
     // alert("nhbgvfcd");
     nav(-1);
   };
-  const goto=( slug)=>{
-    dispatch(getQuizFormatAsync(auth?.user?.token , slug))
-    nav('/add')
-  }
+  const goto = (slug, quizType) => {
+    dispatch(getQuizFormatAsync(auth?.user?.token, slug));
+    dispatch(selectQuizType(quizType));
+    nav("/add");
+  };
+
   return (
     <div className="card">
       <div className="cardcontent">
         {quizTypes?.map?.((i) => (
-           <>
-           <div className="cardttl" onClick={()=>{goto(i.slug)}} >
-          <div className="qtitle">{i?.title}</div>
-          </div>  </> ))}
+          <>
+            <div
+              className="cardttl"
+              onClick={() => {
+                goto(i.slug, i);
+              }}
+            >
+              <div className="qtitle">{i?.title}</div>
+            </div>{" "}
+          </>
+        ))}
       </div>
 
       <div className="cardbtm">
-        <Link to='/home'>
-        <span onClick={prev} className="span">
-          <ArrowBackIosIcon />
-          PREV
-        </span></Link>
+        <Link to="/home">
+          <span onClick={prev} className="span">
+            <ArrowBackIosIcon />
+            PREV
+          </span>
+        </Link>
         <MoreHorizIcon />
         <span className="span">
           NEXT
