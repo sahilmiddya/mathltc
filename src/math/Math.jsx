@@ -5,29 +5,49 @@ import "./math.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setcount } from "../store/quizes/quizSlice";
 
-const Math = () => { 
+const Math = () => {
   const count = useSelector((state) => state.quiz.count);
   const dispatch = useDispatch();
-  const quizQuestions = useSelector((state) => state.quiz.quizQuestions); 
+
+  const [inputcolor, setcolor] = useState('');
+  const quizQuestions = useSelector((state) => state.quiz.quizQuestions);
 
   const questionAnswerList = quizQuestions?.question_answer_list;
   console.log(questionAnswerList);
-  const answer= questionAnswerList?.[count].answer //from api
+  const answer = questionAnswerList?.[count]?.answer; //from api
   console.log(answer);
 
-  const [expression, setExpression] = useState("");
+  // const [expression, setExpression] = useState("");
+
+  const [userInput, setUserInput] = useState("");
   // const [result, setResult] = useState(null);
   // const [loading, setLoading] = useState(false);
   // const [error, setError] = useState("");
   const handleButtonClick = (value) => {
-    setExpression((prevExpression) => prevExpression + value);
+    setUserInput((prevExpression) => prevExpression + value);
   };
   const clearExpression = () => {
-    setExpression("");
+    setUserInput("");
   };
-  const calculateResult = () => {
+  // const checkAnswer = () => {
+  //   dispatch(setcount());
+  // };
+
+  const checkAnswer = () => {
+    const userNumber = parseInt(userInput);
+    if (userNumber === answer) { 
+      setcolor('green');
+    } else { 
+      setcolor('red');
+    }
+
     dispatch(setcount());
+ 
   };
+  const handleInputChange = (event) => {
+    setUserInput(event.target.value);
+  };
+
   return (
     <div>
       <Navbar />
@@ -36,12 +56,12 @@ const Math = () => {
           <div className="mtop">
             {questionAnswerList?.[count]?.question_list?.[0]?.question} =
             <span>
+           
               <input
                 type="number"
-                placeholder="Enter an expression"
-                value={expression}
-                // value={answer}
-                readOnly
+                value={userInput}
+                onChange={handleInputChange}
+                style={{ color: inputcolor, padding: "5px" }}
               />
             </span>
           </div>
@@ -66,7 +86,6 @@ const Math = () => {
                 >
                   3
                 </button>
-                {/* <button className='buttons' onClick={() => handleButtonClick('+')}>+</button> */}
               </div>
               <div className="buttonrow">
                 <button
@@ -76,7 +95,7 @@ const Math = () => {
                   4
                 </button>
                 <button
-                  className="buttons"
+                  className="buttons btn5"
                   onClick={() => handleButtonClick("5")}
                 >
                   5
@@ -87,7 +106,6 @@ const Math = () => {
                 >
                   6
                 </button>
-                {/* <button className='buttons' onClick={() => handleButtonClick('-')}>-</button> */}
               </div>
               <div className="buttonrow">
                 <button
@@ -108,22 +126,16 @@ const Math = () => {
                 >
                   9
                 </button>
-                {/* <button className='buttons' onClick={() => handleButtonClick('*')}>*</button> */}
               </div>
               <div className="buttonrow">
-                {/* <button className='buttons' onClick={clearExpression}>C</button> */}
                 <button
                   className="buttons"
                   onClick={() => handleButtonClick("0")}
                 >
                   0
                 </button>
-                {/* <button className='buttons' onClick={() => handleButtonClick('/')}>/</button> */}
               </div>
             </div>
-            {/* {loading && <p className={styles.loading}>Loading...</p>}
-            {error && <p className={styles.error}>{error}</p>}
-            {result !== null && <p className={styles.result}>Result: {result}</p>} */}
           </div>
         </div>
         <div className="mbtns">
@@ -131,7 +143,7 @@ const Math = () => {
           <button className="mback btnm" onClick={clearExpression}>
             C
           </button>
-          <button className="mnext btnm" onClick={calculateResult}>
+          <button className="mnext btnm" onClick={checkAnswer}>
             =
           </button>
         </div>

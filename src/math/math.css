@@ -20,11 +20,11 @@
   display: flex;
 }
 .numbers {
-  background-color: #32411c;
+  /* background-color: #32411c; */
   display: grid;
   /* gap: 22px; */
-  /* margin: auto; */
-  padding: 1rem;
+  margin: 0 10rem;
+  padding:3rem 20rem;
   /* justify-content: center; */
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -46,3 +46,21 @@
 button {
   gap: 12px;
 }
+
+/* .btn5{
+  margin: 0.5rem;
+  padding: 1rem;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
