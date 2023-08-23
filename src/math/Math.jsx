@@ -17,22 +17,13 @@ const Math = () => {
   const answer = questionAnswerList?.[count]?.answer; //from api
   console.log(count);
 
-  // const [expression, setExpression] = useState("");
-
   const [userInput, setUserInput] = useState("");
-  // const [result, setResult] = useState(null);
-  // const [loading, setLoading] = useState(false);
-  // const [error, setError] = useState("");
   const handleButtonClick = (value) => {
     setUserInput((prevExpression) => prevExpression + value);
   };
   const clearExpression = () => {
     setUserInput("");
   };
-  // const checkAnswer = () => {
-  //   dispatch(setcount());
-  // };
-
   const checkAnswer = () => {
     const userNumber = parseInt(userInput);
     if (userNumber === answer) {
@@ -40,9 +31,19 @@ const Math = () => {
     } else {
       setcolor("red");
     }
-    if (count < 30) {
-      dispatch(setcount());
-    }
+
+    let timeout;
+
+    timeout = setTimeout(() => {
+      setcolor("");
+      setUserInput("");
+
+      if (count < 30) {
+        dispatch(setcount());
+      }
+
+      clearTimeout(timeout);
+    }, 600);
   };
   const handleInputChange = (event) => {
     setUserInput(event.target.value);
