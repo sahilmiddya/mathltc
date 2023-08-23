@@ -1,25 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../home/navbar/Navbar";
 
 import "./math.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setcount } from "../store/quizes/quizSlice";
+import { setcorrect, setwrong } from "../store/userAnswerslice";
 
 const Math = () => {
   const count = useSelector((state) => state.quiz.count);
   const dispatch = useDispatch();
+
+  const [remainingTime, setRemainingTime] = useState(60); // Timer set to 10 seconds
 
   const [inputcolor, setcolor] = useState("");
   const quizQuestions = useSelector((state) => state.quiz.quizQuestions);
 
   const questionAnswerList = quizQuestions?.question_answer_list;
   console.log(questionAnswerList);
+
   const answer = questionAnswerList?.[count]?.answer; //from api
   console.log(count);
 
   const [userInput, setUserInput] = useState("");
+
+  const userans= useSelector((state)=>state.userans) 
+  console.log(userans);
+
   const handleButtonClick = (value) => {
-    setUserInput((prevExpression) => prevExpression + value);
+    setUserInput((prev) => prev + value);
   };
   const clearExpression = () => {
     setUserInput("");
@@ -28,8 +36,10 @@ const Math = () => {
     const userNumber = parseInt(userInput);
     if (userNumber === answer) {
       setcolor("green");
+     dispatch( setcorrect())
     } else {
       setcolor("red");
+      dispatch(setwrong())
     }
 
     let timeout;
@@ -49,11 +59,45 @@ const Math = () => {
     setUserInput(event.target.value);
   };
 
+
+  useEffect(() => {
+    let timerInterval;
+  
+    if (remainingTime === 0) {
+      callApi();
+      // clearInterval(timerInterval); // Stop the timer interval when remainingTime reaches 0
+    }
+  
+    timerInterval = setInterval(() => {
+      setRemainingTime((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
+    }, 1000);
+  
+    return () => {
+      clearInterval(timerInterval);
+    };
+  }, [remainingTime]);
+  
+  
+
+  const callApi = async () => {
+    try {
+      console.log('hfgdsfbjh');
+      const response = await fetch("YOUR_API_URL_HERE");
+      const data = await response.json();
+      console.log("API Response:", data);
+    } catch (error) {
+      console.error("Error calling API:", error);
+    }
+  };
+
+
   return (
     <div>
       <Navbar />
       <div className="containermath">
         <div className="mathbody">
+
+        <p>Time left: {remainingTime} seconds</p>
           <div className="mtop">
             {questionAnswerList?.[count]?.question_list?.[0]?.question} =
             <span>
@@ -139,7 +183,7 @@ const Math = () => {
           </div>
         </div>
         <div className="mbtns">
-          {" "}
+          
           <button className="mback btnm" onClick={clearExpression}>
             C
           </button>

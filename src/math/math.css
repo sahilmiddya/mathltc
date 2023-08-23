@@ -15,6 +15,7 @@
   justify-content: center;
   width: 80%;
   gap: 22px;
+  font-size: 1.3rem;
 }
 .mbtns {
   display: flex;
@@ -33,11 +34,14 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 .buttons {
-  /* background-color: #02609e; */
+  background-color: #9e0243;
   padding: 1rem;
   margin: 1rem;
   margin-left: 2rem;
   /* gap: 1rem; */
+}
+.buttons:hover{
+  background-color: #d49191;
 }
 .btnm {
   padding: 1rem;
