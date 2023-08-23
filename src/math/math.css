@@ -1,0 +1,48 @@
+.containermath {
+  background-color: #d33b3b;
+  padding: 1rem;
+}
+.mathbody {
+  /* background-color: #2f4a69; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.mtop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  gap: 22px;
+}
+.mbtns {
+  display: flex;
+}
+.numbers {
+  background-color: #32411c;
+  display: grid;
+  /* gap: 22px; */
+  /* margin: auto; */
+  padding: 1rem;
+  /* justify-content: center; */
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.buttonrow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.buttons {
+  /* background-color: #02609e; */
+  padding: 1rem;
+  margin: 1rem;
+  margin-left: 2rem;
+  /* gap: 1rem; */
+}
+.btnm {
+  padding: 1rem;
+  margin: 1rem;
+}
+button {
+  gap: 12px;
+}

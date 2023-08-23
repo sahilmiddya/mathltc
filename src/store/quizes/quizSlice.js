@@ -35,6 +35,7 @@ const quizSlice = createSlice({
       state.quizLevel = action.payload;
     },
     quizQuestions :(state,actions)=>{
+      console.log(actions);
       state.quizQuestions= actions.payload
     }
    
