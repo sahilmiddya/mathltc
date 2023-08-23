@@ -73,3 +73,24 @@ export const getQuestionsAsync =
       // jhgh
     }
   };
+
+
+
+export const getUsersAnsAsync =
+(authToken, qtype, quizformat, quizlevel) => async (dispatch) => {
+  console.log("helo");
+  try {
+    const { data, status } = await axios.get(
+      `${baseURL}/quiz/generate-questions/${qtype}?quiz_format=${quizformat}&quiz_level=${quizlevel}`,
+      {
+        headers: { Authorization: `JWT ${authToken}` },
+      }
+    );
+
+    if (status === 200) {
+      dispatch(quizQuestions(data));
+    }
+  } catch (error) {
+    // jhgh
+  }
+};
