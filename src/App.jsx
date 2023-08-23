@@ -9,7 +9,7 @@ import Signup from "./signup/Signup";
 import Login from "./login/Login";
 import Otp from "./otp/Otp";
 import Bgav from "./avatar/Bgav";
-import Av3 from "./avatar/Av3";
+// import Av3 from "./avatar/Av3";
 import Avat4 from "./avatar/Avat4";
 import Hear from "./hear/Hear";
 import Home from "./home/Home";

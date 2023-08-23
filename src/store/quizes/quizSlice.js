@@ -7,6 +7,7 @@ const initialState = {
   quizLevel: null,
   selectedQuizType: null,
   selectQuizLevel: null,
+  count: 0,
 };
 
 const quizSlice = createSlice({
@@ -37,6 +38,9 @@ const quizSlice = createSlice({
       console.log(actions);
       state.quizQuestions = actions.payload;
     },
+    setcount: (state) => {
+      state.count = state.count + 1;
+    },
   },
 });
 
@@ -47,6 +51,7 @@ export const {
   selectQuizType,
   selectQuizLevel,
   quizQuestions,
+  setcount,
 } = quizSlice.actions;
 
 export default quizSlice.reducer;

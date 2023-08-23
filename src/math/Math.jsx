@@ -2,12 +2,18 @@ import { useState } from "react";
 import Navbar from "../home/navbar/Navbar";
 
 import "./math.css";
-import { useSelector } from "react-redux";
-const Math = () => {
-  const quizQuestions = useSelector((state) => state.quiz.quizQuestions);
-  // const selectedQuizType = useSelector((state) => state.quiz.selectedQuizType);
+import { useDispatch, useSelector } from "react-redux";
+import { setcount } from "../store/quizes/quizSlice";
+
+const Math = () => { 
+  const count = useSelector((state) => state.quiz.count);
+  const dispatch = useDispatch();
+  const quizQuestions = useSelector((state) => state.quiz.quizQuestions); 
 
   const questionAnswerList = quizQuestions?.question_answer_list;
+  console.log(questionAnswerList);
+  const answer= questionAnswerList?.[count].answer //from api
+  console.log(answer);
 
   const [expression, setExpression] = useState("");
   // const [result, setResult] = useState(null);
@@ -19,19 +25,22 @@ const Math = () => {
   const clearExpression = () => {
     setExpression("");
   };
-  const calculateResult = () => {};
+  const calculateResult = () => {
+    dispatch(setcount());
+  };
   return (
     <div>
       <Navbar />
       <div className="containermath">
         <div className="mathbody">
           <div className="mtop">
-            {questionAnswerList?.[0]?.question_list?.[0]?.question} =
+            {questionAnswerList?.[count]?.question_list?.[0]?.question} =
             <span>
               <input
                 type="number"
                 placeholder="Enter an expression"
                 value={expression}
+                // value={answer}
                 readOnly
               />
             </span>
