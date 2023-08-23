@@ -7,7 +7,8 @@ const Math = () => {
   const quizQuestions = useSelector((state) => state.quiz.quizQuestions);
   // const selectedQuizType = useSelector((state) => state.quiz.selectedQuizType);
 
-console.log(quizQuestions);
+  const questionAnswerList = quizQuestions?.question_answer_list;
+
   const [expression, setExpression] = useState("");
   // const [result, setResult] = useState(null);
   // const [loading, setLoading] = useState(false);
@@ -25,7 +26,7 @@ console.log(quizQuestions);
       <div className="containermath">
         <div className="mathbody">
           <div className="mtop">
-            5+8 =
+            {questionAnswerList?.[0]?.question_list?.[0]?.question} =
             <span>
               <input
                 type="number"
@@ -124,7 +125,6 @@ console.log(quizQuestions);
           <button className="mnext btnm" onClick={calculateResult}>
             =
           </button>
-          
         </div>
       </div>
     </div>

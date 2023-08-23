@@ -15,21 +15,28 @@ const Level = () => {
   let nav = useNavigate();
   let dispatch = useDispatch();
 
-  const goto = (slug, quizlevel,quizFormat) => {
+  const goto = (slug, quizlevel, quizFormat) => {
     // dispatch(getQuizLevelAsync(auth?.user?.token, slug));
-    dispatch(getQuestionsAsync(auth.user.token, selectedQuizType.slug ,quizFormat,quizlevel.title))
+    dispatch(
+      getQuestionsAsync(
+        auth.user.token,
+        selectedQuizType.slug,
+        quizFormat,
+        quizlevel.title
+      )
+    );
     // dispatch(selectQuizLevel(quizlevel));
     nav("/math");
   };
   return (
     <div>
       <Navbar />
-      {quizLevel.map((e) => (
+      {quizLevel?.map?.((e) => (
         <>
           <div
             className="level"
             onClick={() => {
-              goto(e.title,e,e.quiz_format.slug);
+              goto(e.title, e, e.quiz_format.slug);
             }}
           >
             <div className="qtitle">{e?.title}</div>
