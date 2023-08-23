@@ -48,8 +48,12 @@ const Math = () => {
       setcolor("");
       setUserInput("");
 
-      if (count < 30) {
-        dispatch(setcount());
+      if (count < 29) {
+        dispatch(setcount(count+1));
+
+      }
+      else{
+        dispatch(setcount(0))
       }
 
       clearTimeout(timeout);

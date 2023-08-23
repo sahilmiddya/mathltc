@@ -38,8 +38,8 @@ const quizSlice = createSlice({
       console.log(actions);
       state.quizQuestions = actions.payload;
     },
-    setcount: (state) => {
-      state.count = state.count + 1;
+    setcount: (state,action) => {
+      state.count =action.payload
     },
   },
 });
