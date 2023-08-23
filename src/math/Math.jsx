@@ -9,13 +9,13 @@ const Math = () => {
   const count = useSelector((state) => state.quiz.count);
   const dispatch = useDispatch();
 
-  const [inputcolor, setcolor] = useState('');
+  const [inputcolor, setcolor] = useState("");
   const quizQuestions = useSelector((state) => state.quiz.quizQuestions);
 
   const questionAnswerList = quizQuestions?.question_answer_list;
   console.log(questionAnswerList);
   const answer = questionAnswerList?.[count]?.answer; //from api
-  console.log(answer);
+  console.log(count);
 
   // const [expression, setExpression] = useState("");
 
@@ -35,14 +35,14 @@ const Math = () => {
 
   const checkAnswer = () => {
     const userNumber = parseInt(userInput);
-    if (userNumber === answer) { 
-      setcolor('green');
-    } else { 
-      setcolor('red');
+    if (userNumber === answer) {
+      setcolor("green");
+    } else {
+      setcolor("red");
     }
-
-    dispatch(setcount());
- 
+    if (count < 30) {
+      dispatch(setcount());
+    }
   };
   const handleInputChange = (event) => {
     setUserInput(event.target.value);
@@ -56,7 +56,6 @@ const Math = () => {
           <div className="mtop">
             {questionAnswerList?.[count]?.question_list?.[0]?.question} =
             <span>
-           
               <input
                 type="number"
                 value={userInput}
