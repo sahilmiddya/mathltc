@@ -6,3 +6,12 @@ export function reverseArrayAsc(arr = []) {
 
   return arr1;
 }
+
+export const rev = (arr) => {
+  let arr1=[]
+  //  = [...arr];
+  for (let i = 0; i < arr.length; i++) {
+    arr1.push(arr[i]);
+  }
+  return arr1;
+};
