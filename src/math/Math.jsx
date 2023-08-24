@@ -172,11 +172,23 @@ const Math = () => {
               </button>
             </div>
             <div className="buttonrow">
+            <button
+                className="buttons btn1"
+                onClick={() => handleButtonClick("")}
+              >
+                .
+              </button>
               <button
                 className="buttons btn1"
                 onClick={() => handleButtonClick("0")}
               >
                 0
+              </button>
+              <button
+                className="buttons btn1"
+                onClick={() => handleButtonClick("")}
+              >
+                .
               </button>
             </div>
           </div>

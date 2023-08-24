@@ -1,43 +1,60 @@
 .containermath {
-  margin: 2rem;
-  background-color: #b6df94;
-  padding: 1rem;
+  /* margin: 2rem; */
+  /* background-color: #b6df94; */
+  /* padding: 1rem; */
 }
 
 .mathbody {
   /* background-color: #c91616; */
-  padding: 2rem;
+  padding: 0 12rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .toppart {
   margin: 1.3rem;
   display: flex;
   justify-content: space-between;
-  background-color: #dbc08d;
+  /* background-color: #eba422; */
 }
 
 .mtop {
-  background-color: #3ba0be;
+  background-color: #d9d9d9;
+  border-radius: .3rem;
   display: flex;
   justify-content: space-evenly;
   padding: 1rem;
+  font-size: 1.4rem;
+  margin: 1rem 14.5rem;
 }
-
+input {
+  background-color: #fff !important;
+  color: rgb(0, 0, 0);
+  font-size: 19px;
+  max-width: 9rem;
+  font-weight: 700;
+  /* flex: 4; */
+}
 .btnbox {
   /* background-color: #0d3b6e; */
-  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 1rem;
 }
 
 .buttonrow {
   display: grid;
   gap: 15px;
+  width: 50%;
   background-color: #fff;
   grid-template-columns: 1fr 1fr 1fr;
-  margin: 15px 0px;
+  margin: 4px 0px;
 }
 
 .buttons {
-  background-color: #d63bdb;
+  background-color: #93d3f5;
   padding: 1rem;
 }
 
@@ -45,8 +62,19 @@
   /* margin: 1rem !important; */
 }
 .bottompart {
+  padding: 1rem 0;
+
+  margin: 0 14.5rem;
   display: flex;
+  gap: 5px;
+  /* background-color: #a9ce22; */
+}
+.back {
+  background-color: #ff9292;
   padding: 1rem;
-  margin: 1rem;
-  background-color: #a9ce22;
+  flex: 2;
+}
+.check {
+  background-color: #acffaa;
+  flex: 3;
 }

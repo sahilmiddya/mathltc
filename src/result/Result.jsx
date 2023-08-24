@@ -7,17 +7,25 @@ const Result = () => {
       <div className="resright">
         <div className="rightup">
           <div className="b1">
-            <div className="b1child">30</div>
-            <div className="b1child">XP</div>
+            <div className="b1child">
+              30
+              <br />
+              XP{" "}
+            </div>
           </div>
           <div className="b2">
-            <div className="b2child">90%</div>
-
-            <div className="b2child">Accuracy</div>
+            <div className="b2child">
+              90%
+              <br />
+              Accuracy
+            </div>
           </div>
           <div className="b3">
-            <div className="b3child">3</div>
-            <div className="b3child2">Speed</div>
+            <div className="b3child">
+              3
+              <br />
+              <span className="speed">Speed</span>
+            </div>
           </div>
         </div>
         <hr />
