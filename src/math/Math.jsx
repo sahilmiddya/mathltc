@@ -10,7 +10,7 @@ import { updateUserstatsAsync } from "../store/quizes/quizAction";
 
 const Math = () => {
   const auth = useSelector((state) => state.auth);
-  const selectQuizLevel=useSelector((state)=>state.selectQuizLevel)
+  const selectQuizLevel=useSelector((state)=>state.quiz.selectQuizLevel)
   // const quiz = useSelector((state) => state.quiz);
   const attempans = useSelector((state) => state.userans);
   const count = useSelector((state) => state.quiz.count);
