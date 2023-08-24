@@ -18,6 +18,7 @@ import Add from "./home/cards/add/Add";
 import Map from "./home/map/Map";
 import Level from "./level/Level";
 import Math from "./math/Math";
+import Result from "./result/Result";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -71,6 +72,10 @@ function App() {
           <Route
             path="/math"
             element={<PrivateRoute component={<Math />} redirectUrl="/login" />}
+          />
+           <Route
+            path="/result"
+            element={<PrivateRoute component={<Result />} redirectUrl="/result" />}
           />
         </Routes>
       </BrowserRouter>
