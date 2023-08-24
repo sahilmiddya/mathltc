@@ -1,5 +1,3 @@
-import React from "react";
-
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
 import SettingsIcon from "@mui/icons-material/Settings";
@@ -22,7 +20,9 @@ const Navbar = () => {
         <div className="nitems">
           <Link to="/map">Map</Link>
         </div>
-        <div className="nitems">Wardrobe</div>
+        <div className="nitems">
+          <Link to="/avatar">Wardrobe</Link>
+        </div>
         <div className="nitems">Leaderboard</div>
         <div className="nitems">Help</div>
       </div>

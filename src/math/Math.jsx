@@ -9,6 +9,7 @@ import { setcorrect, setwrong } from "../store/userAnswerslice";
 const Math = () => {
   const count = useSelector((state) => state.quiz.count);
   const dispatch = useDispatch();
+  const [rightans, setrightans] = useState(null);
 
   const [remainingTime, setRemainingTime] = useState(60); // Timer set to 10 seconds
 
@@ -40,8 +41,15 @@ const Math = () => {
     } else {
       setcolor("red");
       dispatch(setwrong());
+      setrightans(answer);
     }
-
+    if (userInput === "") {
+      if (count < 29) {
+        dispatch(setcount(count + 1));
+      } else {
+        dispatch(setcount(0));
+      }
+    }
     let timeout;
 
     timeout = setTimeout(() => {
@@ -53,7 +61,7 @@ const Math = () => {
       } else {
         dispatch(setcount(0));
       }
-
+      setrightans(null);
       clearTimeout(timeout);
     }, 600);
   };
@@ -103,7 +111,7 @@ const Math = () => {
             <span>
               <input
                 type="number"
-                value={userInput}
+                value={rightans || userInput}
                 onChange={handleInputChange}
                 style={{ color: inputcolor, padding: "5px" }}
               />
@@ -172,7 +180,7 @@ const Math = () => {
               </button>
             </div>
             <div className="buttonrow">
-            <button
+              <button
                 className="buttons btn1"
                 onClick={() => handleButtonClick("")}
               >
@@ -193,15 +201,14 @@ const Math = () => {
             </div>
           </div>
           <div className="bottompart">
-          <button className="back btnm" onClick={clearExpression}>
-            C
-          </button>
-          <button className="check btnm" onClick={checkAnswer}>
-            =
-          </button>
+            <button className="back btnm" onClick={clearExpression}>
+              C
+            </button>
+            <button className="check btnm" onClick={checkAnswer}>
+              =
+            </button>
+          </div>
         </div>
-        </div>
-        
       </div>
     </div>
   );
