@@ -1,1 +1,31 @@
- 
+ /* .level{
+  display: flex;
+  background-color: #c07979;
+  align-items: center;
+  justify-content: center;
+ } */
+
+.ltitle{
+  display: flex;
+  background-color: #a50404;
+  margin: 2rem;
+  padding: 3rem;
+}
+.levelcont{
+  display: flex;
+  align-items: center;justify-content: center;
+  flex-direction: row-reverse;
+  height: 90vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
