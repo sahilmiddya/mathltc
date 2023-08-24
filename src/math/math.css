@@ -1,70 +1,51 @@
-.containermath {
-  background-color: #e297d2e1;
-  padding: 1rem;
-}
-.mathbody {
-  /* background-color: #2f4a69; */
+ .containermath {
+   margin: 2rem;
+   background-color: #b6df94;
+   padding: 1rem;
+ }
+
+ .mathbody {
+   background-color: #c91616;
+   padding: 2rem;
+ }
+
+ .toppart {
+   margin: 1.3rem;
+   display: flex;
+   justify-content: space-between;
+   background-color: #dbc08d;
+ }
+
+ .mtop {
+   background-color: #3ba0be;
+   display: flex;
+   justify-content: space-evenly;
+   padding: 1rem;
+ }
+
+ .btnbox {
+   background-color: #0d3b6e;
+   padding: 1rem;
+ }
+
+ .buttonrow {
+   display: grid;
+   background-color: #fff;
+   grid-template-columns: 1fr 1fr 1fr;
+ }
+
+ .buttons {
+    
+   background-color: #d63bdb;
+   padding: 1rem;
+ }
+
+ .btn1 {
+   margin: 1rem;
+ }
+ .bottompart{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.mtop {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 80%;
-  gap: 22px;
-  font-size: 1.3rem;
-}
-.mbtns {
-  display: flex;
-}
-.numbers {
-  /* background-color: #32411c; */
-  display: grid;
-  /* gap: 22px; */
-  margin: 0 10rem;
-  padding:3rem 20rem;
-  /* justify-content: center; */
-  grid-template-columns: 1fr 1fr 1fr;
-}
-.buttonrow {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-.buttons {
-  background-color: #9e0243;
   padding: 1rem;
   margin: 1rem;
-  margin-left: 2rem;
-  /* gap: 1rem; */
-}
-.buttons:hover{
-  background-color: #d49191;
-}
-.btnm {
-  padding: 1rem;
-  margin: 1rem;
-}
-button {
-  gap: 12px;
-}
-
-/* .btn5{
-  margin: 0.5rem;
-  padding: 1rem;
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
+  background-color: #a9ce22;
+ }

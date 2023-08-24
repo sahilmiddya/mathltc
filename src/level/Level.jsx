@@ -31,19 +31,22 @@ const Level = () => {
   return (
     <div>
       <Navbar />
-      <div className="levelcont">
-        {quizLevel?.map?.((e) => (
+      <div className="lbody">
+          <h1>Select Level</h1>
+        <div className="levelcont">
+          {quizLevel?.map?.((e) => (
           <>
-            <div
-              className="level"
-              onClick={() => {
-                goto(e.title, e, e.quiz_format.slug);
-              }}
-            >
-              <div className="ltitle">{e?.title}</div>
-            </div>
-          </>
-        ))}
+              <div
+                className="level"
+                onClick={() => {
+                  goto(e.title, e, e.quiz_format.slug);
+                }}
+              >
+                <div className="ltitle">{e?.title}</div>
+              </div>
+              </>
+          ))}
+        </div>
       </div>
     </div>
   );

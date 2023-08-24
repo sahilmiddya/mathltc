@@ -23,7 +23,7 @@ const Math = () => {
 
   const [userInput, setUserInput] = useState("");
 
-  const userans= useSelector((state)=>state.userans) 
+  const userans = useSelector((state) => state.userans);
   console.log(userans);
 
   const handleButtonClick = (value) => {
@@ -36,10 +36,10 @@ const Math = () => {
     const userNumber = parseInt(userInput);
     if (userNumber === answer) {
       setcolor("green");
-     dispatch( setcorrect())
+      dispatch(setcorrect());
     } else {
       setcolor("red");
-      dispatch(setwrong())
+      dispatch(setwrong());
     }
 
     let timeout;
@@ -49,11 +49,9 @@ const Math = () => {
       setUserInput("");
 
       if (count < 29) {
-        dispatch(setcount(count+1));
-
-      }
-      else{
-        dispatch(setcount(0))
+        dispatch(setcount(count + 1));
+      } else {
+        dispatch(setcount(0));
       }
 
       clearTimeout(timeout);
@@ -63,29 +61,26 @@ const Math = () => {
     setUserInput(event.target.value);
   };
 
-
   useEffect(() => {
     let timerInterval;
-  
+
     if (remainingTime === 0) {
       callApi();
       // clearInterval(timerInterval); // Stop the timer interval when remainingTime reaches 0
     }
-  
+
     timerInterval = setInterval(() => {
       setRemainingTime((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
     }, 1000);
-  
+
     return () => {
       clearInterval(timerInterval);
     };
   }, [remainingTime]);
-  
-  
 
   const callApi = async () => {
     try {
-      console.log('hfgdsfbjh');
+      console.log("hfgdsfbjh");
       const response = await fetch("YOUR_API_URL_HERE");
       const data = await response.json();
       console.log("API Response:", data);
@@ -94,14 +89,15 @@ const Math = () => {
     }
   };
 
-
   return (
     <div>
       <Navbar />
       <div className="containermath">
+        <div className="toppart">
+          <p>icons</p>
+          <p> {remainingTime} seconds</p>
+        </div>
         <div className="mathbody">
-
-        <p>Time left: {remainingTime} seconds</p>
           <div className="mtop">
             {questionAnswerList?.[count]?.question_list?.[0]?.question} =
             <span>
@@ -113,91 +109,89 @@ const Math = () => {
               />
             </span>
           </div>
-          <div className="numbers">
-            <div className="btnbox">
-              <div className="buttonrow">
-                <button
-                  className="buttons"
-                  onClick={() => handleButtonClick("1")}
-                >
-                  1
-                </button>
-                <button
-                  className="buttons"
-                  onClick={() => handleButtonClick("2")}
-                >
-                  2
-                </button>
-                <button
-                  className="buttons"
-                  onClick={() => handleButtonClick("3")}
-                >
-                  3
-                </button>
-              </div>
-              <div className="buttonrow">
-                <button
-                  className="buttons"
-                  onClick={() => handleButtonClick("4")}
-                >
-                  4
-                </button>
-                <button
-                  className="buttons btn5"
-                  onClick={() => handleButtonClick("5")}
-                >
-                  5
-                </button>
-                <button
-                  className="buttons"
-                  onClick={() => handleButtonClick("6")}
-                >
-                  6
-                </button>
-              </div>
-              <div className="buttonrow">
-                <button
-                  className="buttons"
-                  onClick={() => handleButtonClick("7")}
-                >
-                  7
-                </button>
-                <button
-                  className="buttons"
-                  onClick={() => handleButtonClick("8")}
-                >
-                  8
-                </button>
-                <button
-                  className="buttons"
-                  onClick={() => handleButtonClick("9")}
-                >
-                  9
-                </button>
-              </div>
-              <div className="buttonrow">
-                <button
-                  className="buttons"
-                  onClick={() => handleButtonClick("0")}
-                >
-                  0
-                </button>
-              </div>
+
+          <div className="btnbox">
+            <div className="buttonrow">
+              <button
+                className="buttons btn1"
+                onClick={() => handleButtonClick("1")}
+              >
+                1
+              </button>
+              <button
+                className="buttons btn1"
+                onClick={() => handleButtonClick("2")}
+              >
+                2
+              </button>
+              <button
+                className="buttons btn1"
+                onClick={() => handleButtonClick("3")}
+              >
+                3
+              </button>
+            </div>
+            <div className="buttonrow">
+              <button
+                className="buttons btn1"
+                onClick={() => handleButtonClick("4")}
+              >
+                4
+              </button>
+              <button
+                className="buttons btn1 btn5"
+                onClick={() => handleButtonClick("5")}
+              >
+                5
+              </button>
+              <button
+                className="buttons btn1"
+                onClick={() => handleButtonClick("6")}
+              >
+                6
+              </button>
+            </div>
+            <div className="buttonrow">
+              <button
+                className="buttons btn1"
+                onClick={() => handleButtonClick("7")}
+              >
+                7
+              </button>
+              <button
+                className="buttons btn1"
+                onClick={() => handleButtonClick("8")}
+              >
+                8
+              </button>
+              <button
+                className="buttons btn1"
+                onClick={() => handleButtonClick("9")}
+              >
+                9
+              </button>
+            </div>
+            <div className="buttonrow">
+              <button
+                className="buttons btn1"
+                onClick={() => handleButtonClick("0")}
+              >
+                0
+              </button>
             </div>
           </div>
-        </div>
-        <div className="mbtns">
-          
-          <button className="mback btnm" onClick={clearExpression}>
+          <div className="bottompart">
+          <button className="back btnm" onClick={clearExpression}>
             C
           </button>
-          <button className="mnext btnm" onClick={checkAnswer}>
+          <button className="check btnm" onClick={checkAnswer}>
             =
           </button>
         </div>
+        </div>
+        
       </div>
     </div>
-    // </div >
   );
 };
 

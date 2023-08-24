@@ -5,7 +5,7 @@ import Navbar from "../../navbar/Navbar";
 // import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {rev} from '../../../utils/reverseArrayAsc'
+import { rev } from "../../../utils/reverseArrayAsc";
 import { getQuizLevelAsync } from "../../../store/quizes/quizAction";
 const Add = () => {
   const nav = useNavigate();
