@@ -1,51 +1,52 @@
- .containermath {
-   margin: 2rem;
-   background-color: #b6df94;
-   padding: 1rem;
- }
+.containermath {
+  margin: 2rem;
+  background-color: #b6df94;
+  padding: 1rem;
+}
 
- .mathbody {
-   background-color: #c91616;
-   padding: 2rem;
- }
+.mathbody {
+  /* background-color: #c91616; */
+  padding: 2rem;
+}
 
- .toppart {
-   margin: 1.3rem;
-   display: flex;
-   justify-content: space-between;
-   background-color: #dbc08d;
- }
+.toppart {
+  margin: 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: #dbc08d;
+}
 
- .mtop {
-   background-color: #3ba0be;
-   display: flex;
-   justify-content: space-evenly;
-   padding: 1rem;
- }
+.mtop {
+  background-color: #3ba0be;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
 
- .btnbox {
-   background-color: #0d3b6e;
-   padding: 1rem;
- }
+.btnbox {
+  /* background-color: #0d3b6e; */
+  padding: 1rem;
+}
 
- .buttonrow {
-   display: grid;
-   background-color: #fff;
-   grid-template-columns: 1fr 1fr 1fr;
- }
+.buttonrow {
+  display: grid;
+  gap: 15px;
+  background-color: #fff;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 15px 0px;
+}
 
- .buttons {
-    
-   background-color: #d63bdb;
-   padding: 1rem;
- }
+.buttons {
+  background-color: #d63bdb;
+  padding: 1rem;
+}
 
- .btn1 {
-   margin: 1rem;
- }
- .bottompart{
+.btn1 {
+  /* margin: 1rem !important; */
+}
+.bottompart {
   display: flex;
   padding: 1rem;
   margin: 1rem;
   background-color: #a9ce22;
- }
+}
