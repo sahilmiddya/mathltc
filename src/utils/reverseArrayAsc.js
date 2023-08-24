@@ -8,9 +8,9 @@ export function reverseArrayAsc(arr = []) {
 }
 
 export const rev = (arr) => {
-  let arr1=[]
+  let arr1 = [];
   //  = [...arr];
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = arr.length - 1; i >= 0; i--) {
     arr1.push(arr[i]);
   }
   return arr1;
