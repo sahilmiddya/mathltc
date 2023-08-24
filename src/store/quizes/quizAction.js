@@ -3,7 +3,7 @@ import { baseURL } from "../../constants/baseURL";
 
 import { quizTypes, quizFormat, quizLevel, quizQuestions } from "./quizSlice";
 
-export const getQuizTypesAsync = (authToken) => async (dispatch) => { 
+export const getQuizTypesAsync = (authToken) => async (dispatch) => {
   try {
     const { data, status } = await axios.get(`${baseURL}/quiz/type`, {
       headers: { Authorization: `JWT ${authToken}` },
@@ -12,8 +12,7 @@ export const getQuizTypesAsync = (authToken) => async (dispatch) => {
     if (status === 200) {
       dispatch(quizTypes(data));
     }
-  }
-   catch (error) {
+  } catch (error) {
     // hgf
   }
 };
@@ -74,23 +73,41 @@ export const getQuestionsAsync =
     }
   };
 
-
-
 export const getUsersAnsAsync =
-(authToken, qtype, quizformat, quizlevel) => async (dispatch) => {
-  console.log("helo");
-  try {
-    const { data, status } = await axios.get(
-      `${baseURL}/quiz/generate-questions/${qtype}?quiz_format=${quizformat}&quiz_level=${quizlevel}`,
-      {
-        headers: { Authorization: `JWT ${authToken}` },
-      }
-    );
+  (authToken, qtype, quizformat, quizlevel) => async (dispatch) => {
+    console.log("helo");
+    try {
+      const { data, status } = await axios.get(
+        `${baseURL}/quiz/generate-questions/${qtype}?quiz_format=${quizformat}&quiz_level=${quizlevel}`,
+        {
+          headers: { Authorization: `JWT ${authToken}` },
+        }
+      );
 
-    if (status === 200) {
-      dispatch(quizQuestions(data));
+      if (status === 200) {
+        dispatch(quizQuestions(data));
+      }
+    } catch (error) {
+      // jhgh
     }
-  } catch (error) {
-    // jhgh
-  }
-};
+  };
+
+export const updateUserstatsAsync =
+  (authToken, username, body, callb) => async (dispatch) => {
+    console.log("updateUserstatsAsync1234");
+    try {
+      const { status, data } = await axios.post(
+        `${baseURL}/quiz/game/user-statistics/${username}`,
+        body,
+        {
+          headers: { Authorization: `JWT ${authToken}` },
+        }
+      );
+
+      if (status === 200) {
+        callb(data);
+      }
+    } catch (error) {
+      // jhgh
+    }
+  };
