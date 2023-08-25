@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 // import New from './New';
 import { registerUserAsync } from "../store/authActions";
 
-import {toast} from 'react-toastify'
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const [userData, setUserData] = useState({
@@ -64,27 +64,27 @@ const Signup = () => {
   };
 
   const handleRegister = () => {
-    if (
-      userData.name.trim() === "" ||
-      userData.email === "" ||
-      userData.password === ""
-    ) {
-      // alert("Please fill in all fields.");
+    if (errors.email || errors.name || errors.password) {
       return;
     }
 
     dispatch(
       registerUserAsync(
-        userData,
-        (err) => {
-          toast.error('error credentials')
+        {
+          email: userData.email,
+          username: userData.name,
+          forgot_password: "",
         },
-        (success) => {
-          // success;
+        {
+          err: (msg) => {
+            toast.error(msg?.detail);
+          },
+          success: (msg) => {
+            nav("/otp");
+          },
         }
       )
     );
-    nav("/otp");
   };
 
   return (
