@@ -18,7 +18,7 @@ const Math = () => {
   const nav = useNavigate();
   const [rightans, setrightans] = useState(null);
 
-  const [remainingTime, setRemainingTime] = useState(10); // Timer set to 10 seconds
+  const [remainingTime, setRemainingTime] = useState(40); // Timer set to 10 seconds
 
   const [inputcolor, setcolor] = useState("");
   const quizQuestions = useSelector((state) => state.quiz.quizQuestions);
@@ -137,6 +137,7 @@ console.log(selectQuizLevel);
             {questionAnswerList?.[count]?.question_list?.[0]?.question} =
             <span>
               <input
+              className="inpmath"
                 type="number"
                 value={rightans || userInput}
                 onChange={handleInputChange}

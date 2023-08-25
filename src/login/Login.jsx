@@ -19,10 +19,10 @@ const Login = () => {
     password: "",
   });
 
-  const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
+  // const validateEmail = (email) => {
+  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  //   return emailRegex.test(email);
+  // };
 
   const validatePassword = (password) => {
     // Add your password validation rules here
@@ -38,11 +38,11 @@ const Login = () => {
   const handleLogin = () => {
     let newErrors = { ...errors };
 
-    if (!validateEmail(credentials.username)) {
-      newErrors.username = "Please enter a valid email address.";
-    } else {
-      newErrors.username = "";
-    }
+    // if (!validateEmail(credentials.username)) {
+    //   newErrors.username = "Please enter a valid email address.";
+    // } else {
+    //   newErrors.username = "";
+    // }
 
     if (!validatePassword(credentials.password)) {
       newErrors.password = "Password should be at least 6 characters long.";
@@ -82,9 +82,9 @@ const Login = () => {
                 setCredentials({ ...credentials, username: e.target.value })
               }
             />
-            {errors.username && (
+            {/* {errors.username && (
               <div className="error-message">{errors.username}</div>
-            )}
+            )} */}
 
             <div className="left"> Password</div>
             <input

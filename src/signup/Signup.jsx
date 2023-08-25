@@ -97,6 +97,7 @@ const Signup = () => {
           <div className="left">Username</div>
 <input
   name="name"
+  className="inp2"
   type="text"
   placeholder="enter username..."
   value={userData.name}
@@ -106,6 +107,7 @@ const Signup = () => {
 
 <div className="left">Email</div>
 <input
+className="inp2"
   name="email"
   type="text"
   placeholder="enter email..."
@@ -116,6 +118,7 @@ const Signup = () => {
 
 <div className="left"> Password</div>
 <input
+className="inp2"
   name="password"
   type="password"
   placeholder="enter password..."
