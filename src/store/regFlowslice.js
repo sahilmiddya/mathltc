@@ -3,12 +3,21 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const regnSlice = createSlice({
   name: "Registration flow",
-  initialState: {
-    userEmail: "",
+  initialState: { 
+    username: "",
+    email: "",
+    password: "",
+    confirm_password: "",
+    background: null,
+    background_solid_color: "",
+    has_background: false,
+    hear_about_us: "",
+    avatar: "",
+    fcm_token: "",
   },
   reducers: {
     setEmail: (state, action) => {
-      state.userEmail = action.payload;
+      state.email = action.payload;
     },
   },
 });

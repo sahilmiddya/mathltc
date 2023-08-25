@@ -69,7 +69,7 @@ const Otp = () => {
         <h3>
           A verification code has been sent to
           {/* celebritycat2050@gmail.com */}
-          {userEmail.userEmail}
+        :   {" "+ userEmail.email}
         </h3>
         <div className="otp-container">
           <div className="otp-input">
