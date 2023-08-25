@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 // import { loginuser } from "../store/loginslice";
 import { registerUserAsync } from "../store/authActions";
-import { setEmail,setstate } from "../store/regFlowslice";
+import { setEmail, setstate } from "../store/regFlowslice";
 import { toast } from "react-toastify";
 
 const Signup = () => {
@@ -91,29 +91,40 @@ const Signup = () => {
     }
 
     dispatch(
-      registerUserAsync(
-        {
-          email: userData.email,
-          username: userData.name,
-          forgot_password: "",
-        },
-        {
-          err: (msg) => {
-            toast.error(msg?.detail);
-          },
-          success: (msg) => {
-            dispatch(setstate ({
-              username:userData.name,
-              password:userData.password,
-              email:userData.email,
-              confirm_password:userData.password
-            }))
-            // dispatch(setEmail(userData.email)); // Store the email in Redux
-            nav("/otp");
-          },
-        }
-      )
+      setstate({
+        username: userData.name,
+        password: userData.password,
+        email: userData.email,
+        confirm_password: userData.password,
+      })
     );
+
+    // dispatch(
+    //   registerUserAsync(
+    //     {
+    //       email: userData.email,
+    //       username: userData.name,
+    //       forgot_password: "",
+    //     },
+    //     {
+    //       err: (msg) => {
+    //         toast.error(msg?.detail);
+    //       },
+    //       success: (msg) => {
+    //         dispatch(
+    //           setstate({
+    //             username: userData.name,
+    //             password: userData.password,
+    //             email: userData.email,
+    //             confirm_password: userData.password,
+    //           })
+    //         );
+    //         // dispatch(setEmail(userData.email)); // Store the email in Redux
+    //         nav("/otp");
+    //       },
+    //     }
+    //   )
+    // );
   };
 
   return (
