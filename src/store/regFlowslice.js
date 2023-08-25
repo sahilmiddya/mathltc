@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const regnSlice = createSlice({
   name: "Registration flow",
-  initialState: { 
+  initialState: {
     username: "",
     email: "",
     password: "",
@@ -19,14 +19,16 @@ const regnSlice = createSlice({
     setEmail: (state, action) => {
       state.email = action.payload;
     },
-    setstate:(state,action)=>{
-        state={
-            ...state,...action.payload
-        }
-    }
+    setstate: (state, action) => {
+      return {
+        ...state,
+        ...action.payload,
+      };
+    },
   },
 });
 
-export const { setOtp, setVerificationStatus, setEmail ,setstate} = regnSlice.actions;
+export const { setOtp, setVerificationStatus, setEmail, setstate } =
+  regnSlice.actions;
 
 export default regnSlice.reducer;
