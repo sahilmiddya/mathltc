@@ -118,7 +118,7 @@ const Otp = () => {
     }
     try {
       const response = await axios.post(
-        "http://13.40.14.168/accounts/verify-otp-email",
+        "http://13.40.14.168/accounts/verify-otp-email/",
         {
           otp: otp?.join(""),
           email:userEmail.email,
