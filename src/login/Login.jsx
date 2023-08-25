@@ -107,11 +107,10 @@ const Login = () => {
                 <div className="error-message">{errors.password}</div>
               )}
             </div>
-            <div className="right" onClick={openModal}>Forget password</div>
-
-
-      {modalOpen && <PasswordResetModal onClose={closeModal} />}
-   
+            <div className="right" onClick={openModal}>
+              Forget password
+            </div>
+            {modalOpen && <PasswordResetModal onClose={closeModal} />}
             <button onClick={handleLogin} className="login">
               Login
             </button>
@@ -143,8 +142,6 @@ const Login = () => {
 
 export default Login;
 
-
-
 function PasswordResetModal({ onClose }) {
   const [step, setStep] = useState(1);
   const [email, setEmail] = useState("");
@@ -152,32 +149,31 @@ function PasswordResetModal({ onClose }) {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleEmailSubmit = () => {
-    setStep(step+1);
+    setStep(step + 1);
   };
 
-  const handlePasswordSubmit = () => {
-    // Here you can implement the logic to update the password
-    // and then close the modal
+  const handlePasswordSubmit = () => {  
     console.log("Password changed successfully");
     onClose();
   };
 
   const renderStepOne = () => (
-    <div>
+    <div className="step1">
       <h2>Forgot Password</h2>
       <p>Enter your email to reset your password.</p>
       <input
         type="email"
+        className="inpmod"
         placeholder="Enter your email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <button onClick={handleEmailSubmit}>Next</button>
+      <button className="btnmod" onClick={handleEmailSubmit}>Next</button>
     </div>
   );
 
   const renderStepTwo = () => (
-    <div>
+    <div className="step1">
       <h2>Reset Password</h2>
       <p>Enter your new password and confirm it.</p>
       <input
@@ -188,34 +184,36 @@ function PasswordResetModal({ onClose }) {
       />
       <input
         type="password"
+        className="inpmod"
         placeholder="Confirm password"
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
-      <button onClick={handleEmailSubmit}>  Password</button>
+      <button className="btnmod"  onClick={handleEmailSubmit}> Password</button>
     </div>
   );
   const renderStepThree = () => (
-    <div>
+    <div className="step1">
       <h2>hello</h2>
       <p>Enter your new password and confirm it.</p>
       <input
         type="password"
+        className="inpmod"
         placeholder="New password"
         value={newPassword}
         onChange={(e) => setNewPassword(e.target.value)}
       />
       <input
         type="password"
+        className="inpmod"
         placeholder="Confirm password"
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
-      <button onClick={handlePasswordSubmit}>Reset Password</button>
+      <button className="btnmod"  onClick={handlePasswordSubmit}>Reset Password</button>
     </div>
   );
 
- 
   return (
     <div className="modal">
       <div className="modal-content">
@@ -225,7 +223,4 @@ function PasswordResetModal({ onClose }) {
       </div>
     </div>
   );
-
-  
 }
-

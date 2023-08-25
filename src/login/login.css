@@ -37,7 +37,7 @@ h2 {
   /* float: right; */
   text-align: end;
   padding: 7px 0;
-
+cursor: pointer;
   /* display: flex; */
   /* align-items: end; */
 }
@@ -145,15 +145,36 @@ h2 {
   align-items: center;
   justify-content: center;
 }
-
+ 
 .modal-content {
   background-color: white;
-  color:red;
+  height: 17rem;
+  color:#d7a6a6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+.btnmod{
+  background-color: #d7a6a6;
+  padding: .7rem;
+  margin: 2rem;
+}
  
-
-
-
+.step1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.inpmod{
+  /* display: flex; */
+  /* padding: .71rem; */
+  margin-top: 1rem  ;
+  margin: auto;
+  background-color: #fff !important;
+  border: 2px solid #d7a6a6;
+  /* margin: 2rem; */
+}
