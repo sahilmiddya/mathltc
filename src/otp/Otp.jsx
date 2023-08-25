@@ -1,9 +1,9 @@
- 
 import "./otp.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setOtp, setVerificationStatus } from "../store/otpSlice"; // Provide the correct path
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 
 const Otp = () => {
   // console.log('gbvfds');
@@ -16,10 +16,81 @@ const Otp = () => {
     (state) => state.otp.verificationStatus
   );
 
+  const refOne = useRef(null);
+  const refTwo = useRef(null);
+  const refThree = useRef(null);
+  const refFour = useRef(null);
+  const refFive = useRef(null);
+  const refSix = useRef(null);
+
+  const inputs = [
+    { id: 1, ref: refOne, name: "one" },
+    { id: 2, ref: refTwo, name: "two" },
+    { id: 3, ref: refThree, name: "three" },
+    { id: 4, ref: refFour, name: "four" },
+    { id: 5, ref: refFive, name: "five" },
+    { id: 6, ref: refSix, name: "six" },
+  ];
+
   const handleInputChange = (e, index) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
     const newOtp = [...otp];
     newOtp[index] = e.target.value;
     dispatch(setOtp(newOtp));
+
+    switch (name) {
+      case "one": {
+        if (value !== "") {
+          refTwo.current.focus();
+        }
+        return;
+      }
+      case "two": {
+        if (value === "") {
+          refOne.current.focus();
+        } else {
+          refThree.current.focus();
+        }
+        return;
+      }
+      case "three": {
+        if (value === "") {
+          refTwo.current.focus();
+        } else {
+          refFour.current.focus();
+        }
+        return;
+      }
+      case "four": {
+        if (value === "") {
+          refThree.current.focus();
+        } else {
+          refFive.current.focus();
+        }
+        return;
+      }
+      case "five": {
+        if (value === "") {
+          refFour.current.focus();
+        } else {
+          refSix.current.focus();
+        }
+        return;
+      }
+      case "six": {
+        if (value === "") {
+          refFive.current.focus();
+        } else {
+          refSix.current.blur();
+        }
+        return;
+      }
+
+      default:
+        return;
+    }
   };
 
   const backbtn = () => {
@@ -68,15 +139,29 @@ const Otp = () => {
       <div className="otpcont">
         <h3>
           A verification code has been sent to
-          {/* celebritycat2050@gmail.com */}
-        :   {" "+ userEmail.email}
+          {/* celebritycat2050@gmail.com */}: {" " + userEmail.email}
         </h3>
         <div className="otp-container">
           <div className="otp-input">
-            {Array.from({ length: 6 }).map((_, index) => (
+            {/* {Array.from({ length: 6 }).map((_, index) => (
               <input
                 key={index}
                 // type="number"
+                ref={inpRefs[index]}
+                type="text"
+                maxLength="1"
+                className="otp-box"
+                value={otp[index]}
+                onChange={(e) => handleInputChange(e, index)}
+              />
+            ))} */}
+
+            {inputs.map((item, index) => (
+              <input
+                key={item.id}
+                // type="number"
+                name={item.name}
+                ref={item.ref}
                 type="text"
                 maxLength="1"
                 className="otp-box"
