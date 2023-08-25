@@ -69,7 +69,7 @@ const Login = () => {
       <div className="cont">
         {/* <form onSubmit={formsub} className="body"> */}
         <div className="body">
-          <h2>Login</h2>
+          <h2 style={{ margin: 0, fontSize: "1.5rem" }}>Login</h2>
           {/* // Inside your Login component */}
           <div className="inps">
             <div className="left">Username or Email</div>
@@ -82,9 +82,6 @@ const Login = () => {
                 setCredentials({ ...credentials, username: e.target.value })
               }
             />
-            {/* {errors.username && (
-              <div className="error-message">{errors.username}</div>
-            )} */}
 
             <div className="left"> Password</div>
             <input
@@ -100,7 +97,6 @@ const Login = () => {
               <div className="error-message">{errors.password}</div>
             )}
           </div>
-
           <div className="right">Forget password</div>
           <button onClick={handleLogin} className="login">
             Login
@@ -109,7 +105,6 @@ const Login = () => {
           <div className="btns">
             <button className="fb">
               <span className="fbsvg">
-                {" "}
                 <AiFillFacebook />
               </span>
               Facebook
@@ -122,9 +117,10 @@ const Login = () => {
             </button>
           </div>
           <hr />
-          <Link to='/'>
-          <button className="signup">Sign up</button>
-          </Link>  </div>
+          <Link to="/">
+            <button className="signup">Sign up</button>
+          </Link>{" "}
+        </div>
       </div>
     </div>
   );

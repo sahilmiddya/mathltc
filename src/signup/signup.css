@@ -1,8 +1,8 @@
 .cont {
   color: white;
   background-color: #c7a1d1;
-  height: 22rem;
-  width: 17rem;
+  /* height: 22rem; */
+  /* width: 17rem; */
   /* padding: 2rem; */
   display: flex;
   font-size: 0.71rem;
@@ -42,14 +42,13 @@ h2 {
   );
 }
 .login {
+  width: 100%;
   margin-top: 19px;
-  padding: 5px;
+  padding: 10px;
   font-size: 0.7rem;
   color: white;
   margin-top: 19px;
   border-radius: 2rem;
-  /* margin-top: 9px; */
-  background: rgb(63, 180, 251);
   background: linear-gradient(
     90deg,
     rgba(63, 180, 251, 1) 0%,
@@ -58,11 +57,10 @@ h2 {
   );
 }
 .body {
-  margin: 0 2rem;
+  /* margin: 0 2rem; */
 }
 .btns {
   display: flex;
-  /* background-color: #6b5454; */
 }
 .fb,
 .gg {
@@ -97,4 +95,7 @@ h2 {
   justify-content: center;
   margin: 5px;
 }
- 
+
+.inp2 {
+  width: 100%;
+}

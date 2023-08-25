@@ -1,9 +1,8 @@
 .loginx {
-  padding: 1rem;
+  padding: 2rem 1rem;
   /* margin: auto; */
   /* text-align: center; */
   margin: 2rem;
-  margin-left: 26rem;
   display: flex;
   -webkit-border-top-left-radius: 44px;
   -webkit-border-bottom-right-radius: 44px;
@@ -11,8 +10,7 @@
   -moz-border-radius-bottomright: 44px;
   border-top-left-radius: 44px;
   border-bottom-right-radius: 44px;
-  width: 17rem;
-  height: 29rem;
+  max-width: 300px;
   background-color: #c7a1d1;
   justify-content: center;
   align-items: center;
@@ -71,10 +69,7 @@ h2 {
   );
 }
 .body {
-  /* margin: 0 2rem; */
   width: 100%;
-  /* flex  */
-  /* background-color: #862a2a; */
 }
 .btns {
   display: flex;
@@ -121,7 +116,7 @@ h2 {
   /* justify-content: center; */
 }
 .inp2 {
-  /* width: 14rem; */
+  width: 14rem;
   padding: 5px 10px;
   outline: none;
   background-color: #fff !important;
