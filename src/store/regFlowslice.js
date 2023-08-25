@@ -19,9 +19,14 @@ const regnSlice = createSlice({
     setEmail: (state, action) => {
       state.email = action.payload;
     },
+    setstate:(state,action)=>{
+        state={
+            ...state,...action.payload
+        }
+    }
   },
 });
 
-export const { setOtp, setVerificationStatus, setEmail } = regnSlice.actions;
+export const { setOtp, setVerificationStatus, setEmail ,setstate} = regnSlice.actions;
 
 export default regnSlice.reducer;

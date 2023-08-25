@@ -9,6 +9,7 @@ const Otp = () => {
   // console.log('gbvfds');
 
   const userEmail = useSelector((state) => state.regnflow);
+  
   const dispatch = useDispatch();
   const nav = useNavigate();
   const otp = useSelector((state) => state.otp.otp);
@@ -97,7 +98,7 @@ const Otp = () => {
     nav(-1);
   };
   const send = async () => {
-    nav("/avtr");
+    // nav("/avtr");
     console.log("nhtgrfedwsa");
 
     let isEmptyField = false;
@@ -119,7 +120,8 @@ const Otp = () => {
       const response = await axios.post(
         "http://13.40.14.168/accounts/verify-otp-email",
         {
-          // otp: otp.join(""),
+          otp: otp?.join(""),
+          email:userEmail.email,
         }
       ); // Replace with your API endpoint
       const { success } = response.data;
@@ -129,6 +131,7 @@ const Otp = () => {
       } else {
         dispatch(setVerificationStatus("OTP verification failed"));
       }
+      nav('/avtr')
     } catch (error) {
       console.error("Error verifying OTP:", error);
     }
