@@ -3,10 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 // import { loginuser } from "../store/loginslice";
-// import { loginuser } from "./store/loginslice";
-// import New from './New';
 import { registerUserAsync } from "../store/authActions";
-
+import { setEmail } from "../store/authSlice";
 import { toast } from "react-toastify";
 
 const Signup = () => {
@@ -64,6 +62,30 @@ const Signup = () => {
   };
 
   const handleRegister = () => {
+    if (userData.name.trim() === "") {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        name: "Username is required.",
+      }));
+      return;
+    }
+
+    if (userData.email.trim() === "") {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        email: "Email is required.",
+      }));
+      return;
+    }
+
+    if (userData.password.trim() === "") {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        password: "Password is required.",
+      }));
+      return;
+    }
+
     if (errors.email || errors.name || errors.password) {
       return;
     }
@@ -80,6 +102,7 @@ const Signup = () => {
             toast.error(msg?.detail);
           },
           success: (msg) => {
+            dispatch(setEmail(userData.email)); // Store the email in Redux
             nav("/otp");
           },
         }
