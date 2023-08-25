@@ -91,40 +91,31 @@ const Signup = () => {
     }
 
     dispatch(
-      setstate({
-        username: userData.name,
-        password: userData.password,
-        email: userData.email,
-        confirm_password: userData.password,
-      })
+      registerUserAsync(
+        {
+          email: userData.email,
+          username: userData.name,
+          forgot_password: "",
+        },
+        {
+          err: (msg) => {
+            toast.error(msg?.detail);
+          },
+          success: (msg) => {
+            dispatch(
+              setstate({
+                username: userData.name,
+                password: userData.password,
+                email: userData.email,
+                confirm_password: userData.password,
+              })
+            );
+            // dispatch(setEmail(userData.email)); // Store the email in Redux
+            nav("/otp");
+          },
+        }
+      )
     );
-
-    // dispatch(
-    //   registerUserAsync(
-    //     {
-    //       email: userData.email,
-    //       username: userData.name,
-    //       forgot_password: "",
-    //     },
-    //     {
-    //       err: (msg) => {
-    //         toast.error(msg?.detail);
-    //       },
-    //       success: (msg) => {
-    //         dispatch(
-    //           setstate({
-    //             username: userData.name,
-    //             password: userData.password,
-    //             email: userData.email,
-    //             confirm_password: userData.password,
-    //           })
-    //         );
-    //         // dispatch(setEmail(userData.email)); // Store the email in Redux
-    //         nav("/otp");
-    //       },
-    //     }
-    //   )
-    // );
   };
 
   return (
