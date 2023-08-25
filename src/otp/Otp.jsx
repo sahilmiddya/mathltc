@@ -72,7 +72,8 @@ const Otp = () => {
         <div className="otp-container">
           <div className="otp-input">
             {Array.from({ length: 6 }).map((_, index) => (
-              <input
+             
+             <input
                 key={index}
                 // type="number"
                 type="text"

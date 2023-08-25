@@ -1,5 +1,3 @@
-// import React from 'react'
-// import Button from './Button'
 import { AiFillFacebook } from "react-icons/ai";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { loginUserAsync } from "../store/authActions";
@@ -15,16 +13,45 @@ const Login = () => {
     username: "",
     password: "",
   });
+
+  const [errors, setErrors] = useState({
+    username: "",
+    password: "",
+  });
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePassword = (password) => {
+    // Add your password validation rules here
+    return password.length >= 6; // For example, requiring a minimum of 6 characters
+  };
   const dispatch = useDispatch();
-  const navig = useNavigate();
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  // const navig = useNavigate();
+  // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const auth = useSelector((state) => state.auth);
 
   console.log({ auth });
 
   const handleLogin = () => {
-    if (credentials.username.trim() === "" || credentials.password === "") {
-      alert("Please fill in all fields.");
+    let newErrors = { ...errors };
+
+    if (!validateEmail(credentials.username)) {
+      newErrors.username = "Please enter a valid email address.";
+    } else {
+      newErrors.username = "";
+    }
+
+    if (!validatePassword(credentials.password)) {
+      newErrors.password = "Password should be at least 6 characters long.";
+    } else {
+      newErrors.password = "";
+    }
+
+    if (newErrors.username || newErrors.password) {
+      setErrors(newErrors);
       return;
     }
 
@@ -43,24 +70,36 @@ const Login = () => {
         {/* <form onSubmit={formsub} className="body"> */}
         <div className="body">
           <h2>Login</h2>
-          <div className="left">Username or Email</div>
-          <input
-            type="text"
-            placeholder="enter email..."
-            value={credentials.username}
-            onChange={(e) =>
-              setCredentials({ ...credentials, username: e.target.value })
-            }
-          />
-          <div className="left"> Password</div>
-          <input
-            type="password"
-            placeholder="enter password..."
-            value={credentials.password}
-            onChange={(e) =>
-              setCredentials({ ...credentials, password: e.target.value })
-            }
-          />
+          {/* // Inside your Login component */}
+          <div className="inps">
+            <div className="left">Username or Email</div>
+            <input
+              type="text"
+              className="inp2"
+              placeholder="enter email..."
+              value={credentials.username}
+              onChange={(e) =>
+                setCredentials({ ...credentials, username: e.target.value })
+              }
+            />
+            {errors.username && (
+              <div className="error-message">{errors.username}</div>
+            )}
+
+            <div className="left"> Password</div>
+            <input
+              type="password"
+              className="inp2"
+              placeholder="enter password..."
+              value={credentials.password}
+              onChange={(e) =>
+                setCredentials({ ...credentials, password: e.target.value })
+              }
+            />
+            {errors.password && (
+              <div className="error-message">{errors.password}</div>
+            )}
+          </div>
 
           <div className="right">Forget password</div>
           <button onClick={handleLogin} className="login">
@@ -83,23 +122,12 @@ const Login = () => {
             </button>
           </div>
           <hr />
+          <Link to='/'>
           <button className="signup">Sign up</button>
-        </div>
+          </Link>  </div>
       </div>
     </div>
   );
 };
 
 export default Login;
-// const [email, setemail] = useState("");
-// const [pw, setpw] = useState("");
-
-// const dispatch= useDispatch()
-// const handsub = (e) => {
-//   e.preventDefault();
-//   let usercreds = {
-//     email,
-//     pw,
-//   };
-//   dispatch(loginuser(usercreds))
-// };
