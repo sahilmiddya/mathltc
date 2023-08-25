@@ -1,5 +1,4 @@
-import React from "react";
-
+ 
 import "./otp.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setOtp, setVerificationStatus } from "../store/otpSlice"; // Provide the correct path
@@ -9,8 +8,9 @@ import { useNavigate } from "react-router-dom";
 const Otp = () => {
   // console.log('gbvfds');
 
+  const userEmail = useSelector((state) => state.regnflow);
   const dispatch = useDispatch();
-  const nav = useNavigate()
+  const nav = useNavigate();
   const otp = useSelector((state) => state.otp.otp);
   const verificationStatus = useSelector(
     (state) => state.otp.verificationStatus
@@ -22,12 +22,12 @@ const Otp = () => {
     dispatch(setOtp(newOtp));
   };
 
-  const backbtn= ()=>{
-    nav(-1)
-  }
+  const backbtn = () => {
+    nav(-1);
+  };
   const send = async () => {
-    nav('/avtr')
-    console.log('nhtgrfedwsa');
+    nav("/avtr");
+    console.log("nhtgrfedwsa");
 
     let isEmptyField = false;
     for (let i = 0; i < otp.length; i++) {
@@ -61,19 +61,20 @@ const Otp = () => {
     } catch (error) {
       console.error("Error verifying OTP:", error);
     }
-
-   
   };
 
   return (
     <div className="body2">
       <div className="otpcont">
-        <h3>A verification code has been sent to celebritycat2050@gmail.com</h3>
+        <h3>
+          A verification code has been sent to
+          {/* celebritycat2050@gmail.com */}
+          {userEmail.userEmail}
+        </h3>
         <div className="otp-container">
           <div className="otp-input">
             {Array.from({ length: 6 }).map((_, index) => (
-             
-             <input
+              <input
                 key={index}
                 // type="number"
                 type="text"
@@ -85,11 +86,13 @@ const Otp = () => {
             ))}
           </div>
         </div>
-        <h3 className="h3">Didn't receive a code?</h3>
+        <h3 className="h3">Didnt receive a code?</h3>
         <h3>Resend</h3>
         <hr className="hr" />
         <div className="btn2">
-          <button className="buttn" onClick={backbtn}>Back</button>
+          <button className="buttn" onClick={backbtn}>
+            Back
+          </button>
           <button className="buttn" onClick={send}>
             Send
           </button>{" "}

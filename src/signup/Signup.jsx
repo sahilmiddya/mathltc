@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 // import { loginuser } from "../store/loginslice";
 import { registerUserAsync } from "../store/authActions";
-import { setEmail } from "../store/authSlice";
+import { setEmail } from "../store/regFlowslice";
 import { toast } from "react-toastify";
 
 const Signup = () => {

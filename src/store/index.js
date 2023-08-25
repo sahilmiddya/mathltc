@@ -8,6 +8,7 @@ import otpReducer from "./otpSlice";
 import avatarReducer from "./avatarSlice"; // Create this file next
 import quizReducer from "./quizes/quizSlice"; 
 import userAnswerslice from "./userAnswerslice";
+import regnSlice from "./regFlowslice";
 
 const reducers = combineReducers({
   // form:loginslice.reducer,
@@ -16,6 +17,7 @@ const reducers = combineReducers({
   avatar: avatarReducer,
   quiz: quizReducer,
   userans: userAnswerslice,
+  regnflow: regnSlice,
 
 });
 
