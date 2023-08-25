@@ -65,61 +65,63 @@ const Login = () => {
   };
 
   return (
-    <div className="loginx">
-      <div className="cont">
-        {/* <form onSubmit={formsub} className="body"> */}
-        <div className="body">
-          <h2 style={{ margin: 0, fontSize: "1.5rem" }}>Login</h2>
-          {/* // Inside your Login component */}
-          <div className="inps">
-            <div className="left">Username or Email</div>
-            <input
-              type="text"
-              className="inp2"
-              placeholder="enter email..."
-              value={credentials.username}
-              onChange={(e) =>
-                setCredentials({ ...credentials, username: e.target.value })
-              }
-            />
+    <div className="parent2">
+      <div className="loginx">
+        <div className="cont">
+          {/* <form onSubmit={formsub} className="body"> */}
+          <div className="body">
+            <h2 style={{ margin: 0, fontSize: "1.5rem" }}>Login</h2>
+            {/* // Inside your Login component */}
+            <div className="inps">
+              <div className="left">Username or Email</div>
+              <input
+                type="text"
+                className="inp2"
+                placeholder="enter email..."
+                value={credentials.username}
+                onChange={(e) =>
+                  setCredentials({ ...credentials, username: e.target.value })
+                }
+              />
 
-            <div className="left"> Password</div>
-            <input
-              type="password"
-              className="inp2"
-              placeholder="enter password..."
-              value={credentials.password}
-              onChange={(e) =>
-                setCredentials({ ...credentials, password: e.target.value })
-              }
-            />
-            {errors.password && (
-              <div className="error-message">{errors.password}</div>
-            )}
-          </div>
-          <div className="right">Forget password</div>
-          <button onClick={handleLogin} className="login">
-            Login
-          </button>
-          <div className="left">Or login with...</div>
-          <div className="btns">
-            <button className="fb">
-              <span className="fbsvg">
-                <AiFillFacebook />
-              </span>
-              Facebook
+              <div className="left"> Password</div>
+              <input
+                type="password"
+                className="inp2"
+                placeholder="enter password..."
+                value={credentials.password}
+                onChange={(e) =>
+                  setCredentials({ ...credentials, password: e.target.value })
+                }
+              />
+              {errors.password && (
+                <div className="error-message">{errors.password}</div>
+              )}
+            </div>
+            <div className="right">Forget password</div>
+            <button onClick={handleLogin} className="login">
+              Login
             </button>
-            <button className="gg">
-              <span className="ggsvg">
-                <AiOutlineGoogle />
-              </span>
-              Google
-            </button>
+            <div className="left">Or login with...</div>
+            <div className="btns">
+              <button className="fb">
+                <span className="fbsvg">
+                  <AiFillFacebook />
+                </span>
+                Facebook
+              </button>
+              <button className="gg">
+                <span className="ggsvg">
+                  <AiOutlineGoogle />
+                </span>
+                Google
+              </button>
+            </div>
+            <hr />
+            <Link to="/">
+              <button className="signup">Sign up</button>
+            </Link>{" "}
           </div>
-          <hr />
-          <Link to="/">
-            <button className="signup">Sign up</button>
-          </Link>{" "}
         </div>
       </div>
     </div>
