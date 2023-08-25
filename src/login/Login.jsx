@@ -178,6 +178,7 @@ function PasswordResetModal({ onClose }) {
       <p>Enter your new password and confirm it.</p>
       <input
         type="password"
+        className="inpmod"
         placeholder="New password"
         value={newPassword}
         onChange={(e) => setNewPassword(e.target.value)}

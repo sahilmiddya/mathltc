@@ -160,7 +160,7 @@ cursor: pointer;
 .btnmod{
   background-color: #d7a6a6;
   padding: .7rem;
-  margin: 2rem;
+  margin: 2rem ;
 }
  
 .step1{
@@ -169,12 +169,11 @@ cursor: pointer;
   align-items: center;
   justify-content: center;
 }
-.inpmod{
-  /* display: flex; */
-  /* padding: .71rem; */
-  margin-top: 1rem  ;
-  margin: auto;
-  background-color: #fff !important;
+.inpmod{ 
+  margin-top: 1rem  ; 
+  padding: .25rem;
+  /* margin: auto; */
+  background-color: #ffffff !important;
   border: 2px solid #d7a6a6;
   /* margin: 2rem; */
 }
