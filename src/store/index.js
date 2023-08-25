@@ -6,7 +6,7 @@ import { persistReducer, persistStore } from "redux-persist";
 import authReducer from "./authSlice";
 import otpReducer from "./otpSlice";
 import avatarReducer from "./avatarSlice"; // Create this file next
-import quizReducer from "./quizes/quizSlice"; 
+import quizReducer from "./quizes/quizSlice";
 import userAnswerslice from "./userAnswerslice";
 import regnSlice from "./regFlowslice";
 
@@ -18,12 +18,12 @@ const reducers = combineReducers({
   quiz: quizReducer,
   userans: userAnswerslice,
   regnflow: regnSlice,
-
 });
 
 const persistConfig = {
   key: "root",
   storage,
+  blacklist: ["otp"],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
