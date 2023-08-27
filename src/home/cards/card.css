@@ -41,7 +41,7 @@
   margin-top: 5rem;
   /* background.-color: #d8a4a4; */
 }
-.cardbtm:hover{
+.cardbtm:hover {
   color: #000;
 }
 svg {
@@ -55,22 +55,24 @@ a {
   align-items: center;
   justify-content: space-evenly;
 }
- .span{
+.span {
   display: flex;
   align-items: center;
- }
- .qtitle{color: #79cff1;
-  background-color: #e47bd6;
+}
+.qtitle {
+  color: #000000; 
   padding: 12px;
-  display: flex;align-items: center;
+  display: flex;
+  align-items: center;
+  font-weight: 800;
   justify-content: center;
   height: 2rem;
   border-radius: 1rem;
   margin: 12px;
- }
- .cardcontent{
+}
+.cardcontent {
   margin: 5px;
- }
- .cardttl{
+}
+.cardttl {
   /* margin: 12px; */
- }
+}

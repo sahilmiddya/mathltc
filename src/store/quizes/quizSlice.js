@@ -23,7 +23,7 @@ const quizSlice = createSlice({
       state.selectedQuizType = action.payload;
     },
     selectQuizLevel: (state, action) => {
-      console.log({ action });
+      // console.log({ action });
       state.selectQuizLevel = action.payload;
     },
 
@@ -31,11 +31,11 @@ const quizSlice = createSlice({
       state.quizFormat = action.payload;
     },
     quizLevel: (state, action) => {
-      console.log({ action, state });
+      // console.log({ action, state });
       state.quizLevel = action.payload;
     },
     quizQuestions: (state, actions) => {
-      console.log(actions);
+      // console.log(actions);
       state.quizQuestions = actions.payload;
     },
     setcount: (state,action) => {

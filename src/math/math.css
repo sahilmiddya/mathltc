@@ -1,70 +1,80 @@
 .containermath {
-  background-color: #e297d2e1;
-  padding: 1rem;
+  /* margin: 2rem; */
+  /* background-color: #b6df94; */
+  /* padding: 1rem; */
 }
+
 .mathbody {
-  /* background-color: #2f4a69; */
+  /* background-color: #c91616; */
+  padding: 0 12rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
+
+.toppart {
+  margin: 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  /* background-color: #eba422; */
+}
+
 .mtop {
+  background-color: #d9d9d9;
+  border-radius: .3rem;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+  font-size: 1.4rem;
+  margin: 1rem 14.5rem;
+}
+.inpmath {
+  background-color: #fff !important;
+  color: rgb(0, 0, 0);
+  font-size: 19px;
+  max-width: 9rem;
+  font-weight: 700;
+  /* flex: 4; */
+}
+.btnbox {
+  /* background-color: #0d3b6e; */
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80%;
-  gap: 22px;
-  font-size: 1.3rem;
+  flex-direction: column;
+  padding: 0 1rem;
 }
-.mbtns {
-  display: flex;
-}
-.numbers {
-  /* background-color: #32411c; */
-  display: grid;
-  /* gap: 22px; */
-  margin: 0 10rem;
-  padding:3rem 20rem;
-  /* justify-content: center; */
-  grid-template-columns: 1fr 1fr 1fr;
-}
+
 .buttonrow {
   display: grid;
+  gap: 15px;
+  width: 50%;
+  background-color: #fff;
   grid-template-columns: 1fr 1fr 1fr;
+  margin: 4px 0px;
 }
+
 .buttons {
-  background-color: #9e0243;
+  background-color: #93d3f5;
   padding: 1rem;
-  margin: 1rem;
-  margin-left: 2rem;
-  /* gap: 1rem; */
 }
-.buttons:hover{
-  background-color: #d49191;
+
+.btn1 {
+  /* margin: 1rem !important; */
 }
-.btnm {
+.bottompart {
+  padding: 1rem 0;
+
+  margin: 0 14.5rem;
+  display: flex;
+  gap: 5px;
+  /* background-color: #a9ce22; */
+}
+.back {
+  background-color: #ff9292;
   padding: 1rem;
-  margin: 1rem;
+  flex: 2;
 }
-button {
-  gap: 12px;
+.check {
+  background-color: #acffaa;
+  flex: 3;
 }
-
-/* .btn5{
-  margin: 0.5rem;
-  padding: 1rem;
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-

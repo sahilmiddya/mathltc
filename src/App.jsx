@@ -18,12 +18,17 @@ import Add from "./home/cards/add/Add";
 import Map from "./home/map/Map";
 import Level from "./level/Level";
 import Math from "./math/Math";
+import Result from "./result/Result";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
     <>
+      <ToastContainer />
       <BrowserRouter>
         <Routes>
           <Route
@@ -66,11 +71,19 @@ function App() {
           />
           <Route
             path="/level"
-            element={<PrivateRoute component={<Level />} redirectUrl="/login" />}
+            element={
+              <PrivateRoute component={<Level />} redirectUrl="/login" />
+            }
           />
           <Route
             path="/math"
             element={<PrivateRoute component={<Math />} redirectUrl="/login" />}
+          />
+          <Route
+            path="/result"
+            element={
+              <PrivateRoute component={<Result />} redirectUrl="/result" />
+            }
           />
         </Routes>
       </BrowserRouter>

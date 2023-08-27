@@ -1,5 +1,3 @@
-// import React from 'react'
-// import Button from './Button'
 import { AiFillFacebook } from "react-icons/ai";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { loginUserAsync } from "../store/authActions";
@@ -15,16 +13,54 @@ const Login = () => {
     username: "",
     password: "",
   });
+
+  const [errors, setErrors] = useState({
+    username: "",
+    password: "",
+  });
+
+  // const validateEmail = (email) => {
+  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  //   return emailRegex.test(email);
+  // };
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const validatePassword = (password) => {
+    // Add your password validation rules here
+    return password.length >= 6; // For example, requiring a minimum of 6 characters
+  };
   const dispatch = useDispatch();
-  const navig = useNavigate();
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  // const navig = useNavigate();
+  // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const auth = useSelector((state) => state.auth);
 
   console.log({ auth });
 
   const handleLogin = () => {
-    if (credentials.username.trim() === "" || credentials.password === "") {
-      alert("Please fill in all fields.");
+    let newErrors = { ...errors };
+
+    // if (!validateEmail(credentials.username)) {
+    //   newErrors.username = "Please enter a valid email address.";
+    // } else {
+    //   newErrors.username = "";
+    // }
+
+    if (!validatePassword(credentials.password)) {
+      newErrors.password = "Password should be at least 6 characters long.";
+    } else {
+      newErrors.password = "";
+    }
+
+    if (newErrors.username || newErrors.password) {
+      setErrors(newErrors);
       return;
     }
 
@@ -38,52 +74,65 @@ const Login = () => {
   };
 
   return (
-    <div className="loginx">
-      <div className="cont">
-        {/* <form onSubmit={formsub} className="body"> */}
-        <div className="body">
-          <h2>Login</h2>
-          <div className="left">Username or Email</div>
-          <input
-            type="text"
-            placeholder="enter email..."
-            value={credentials.username}
-            onChange={(e) =>
-              setCredentials({ ...credentials, username: e.target.value })
-            }
-          />
-          <div className="left"> Password</div>
-          <input
-            type="password"
-            placeholder="enter password..."
-            value={credentials.password}
-            onChange={(e) =>
-              setCredentials({ ...credentials, password: e.target.value })
-            }
-          />
+    <div className="parent2">
+      <div className="loginx">
+        <div className="cont">
+          <div className="body">
+            <h2 style={{ margin: 0, fontSize: "1.5rem" }}>Login</h2>
+            {/* // Inside your Login component */}
+            <div className="inps">
+              <div className="left">Username or Email</div>
+              <input
+                type="text"
+                className="inp2"
+                placeholder="enter email..."
+                value={credentials.username}
+                onChange={(e) =>
+                  setCredentials({ ...credentials, username: e.target.value })
+                }
+              />
 
-          <div className="right">Forget password</div>
-          <button onClick={handleLogin} className="login">
-            Login
-          </button>
-          <div className="left">Or login with...</div>
-          <div className="btns">
-            <button className="fb">
-              <span className="fbsvg">
-                {" "}
-                <AiFillFacebook />
-              </span>
-              Facebook
+              <div className="left"> Password</div>
+              <input
+                type="password"
+                className="inp2"
+                placeholder="enter password..."
+                value={credentials.password}
+                onChange={(e) =>
+                  setCredentials({ ...credentials, password: e.target.value })
+                }
+              />
+              {errors.password && (
+                <div className="error-message">{errors.password}</div>
+              )}
+            </div>
+            <div className="right" onClick={openModal}>
+              Forget password
+            </div>
+            {modalOpen && <PasswordResetModal onClose={closeModal} />}
+            <button onClick={handleLogin} className="login">
+              Login
             </button>
-            <button className="gg">
-              <span className="ggsvg">
-                <AiOutlineGoogle />
-              </span>
-              Google
-            </button>
+            <div className="left">Or login with...</div>
+            <div className="btns">
+              <button className="fb">
+                <span className="fbsvg">
+                  <AiFillFacebook />
+                </span>
+                Facebook
+              </button>
+              <button className="gg">
+                <span className="ggsvg">
+                  <AiOutlineGoogle />
+                </span>
+                Google
+              </button>
+            </div>
+            <hr />
+            <Link to="/">
+              <button className="signup">Sign up</button>
+            </Link>{" "}
           </div>
-          <hr />
-          <button className="signup">Sign up</button>
         </div>
       </div>
     </div>
@@ -91,15 +140,179 @@ const Login = () => {
 };
 
 export default Login;
-// const [email, setemail] = useState("");
-// const [pw, setpw] = useState("");
 
-// const dispatch= useDispatch()
-// const handsub = (e) => {
-//   e.preventDefault();
-//   let usercreds = {
-//     email,
-//     pw,
+import React, { useState } from "react";
+
+function PasswordResetModal({ onClose }) {
+  const [step, setStep] = useState(1);
+  const [email, setEmail] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordsMatch, setPasswordsMatch] = useState(true);
+
+  const handleEmailSubmit = () => {
+    setStep(step + 1);
+  };
+
+  const handlePasswordSubmit = () => {
+    console.log("Password changed successfully");
+    onClose();
+  };
+
+  const handlePasswordChange = () => {
+    if (newPassword === confirmPassword) {
+      setPasswordsMatch(true);
+      setStep(step + 1);
+    } else {
+      setPasswordsMatch(false);
+    }
+  };
+
+  const renderStepOne = () => (
+    <div className="step1">
+      <h2>Forgot Password</h2>
+      <p>Enter your email to reset your password.</p>
+      <input
+        type="email"
+        className="inpmod"
+        placeholder="Enter your email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <button className="btnmod" onClick={handleEmailSubmit}>
+        Next
+      </button>
+    </div>
+  );
+
+  const renderStepTwo = () => (
+    <div className="step1">
+      <h2>Reset Password</h2>
+      <p>Enter your new password and confirm it.</p>
+      <input
+        type="password"
+        className="inpmod"
+        placeholder="New password"
+        value={newPassword}
+        onChange={(e) => setNewPassword(e.target.value)}
+      />
+      <input
+        type="password"
+        className="inpmod"
+        placeholder="Confirm password"
+        value={confirmPassword}
+        onChange={(e) => setConfirmPassword(e.target.value)}
+      />
+      {!passwordsMatch && (
+        <p className="error-message">Passwords do not match</p>
+      )}
+      <button className="btnmod" onClick={handlePasswordChange}>
+        Next
+      </button>
+    </div>
+  );
+
+  const renderStepThree = () => (
+    <div className="step1">
+      <h2>Password Reset Successful</h2>
+      <p>Your password has been reset.</p>
+      <button className="btnmod" onClick={handlePasswordSubmit}>
+        Close
+      </button>
+    </div>
+  );
+
+  return (
+    <div className="modal">
+      <div className="modal-content">
+        {step === 1 && renderStepOne()}
+        {step === 2 && renderStepTwo()}
+        {step === 3 && renderStepThree()}
+      </div>
+    </div>
+  );
+}
+
+// function PasswordResetModal({ onClose }) {
+//   const [step, setStep] = useState(1);
+//   const [email, setEmail] = useState("");
+//   const [newPassword, setNewPassword] = useState("");
+//   const [confirmPassword, setConfirmPassword] = useState("");
+
+//   const handleEmailSubmit = () => {
+//     setStep(step + 1);
 //   };
-//   dispatch(loginuser(usercreds))
-// };
+
+//   const handlePasswordSubmit = () => {
+//     console.log("Password changed successfully");
+//     onClose();
+//   };
+
+//   const renderStepOne = () => (
+//     <div className="step1">
+//       <h2>Forgot Password</h2>
+//       <p>Enter your email to reset your password.</p>
+//       <input
+//         type="email"
+//         className="inpmod"
+//         placeholder="Enter your email"
+//         value={email}
+//         onChange={(e) => setEmail(e.target.value)}
+//       />
+//       <button className="btnmod" onClick={handleEmailSubmit}>Next</button>
+//     </div>
+//   );
+
+//   const renderStepTwo = () => (
+//     <div className="step1">
+//       <h2>Reset Password</h2>
+//       <p>Enter your new password and confirm it.</p>
+//       <input
+//         type="password"
+//         className="inpmod"
+//         placeholder="New password"
+//         value={newPassword}
+//         onChange={(e) => setNewPassword(e.target.value)}
+//       />
+//       <input
+//         type="password"
+//         className="inpmod"
+//         placeholder="Confirm password"
+//         value={confirmPassword}
+//         onChange={(e) => setConfirmPassword(e.target.value)}
+//       />
+//       <button className="btnmod"  onClick={handleEmailSubmit}> Password</button>
+//     </div>
+//   );
+//   const renderStepThree = () => (
+//     <div className="step1">
+//       <h2>hello</h2>
+//       <p>Enter your new password and confirm it.</p>
+//       <input
+//         type="password"
+//         className="inpmod"
+//         placeholder="New password"
+//         value={newPassword}
+//         onChange={(e) => setNewPassword(e.target.value)}
+//       />
+//       <input
+//         type="password"
+//         className="inpmod"
+//         placeholder="Confirm password"
+//         value={confirmPassword}
+//         onChange={(e) => setConfirmPassword(e.target.value)}
+//       />
+//       <button className="btnmod"  onClick={handlePasswordSubmit}>Reset Password</button>
+//     </div>
+//   );
+
+//   return (
+//     <div className="modal">
+//       <div className="modal-content">
+//         {step === 1 && renderStepOne()}
+//         {step === 2 && renderStepTwo()}
+//         {step === 3 && renderStepThree()}
+//       </div>
+//     </div>
+//   );
+// }
