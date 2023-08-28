@@ -1,11 +1,20 @@
 import { AiFillFacebook } from "react-icons/ai";
 import { AiOutlineGoogle } from "react-icons/ai";
-import { loginUserAsync } from "../store/authActions";
+import {
+  loginUserAsync,
+  newpwAsync,
+  sendotpAsync,
+  verifyotpAsync,
+} from "../store/authActions";
 
 import "./login.css";
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+// import Otp from "../otp/Otp";
+import { setOtp } from "../store/otpSlice";
+// import { Toast } from "react-toastify/dist/components";
 // import { loginuser } from "../store/loginslice";
 // import New from './New';
 const Login = () => {
@@ -35,7 +44,7 @@ const Login = () => {
 
   const validatePassword = (password) => {
     // Add your password validation rules here
-    return password.length >= 6; // For example, requiring a minimum of 6 characters
+    return password.length >= 4; // For example, requiring a minimum of 6 characters
   };
   const dispatch = useDispatch();
   // const navig = useNavigate();
@@ -141,28 +150,166 @@ const Login = () => {
 
 export default Login;
 
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
 function PasswordResetModal({ onClose }) {
+  const refOne = useRef(null);
+  const refTwo = useRef(null);
+  const refThree = useRef(null);
+  const refFour = useRef(null);
+  const refFive = useRef(null);
+  const refSix = useRef(null);
+
+  const inputs = [
+    { id: 1, ref: refOne, name: "one" },
+    { id: 2, ref: refTwo, name: "two" },
+    { id: 3, ref: refThree, name: "three" },
+    { id: 4, ref: refFour, name: "four" },
+    { id: 5, ref: refFive, name: "five" },
+    { id: 6, ref: refSix, name: "six" },
+  ];
+
+  const dispatch = useDispatch();
   const [step, setStep] = useState(1);
   const [email, setEmail] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordsMatch, setPasswordsMatch] = useState(true);
+  const otp = useSelector((state) => state.otp.otp);
 
   const handleEmailSubmit = () => {
     setStep(step + 1);
+    dispatch(
+      sendotpAsync(
+        {
+          email,
+          username: "",
+          forgot_password: "true",
+        },
+        (msg) => {
+          toast.success(msg.detail);
+          //if api calll is succcess oonlt then this steo willl be executed
+          // setStep(step + 1);
+        },
+        (msg) => {
+          console.log(msg);
+          toast.error(msg.detail);
+        }
+      )
+    );
   };
 
-  const handlePasswordSubmit = () => {
-    console.log("Password changed successfully");
-    onClose();
+  const handleStep2 = () => {
+    // setStep(step + 1);
+    dispatch(
+      verifyotpAsync(
+        {
+          email,
+          otp: otp.join(""),
+        },
+        (msg) => {
+          toast.success(msg.detail);
+          //if api calll is succcess oonlt then this steo willl be executed
+          setStep(step + 1);
+        },
+        (msg) => {
+          console.log(msg);
+          toast.error(msg.detail);
+        }
+      )
+    );
+  };
+
+  // const handlePasswordSubmit = () => {
+  //   console.log("Password changed successfully");
+  //   onClose();
+  // };
+  const handleInputChange = (e, index) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    const newOtp = [...otp];
+    newOtp[index] = e.target.value;
+    dispatch(setOtp(newOtp));
+
+    switch (name) {
+      case "one": {
+        if (value !== "") {
+          refTwo.current.focus();
+        }
+        return;
+      }
+      case "two": {
+        if (value === "") {
+          refOne.current.focus();
+        } else {
+          refThree.current.focus();
+        }
+        return;
+      }
+      case "three": {
+        if (value === "") {
+          refTwo.current.focus();
+        } else {
+          refFour.current.focus();
+        }
+        return;
+      }
+      case "four": {
+        if (value === "") {
+          refThree.current.focus();
+        } else {
+          refFive.current.focus();
+        }
+        return;
+      }
+      case "five": {
+        if (value === "") {
+          refFour.current.focus();
+        } else {
+          refSix.current.focus();
+        }
+        return;
+      }
+      case "six": {
+        if (value === "") {
+          refFive.current.focus();
+        } else {
+          refSix.current.blur();
+        }
+        return;
+      }
+
+      default:
+        return;
+    }
   };
 
   const handlePasswordChange = () => {
     if (newPassword === confirmPassword) {
       setPasswordsMatch(true);
-      setStep(step + 1);
+    
+      dispatch(
+        newpwAsync(
+          {
+            email, 
+            new_password:newPassword,
+            confirm_password:confirmPassword,
+          },
+          (msg) => {
+            toast.success(msg.detail);
+            //if api calll is succcess oonlt then this steo willl be executed
+            // setStep(step + 1);
+              onClose();
+          },
+          (msg) => {
+            console.log(msg);
+            toast.error(msg.detail);
+          }
+        )
+      );
+
+      // setStep(step + 1);
     } else {
       setPasswordsMatch(false);
     }
@@ -187,6 +334,29 @@ function PasswordResetModal({ onClose }) {
 
   const renderStepTwo = () => (
     <div className="step1">
+      <h3 className="h3">Verification</h3>
+      <div className="otplogin">
+        {inputs.map((item, index) => (
+          <input
+            key={item.id}
+            name={item.name}
+            ref={item.ref}
+            type="text"
+            maxLength="1"
+            className="otp-box-login"
+            value={otp[index]}
+            onChange={(e) => handleInputChange(e, index)}
+          />
+        ))}
+      </div>
+      <button className="btnmod" onClick={handleStep2}>
+        Next
+      </button>
+    </div>
+  );
+
+  const renderStepThree = () => (
+    <div className="step1">
       <h2>Reset Password</h2>
       <p>Enter your new password and confirm it.</p>
       <input
@@ -208,16 +378,6 @@ function PasswordResetModal({ onClose }) {
       )}
       <button className="btnmod" onClick={handlePasswordChange}>
         Next
-      </button>
-    </div>
-  );
-
-  const renderStepThree = () => (
-    <div className="step1">
-      <h2>Password Reset Successful</h2>
-      <p>Your password has been reset.</p>
-      <button className="btnmod" onClick={handlePasswordSubmit}>
-        Close
       </button>
     </div>
   );

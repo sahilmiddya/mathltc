@@ -177,3 +177,29 @@ cursor: pointer;
   border: 2px solid #d7a6a6;
   /* margin: 2rem; */
 }
+
+
+.otplogin{
+  display: flex;
+  gap: 5px;
+ 
+}
+.otp-box-login{
+  width: 2rem;
+  height: 2rem;
+  /* margin: 1rem; */
+}
+
+.h3{
+  font-size: 1.6rem;
+  padding: 0.4rem;
+}
+
+
+
+
+
+
+
+
+

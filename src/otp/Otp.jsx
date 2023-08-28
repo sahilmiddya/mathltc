@@ -192,14 +192,4 @@ const Otp = () => {
 };
 
 export default Otp;
-
-{
-  /* <div class="otp-input">
-          <input type="text" maxlength="1" class="otp-box" />
-          <input type="text" maxlength="1" class="otp-box" />
-          <input type="text" maxlength="1" class="otp-box" />
-          <input type="text" maxlength="1" class="otp-box" />
-          <input type="text" maxlength="1" class="otp-box" />
-          <input type="text" maxlength="1" class="otp-box" />
-        </div> */
-}
+ 
