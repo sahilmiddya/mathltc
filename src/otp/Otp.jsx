@@ -4,12 +4,13 @@ import { setOtp, setVerificationStatus } from "../store/otpSlice"; // Provide th
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
+import { baseURL } from "../constants/baseURL";
 
 const Otp = () => {
   // console.log('gbvfds');
 
   const userEmail = useSelector((state) => state.regnflow);
-  
+
   const dispatch = useDispatch();
   const nav = useNavigate();
   const otp = useSelector((state) => state.otp.otp);
@@ -118,10 +119,10 @@ const Otp = () => {
     }
     try {
       const response = await axios.post(
-        "http://13.40.14.168/accounts/verify-otp-email/",
+        `${baseURL}/accounts/verify-otp-email/`,
         {
           otp: otp?.join(""),
-          email:userEmail.email,
+          email: userEmail.email,
         }
       ); // Replace with your API endpoint
       const { success } = response.data;
@@ -131,7 +132,7 @@ const Otp = () => {
       } else {
         dispatch(setVerificationStatus("OTP verification failed"));
       }
-      nav('/avtr')
+      nav("/avtr");
     } catch (error) {
       console.error("Error verifying OTP:", error);
     }
@@ -192,4 +193,3 @@ const Otp = () => {
 };
 
 export default Otp;
- 

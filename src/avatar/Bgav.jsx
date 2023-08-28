@@ -5,16 +5,22 @@ import { setData, setSelectedImage } from "../store/avatarSlice"; // Update the 
 
 import "./avatar.css";
 import { useNavigate } from "react-router-dom";
+import { baseURL } from "../constants/baseURL";
+import { setstate } from "../store/regFlowslice";
 
 function Bgav() {
   const dispatch = useDispatch();
   const nav = useNavigate();
   const { data, loading, selectedImage } = useSelector((state) => state.avatar);
 
+  const [background, setBackground] = useState("");
+
+  console.log({ background });
+
   const [showSelectedImage, setShowSelectedImage] = useState(false); // New state
   console.log(selectedImage);
   useEffect(() => {
-    const apiUrl = "http://13.40.14.168/accounts/background/list";
+    const apiUrl = `${baseURL}/accounts/background/list`;
 
     axios
       .get(apiUrl)
@@ -26,9 +32,11 @@ function Bgav() {
       });
   }, [dispatch]);
 
-  const handleImageClick = (imageSrc) => {
-    dispatch(setSelectedImage(imageSrc));
+  const handleImageClick = (imageSrc, background) => {
+    // dispatch(setSelectedImage(imageSrc));
     setShowSelectedImage(true); // Show the selected image
+    setBackground(imageSrc);
+    dispatch(setstate({ background: background?.id }));
   };
 
   const handleCloseSelectedImage = () => {
@@ -58,9 +66,23 @@ function Bgav() {
         <h2>Selected Image:</h2>
         <div
           className="bgimg"
-          style={{ backgroundImage: `url(${selectedImage})` }}
+          style={{
+            backgroundImage: `url(${background})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
         >
-          {/* <img src={selectedImage} className="selimage" /> */}
+          <img
+            src={selectedImage}
+            className="selimage"
+            style={{
+              height: "80%",
+              marginTop: 20,
+            }}
+          />
         </div>
       </div>
       {/* )} */}
@@ -77,7 +99,7 @@ function Bgav() {
                   <div
                     key={item.id}
                     className="avatar-item"
-                    onClick={() => handleImageClick(item.image)}
+                    onClick={() => handleImageClick(item.image, item)}
                   >
                     <img src={item.image} className="img" alt={item.name} />
                   </div>

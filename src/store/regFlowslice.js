@@ -13,6 +13,7 @@ const regnSlice = createSlice({
     has_background: false,
     hear_about_us: "",
     avatar: "",
+    avatarURL: "",
     fcm_token: "",
   },
   reducers: {

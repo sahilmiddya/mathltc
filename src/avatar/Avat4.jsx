@@ -10,10 +10,12 @@ import {
 
 import "./avatar.css";
 import { useNavigate } from "react-router-dom";
+import { baseURL } from "../constants/baseURL";
+import { setstate } from "../store/regFlowslice";
 
 function Avat4() {
   const dispatch = useDispatch();
-  const nav= useNavigate()
+  const nav = useNavigate();
   const {
     data,
     loading,
@@ -25,7 +27,7 @@ function Avat4() {
   } = useSelector((state) => state.avatar);
 
   useEffect(() => {
-    const apiUrl = "http://13.40.14.168/accounts/avatar/list";
+    const apiUrl = `${baseURL}/accounts/avatar/list`;
 
     axios
       .get(apiUrl)
@@ -45,16 +47,17 @@ function Avat4() {
     dispatch(setShowHumans());
   };
 
-  const handleImageClick = (imageSrc) => {
+  const handleImageClick = (imageSrc, avatar) => {
     dispatch(setSelectedImage(imageSrc));
+    dispatch(setstate({ avatar: avatar?.id, avatarURL: imageSrc }));
   };
 
   const nxt = () => {
     nav("/bgav");
   };
-  const backbtn =()=>{
-    nav(-1)
-  }
+  const backbtn = () => {
+    nav(-1);
+  };
   return (
     <div className="Avatar">
       <h1>Choose Avatar</h1>
@@ -67,12 +70,14 @@ function Avat4() {
         </button>
       </div>
       {/* {selectedImage && ( */}
-        <div className="selimagex">
-          <h2>Selected Image:</h2>
-          <img src={selectedImage} className="selimage" 
-          // alt="Selected" 
-          />
-        </div>
+      <div className="selimagex">
+        <h2>Selected Image:</h2>
+        <img
+          src={selectedImage}
+          className="selimage"
+          // alt="Selected"
+        />
+      </div>
       {/* )} */}
       <div className="btnav">
         <button className="btnavtr" onClick={handleShowAnimals}>
@@ -92,7 +97,7 @@ function Avat4() {
                 <div
                   key={item.id}
                   className="avatar-item"
-                  onClick={() => handleImageClick(item.image)}
+                  onClick={() => handleImageClick(item.image, item)}
                 >
                   <img src={item.image} className="img" alt={item.name} />
                 </div>
