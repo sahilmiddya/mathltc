@@ -288,9 +288,13 @@ function PasswordResetModal({ onClose }) {
   };
 
   const handlePasswordChange = () => {
-    if (newPassword === confirmPassword || newPassword==='' || confirmPassword==='') {
+    if (newPassword === '' || confirmPassword === '') {
+      // Display an error message for empty fields
+      toast.error('Please fill in both password fields.');
+    } else if (newPassword === confirmPassword) {
+      // Passwords match, proceed with API call
       setPasswordsMatch(true);
-
+  
       dispatch(
         newpwAsync(
           {
@@ -300,9 +304,7 @@ function PasswordResetModal({ onClose }) {
           },
           (msg) => {
             toast.success(msg.detail);
-            //if api calll is succcess oonlt then this steo willl be executed
-            // setStep(step + 1);
-            onClose();
+            onClose(); // Close the password reset modal
           },
           (msg) => {
             console.log(msg);
@@ -310,13 +312,13 @@ function PasswordResetModal({ onClose }) {
           }
         )
       );
-
-      // setStep(step + 1);
     } else {
+      // Passwords do not match
       setPasswordsMatch(false);
+      toast.error('Passwords do not match. Please enter matching passwords.');
     }
   };
-
+  
   // const renderStepOne = () => (
   //   <div className="step1">
   //     <h2>Forgot Password</h2>
