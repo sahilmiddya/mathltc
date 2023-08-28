@@ -176,27 +176,29 @@ function PasswordResetModal({ onClose }) {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordsMatch, setPasswordsMatch] = useState(true);
   const otp = useSelector((state) => state.otp.otp);
+  const [isValidEmail, setIsValidEmail] = useState(false);
 
   const handleEmailSubmit = () => {
-    setStep(step + 1);
-    dispatch(
-      sendotpAsync(
-        {
-          email,
-          username: "",
-          forgot_password: "true",
-        },
-        (msg) => {
-          toast.success(msg.detail);
-          //if api calll is succcess oonlt then this steo willl be executed
-          // setStep(step + 1);
-        },
-        (msg) => {
-          console.log(msg);
-          toast.error(msg.detail);
-        }
-      )
-    );
+    if (isValidEmail) {
+      dispatch(
+        sendotpAsync(
+          {
+            email,
+            username: "",
+            forgot_password: "true",
+          },
+          (msg) => {
+            toast.success(msg.detail);
+            //if api calll is succcess oonlt then this steo willl be executed
+            setStep(step + 1);
+          },
+          (msg) => {
+            console.log(msg);
+            toast.error(msg.detail);
+          }
+        )
+      );
+    }
   };
 
   const handleStep2 = () => {
@@ -286,21 +288,21 @@ function PasswordResetModal({ onClose }) {
   };
 
   const handlePasswordChange = () => {
-    if (newPassword === confirmPassword) {
+    if (newPassword === confirmPassword || newPassword==='' || confirmPassword==='') {
       setPasswordsMatch(true);
-    
+
       dispatch(
         newpwAsync(
           {
-            email, 
-            new_password:newPassword,
-            confirm_password:confirmPassword,
+            email,
+            new_password: newPassword,
+            confirm_password: confirmPassword,
           },
           (msg) => {
             toast.success(msg.detail);
             //if api calll is succcess oonlt then this steo willl be executed
             // setStep(step + 1);
-              onClose();
+            onClose();
           },
           (msg) => {
             console.log(msg);
@@ -315,17 +317,46 @@ function PasswordResetModal({ onClose }) {
     }
   };
 
+  // const renderStepOne = () => (
+  //   <div className="step1">
+  //     <h2>Forgot Password</h2>
+  //     <p>Enter your email to reset your password.</p>
+  //     <input
+  //       type="email"
+  //       className="inpmod"
+  //       placeholder="Enter your email"
+  //       value={email}
+  //       onChange={(e) => setEmail(e.target.value)}
+  //     />
+  //     <button className="btnmod" onClick={handleEmailSubmit}>
+  //       Next
+  //     </button>
+  //   </div>
+  // );
+
+  const validateEmail = (email) => {
+    // Regular expression pattern for basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const renderStepOne = () => (
     <div className="step1">
       <h2>Forgot Password</h2>
       <p>Enter your email to reset your password.</p>
       <input
         type="email"
-        className="inpmod"
+        className={`inpmod ${!isValidEmail ? "invalid" : ""}`}
         placeholder="Enter your email"
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) => {
+          setEmail(e.target.value);
+          setIsValidEmail(validateEmail(e.target.value));
+        }}
       />
+      {!isValidEmail && (
+        <p className="error-message">Please enter a valid email address.</p>
+      )}
       <button className="btnmod" onClick={handleEmailSubmit}>
         Next
       </button>

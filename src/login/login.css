@@ -14,6 +14,7 @@
   background-color: #c7a1d1;
   justify-content: center;
   align-items: center;
+  width: 12rem;
 }
 
 .cont {
@@ -37,7 +38,7 @@ h2 {
   /* float: right; */
   text-align: end;
   padding: 7px 0;
-cursor: pointer;
+  cursor: pointer;
   /* display: flex; */
   /* align-items: end; */
 }
@@ -145,11 +146,11 @@ cursor: pointer;
   align-items: center;
   justify-content: center;
 }
- 
+
 .modal-content {
   background-color: white;
   height: 17rem;
-  color:#d7a6a6;
+  color: #d7a6a6;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -157,49 +158,38 @@ cursor: pointer;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.btnmod{
+.btnmod {
   background-color: #d7a6a6;
-  padding: .7rem;
-  margin: 2rem ;
+  padding: 0.7rem;
+  margin: 2rem;
 }
- 
-.step1{
+
+.step1 {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.inpmod{ 
-  margin-top: 1rem  ; 
-  padding: .25rem;
+.inpmod {
+  margin-top: 1rem;
+  padding: 0.25rem;
   /* margin: auto; */
   background-color: #ffffff !important;
   border: 2px solid #d7a6a6;
   /* margin: 2rem; */
 }
 
-
-.otplogin{
+.otplogin {
   display: flex;
   gap: 5px;
- 
 }
-.otp-box-login{
+.otp-box-login {
   width: 2rem;
   height: 2rem;
   /* margin: 1rem; */
 }
 
-.h3{
+.h3 {
   font-size: 1.6rem;
   padding: 0.4rem;
 }
-
-
-
-
-
-
-
-
-

@@ -1,7 +1,15 @@
+.hearbody{
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
 .hearcont {
   /* background-color: #f7f1f1; */
   border: 3px solid pink;
-  margin: 4rem 15rem;
+  /* display: flex;align-items: center;justify-content: center; */
+  /* margin: 4rem 15rem; */
   color: #ba465d;
   border-radius: 3px;
   width: 50rem;

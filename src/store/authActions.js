@@ -93,6 +93,21 @@ export const sendotpAsync =
 
 
 
+  export const  RegisterAsync =
+  (bodydata, callsuccess, callerror) => async (dispatch) => {
+    try {
+      const response = await axios.post(
+        `${baseURL}/accounts/register/`,
+        bodydata //coming from backend api sheet
+      );
+      callsuccess(response.data);
+      dispatch(loginUser(response.data)); 
+    } catch (error) {
+      callerror(error.response.data);
+      // Handle API call error
+    }
+  };
+
 
 
 
