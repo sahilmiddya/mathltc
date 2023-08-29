@@ -59,9 +59,7 @@ function Bgav() {
         <button className="nxt" onClick={bgnxt}>
           Next
         </button>
-      </div>{" "}
-      {/* {showSelectedImage && */}
-      {/* selectedImage && ( // Conditionally render selected image */}
+      </div>{" "} 
       <div className="selimagex" onClick={handleCloseSelectedImage}>
         <h2>Selected Image:</h2>
         <div
@@ -85,7 +83,7 @@ function Bgav() {
           />
         </div>
       </div>
-      {/* )} */}
+      
       <div className="avatar-container">
         {loading ? (
           <p>Loading...</p>
