@@ -20,7 +20,7 @@ function Avatar2() {
   const dispatch = useDispatch();
   const nav = useNavigate();
 
-  const [background, setBackground] = useState("");
+  const [backgroundURL, setBackgroundURL] = useState("");
 
   const {
     // data,
@@ -45,25 +45,13 @@ function Avatar2() {
       });
   }, [dispatch]);
 
-  useEffect(() => {
-    const bgapiUrl = `${baseURL}/accounts/backgrounds/list`;
-    // console.log(bgapiUrl +"gbgbgbngnb");
-    //
-    axios
-      .get(bgapiUrl)
-      .then((response) => {
-        dispatch(setData(response.data));
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  }, [dispatch]);
-
   const handleShowAnimals = () => {
+    setshowbg(false);
     dispatch(setShowAnimals());
   };
 
   const handleShowHumans = () => {
+    setshowbg(false);
     dispatch(setShowHumans());
   };
 
@@ -79,12 +67,11 @@ function Avatar2() {
     nav(-1);
   };
   const handleShowBG = () => {
-    setshowbg(!showbg);
+    setshowbg(true);
   };
 
   return (
-    <div className="Avatar">
-      <h1>Choose Avatar</h1>
+    <div className="Avatar" style={{ maxHeight: "90vh", overflowY: "auto" }}>
       <div className="nxtbtn">
         <button className="nxt" onClick={backbtn}>
           Back
@@ -99,17 +86,24 @@ function Avatar2() {
         <div
           className="bgimg"
           style={{
-            backgroundImage: `url(${background})`,
+            backgroundImage: `url(${backgroundURL})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
+            backgroundPosition: "100% 100% 100% 100%",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            height: 150,
+            width: 150,
+            borderRadius: "50%",
           }}
         >
           <img
             src={selectedImage}
             className="selimage"
+            style={{
+              height: "70%",
+            }}
             // alt="Selected"
           />
         </div>
@@ -130,18 +124,20 @@ function Avatar2() {
           <p>Loading...</p>
         ) : (
           <>
-            {!showbg && <ul className="filter">
-              {(showAnimals ? animalList : humanList).map((item) => (
-                <div
-                  key={item.id}
-                  className="avatar-item"
-                  onClick={() => handleImageClick(item.image, item)}
-                >
-                  <img src={item.image} className="img" alt={item.name} />
-                </div>
-              ))}
-            </ul>}
-            {showbg && <BgAvatar />}
+            {!showbg && (
+              <ul className="filter">
+                {(showAnimals ? animalList : humanList).map((item) => (
+                  <div
+                    key={item.id}
+                    className="avatar-item"
+                    onClick={() => handleImageClick(item.image, item)}
+                  >
+                    <img src={item.image} className="img" alt={item.name} />
+                  </div>
+                ))}
+              </ul>
+            )}
+            {showbg && <BgAvatar setBackgroundURL={setBackgroundURL} />}
           </>
         )}
       </div>
@@ -151,16 +147,41 @@ function Avatar2() {
 
 export default Avatar2;
 
-export const BgAvatar = () => {
-  const { data, loading, selectedImage } = useSelector((state) => state.avatar);
+export const BgAvatar = ({ setBackgroundURL }) => {
+  const dispatch = useDispatch();
+  // const { data, loading, selectedImage } = useSelector((state) => state.avatar);
 
-  const [background, setBackground] = useState("");
+  const [background, setBackground] = useState([]);
+
+  useEffect(() => {
+    const bgapiUrl = `${baseURL}/accounts/background/list`;
+    // console.log(bgapiUrl +"gbgbgbngnb");
+    //
+    axios
+      .get(bgapiUrl)
+      .then((response) => {
+        setBackground(response.data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }, []);
+
+  const handleImageClick = (imageURL, background) => {
+    setBackgroundURL(imageURL);
+  };
 
   return (
     <div>
       <>
-        <ul className="filter">
-          {data.map(
+        <ul
+          className="filter"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr 1fr 1fr",
+          }}
+        >
+          {background?.map(
             (
               item // Use 'data' directly instead of 'showAnimals' or 'showHumans'
             ) => (
