@@ -9,6 +9,7 @@ const initialState = {
   showAnimals: false,
   showHumans: false,
   selectedImage: null,
+  backgroundImage:null,
 };
 
 const avatarSlice = createSlice({
@@ -34,9 +35,12 @@ const avatarSlice = createSlice({
     setSelectedImage: (state, action) => {
       state.selectedImage = action.payload;
     },
+    setbackgroundImage:(state,action)=>{
+      state.backgroundImage=action.payload
+    },
   },
 });
 
-export const { setData, setShowAnimals, setShowHumans, setSelectedImage } = avatarSlice.actions;
+export const { setData, setShowAnimals, setShowHumans, setSelectedImage,setbackgroundImage } = avatarSlice.actions;
 
 export default avatarSlice.reducer;

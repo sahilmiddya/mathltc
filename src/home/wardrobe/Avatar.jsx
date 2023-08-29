@@ -7,6 +7,7 @@ import {
   setShowAnimals,
   setShowHumans,
   setSelectedImage,
+  setbackgroundImage,
 } from "../../store/avatarSlice"; // Update the path to your avatarSlice
 
 // import "./avatar.css";
@@ -14,10 +15,13 @@ import { useNavigate } from "react-router-dom";
 import { baseURL } from "../../constants/baseURL";
 import { setstate } from "../../store/regFlowslice";
 import Bgav from "../../avatar/Bgav";
+import { updateProfilePicasync } from "../../store/ProfileActions";
 
 function Avatar2() {
   const [showbg, setshowbg] = useState(false);
+  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const avatar = useSelector((state) => state.regnflow.avatar);
   const nav = useNavigate();
 
   const [backgroundURL, setBackgroundURL] = useState("");
@@ -30,6 +34,7 @@ function Avatar2() {
     showAnimals,
     // showHumans,
     selectedImage,
+    backgroundImage,
   } = useSelector((state) => state.avatar);
 
   useEffect(() => {
@@ -60,8 +65,24 @@ function Avatar2() {
     dispatch(setstate({ avatar: avatar?.id, avatarURL: imageSrc }));
   };
 
-  const nxt = () => {
-    nav("/bgav");
+  const nxtmodal = () => {
+    // nav("/bgav");
+    dispatch(
+      updateProfilePicasync(
+        auth?.user?.token,
+        auth?.user?.displayName,
+
+        {
+          avatar,
+          background: backgroundImage.id,
+
+          has_background: true,
+          background_solid_color: "",
+        }, //bodydata
+        () => {},
+        () => {},
+      )
+    );
   };
   const backbtn = () => {
     nav(-1);
@@ -76,7 +97,7 @@ function Avatar2() {
         <button className="nxt" onClick={backbtn}>
           Back
         </button>
-        <button className="nxt" onClick={nxt}>
+        <button className="nxt" onClick={nxtmodal}>
           Next
         </button>
       </div>
@@ -100,7 +121,7 @@ function Avatar2() {
         >
           <img
             src={selectedImage}
-            className="selimage"
+            className="selimage2"
             style={{
               height: "70%",
             }}
@@ -169,6 +190,7 @@ export const BgAvatar = ({ setBackgroundURL }) => {
 
   const handleImageClick = (imageURL, background) => {
     setBackgroundURL(imageURL);
+    dispatch(setbackgroundImage(background));
   };
 
   return (
