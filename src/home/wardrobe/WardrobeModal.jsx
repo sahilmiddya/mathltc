@@ -14,11 +14,8 @@ const WardrobeModal = ({ open, handleClose }) => {
     >
       <div className="wardrobe-modal">
         <div className="wardrobe-modal-content">
-          {/* <h2 id="wardrobe-modal-title">Wardrobe</h2> */}
-          {/* <Avat4/>
-           */}
-           {/* <Avatar/> */}
-           <Avatar2/>
+  
+           <Avatar2 close={handleClose} />
         </div>
       </div>
     </Modal>

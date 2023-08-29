@@ -8,19 +8,26 @@ import { useDispatch, useSelector } from "react-redux";
 import { logoutUserAction } from "../../store/authActions";
 import { useState } from "react";
 import WardrobeModal from "../wardrobe/WardrobeModal";
+import { setWardrobeModalOpen } from "../../store/ProfileSlice";
 
 const Navbar = () => {
-  const [wardrobeModalOpen, setWardrobeModalOpen] = useState(false);
+  const wardrobeModalOpen = useSelector(
+    (state) => state.userdetails.wardrobeModalOpen
+  );
+  let dispatch = useDispatch();
+  // const [wardrobeModalOpen,
+  //  setWardrobeModalOpen
+  // ]
+  //   = useState(false);
 
   const handleWardrobeClick = () => {
-    setWardrobeModalOpen(true);
+    dispatch(setWardrobeModalOpen(true));
   };
 
   const handleWardrobeModalClose = () => {
-    setWardrobeModalOpen(false);
+    dispatch(setWardrobeModalOpen(false));
   };
 
-  const dispatch = useDispatch();
   const userprofile = useSelector((state) => state.userdetails.user);
 
   console.log(userprofile);

@@ -17,6 +17,8 @@ import { setstate } from "../../store/regFlowslice";
 import Bgav from "../../avatar/Bgav";
 import { updateProfilePicasync } from "../../store/ProfileActions";
 
+import { setWardrobeModalOpen } from "../../store/ProfileSlice";
+
 function Avatar2() {
   const [showbg, setshowbg] = useState(false);
   const auth = useSelector((state) => state.auth);
@@ -74,13 +76,16 @@ function Avatar2() {
 
         {
           avatar,
-          background: backgroundImage.id,
+          background: backgroundImage?.id,
 
           has_background: true,
           background_solid_color: "",
         }, //bodydata
-        () => {},
-        () => {},
+        () => {
+          console.log('gfbdzgbbtn 5646');
+          dispatch(setWardrobeModalOpen());
+        },
+        () => {}
       )
     );
   };
