@@ -5,6 +5,10 @@ import Navbar from "./navbar/Navbar";
 import Card from "./cards/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { getQuizTypesAsync } from "../store/quizes/quizAction";
+import {
+  globalsettingasync,
+  profiledetailsasync,
+} from "../store/ProfileActions";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -18,6 +22,23 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getQuizTypesAsync(auth?.user?.token));
+    dispatch(
+      profiledetailsasync(
+        auth?.user?.token,
+        auth?.user?.displayName,
+        () => {},
+        () => {}
+      )
+    );
+
+    dispatch(
+      globalsettingasync(
+        auth?.user?.token,
+        auth?.user?.displayName,
+        () => {},
+        () => {}
+      )
+    );
   }, []);
 
   return (

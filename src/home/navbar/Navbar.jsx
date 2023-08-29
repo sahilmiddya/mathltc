@@ -4,11 +4,14 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import "./navbar.css";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logoutUserAction } from "../../store/authActions";
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const userprofile = useSelector((state) => state.userdetails.user);
+
+  console.log(userprofile);
 
   return (
     <div className="nav">
@@ -41,9 +44,26 @@ const Navbar = () => {
             </IconButton>
           </Tooltip>
         </div>
-        <div className="dp">
+        <div
+          className="dp"
+          style={{
+            backgroundImage: `url(${userprofile?.background?.image})`,
+            backgroundRepeat: "no-repeat",
+            borderRadius: "50%",
+            backgroundSize:'cover',
+            height:"50px",
+            width:"50px",
+            display:'flex',
+            alignItems:'center',
+            justifyContent:'center'
+          }}
+        >
           <img
-            src="https://images.pexels.com/photos/341970/pexels-photo-341970.jpeg?auto=compress&cs=tinysrgb&w=600"
+            src={userprofile?.avatar?.image}
+            style={{ 
+              // height:'80%,'
+            }}
+            // src="https://images.pexels.com/photos/341970/pexels-photo-341970.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt=""
           />
         </div>
