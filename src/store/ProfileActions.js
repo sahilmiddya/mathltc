@@ -15,7 +15,7 @@ export const profiledetailsasync =
       dispatch(userprofile(response.data));
       callsuccess(response.data);
     } catch (error) {
-      callerror(error.response.data);
+      callerror(error?.response?.data);
       // Handle API call error
     }
   };
@@ -32,25 +32,28 @@ export const globalsettingasync =
       dispatch(globalsetting(response.data));
       callsuccess(response.data);
     } catch (error) {
-      callerror(error.response.data);
+      callerror(error?.response?.data);
       // Handle API call error
     }
   };
 
-  export const updateProfilePicasync = //dispatched in avatar in wardrobe
-  (authToken, username,bodydata, callsuccess, callerror) => async (dispatch) => {
-    try {
-      const response = await axios.put(
-        `${baseURL}/accounts/update/${username}`,
-        bodydata,
-        {
-          headers: { Authorization: `JWT ${authToken}` },
-        }
-      );
-      dispatch(globalsetting(response.data));
-      callsuccess(response.data);
-    } catch (error) {
-      callerror(error.response.data);
-      // Handle API call error
-    }
-  };
+export const updateProfilePicasync = //dispatched in avatar in wardrobe
+
+    (authToken, username, bodydata, callsuccess, callerror) =>
+    async (dispatch) => {
+      try {
+        const response = await axios.put(
+          `${baseURL}/accounts/update/${username}`,
+          bodydata,
+          {
+            headers: { Authorization: `JWT ${authToken}` },
+          }
+        );
+
+        callsuccess(response.data);
+        // dispatch(globalsetting(response.data));
+      } catch (error) {
+        callerror(error?.response?.data);
+        // Handle API call error
+      }
+    };

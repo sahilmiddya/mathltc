@@ -15,7 +15,10 @@ import { useNavigate } from "react-router-dom";
 import { baseURL } from "../../constants/baseURL";
 import { setstate } from "../../store/regFlowslice";
 import Bgav from "../../avatar/Bgav";
-import { updateProfilePicasync } from "../../store/ProfileActions";
+import {
+  profiledetailsasync,
+  updateProfilePicasync,
+} from "../../store/ProfileActions";
 
 import { setWardrobeModalOpen } from "../../store/ProfileSlice";
 
@@ -73,7 +76,6 @@ function Avatar2() {
       updateProfilePicasync(
         auth?.user?.token,
         auth?.user?.displayName,
-
         {
           avatar,
           background: backgroundImage?.id,
@@ -82,8 +84,17 @@ function Avatar2() {
           background_solid_color: "",
         }, //bodydata
         () => {
-          console.log('gfbdzgbbtn 5646');
+          console.log("gfbdzgbbtn 5646");
           dispatch(setWardrobeModalOpen());
+
+          dispatch(
+            profiledetailsasync(
+              auth?.user?.token,
+              auth?.user?.displayName,
+              () => {},
+              () => {}
+            )
+          );
         },
         () => {}
       )
