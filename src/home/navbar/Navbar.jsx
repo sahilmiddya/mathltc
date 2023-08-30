@@ -64,7 +64,9 @@ const Navbar = () => {
         <Link to="#" onClick={handleWardrobeClick}>
           <SettingsIcon /></Link>
         </div>
-        <div className="set" style={{ marginTop: -10 }}>
+        <div className="set"
+        //  style={{ marginTop: -10 }}
+         >
           <Tooltip title="Logout">
             <IconButton
               onClick={() => {
@@ -90,6 +92,8 @@ const Navbar = () => {
           }}
         >
           <img
+          // className="navimg"
+
             src={userprofile?.avatar?.image}
             style={
               {

@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import "./delete.css";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteAccAsync } from "../../store/ProfileActions";
+import { logoutUser } from "../../store/authSlice";
+import { toast } from "react-toastify";
 
 const modalStyle = {
   position: "fixed",
@@ -53,17 +55,21 @@ function Delete() {
     setShowThirdModal(true);
   };
   const finalbtn = () => {
-    setShowThirdModal(false);
     disp(
       deleteAccAsync(
         auth.user.token,
         {
           password: inputValue,
         },
-        () => {
-          nav("/map");
+        (msg) => {
+          // nav("/map");
+          disp(logoutUser())
+          setShowThirdModal(false);
+          toast.success(msg.detail)
         },
-        () => {}
+        (err) => {
+          toast.error(err.detail)
+        }
       )
     );
   };

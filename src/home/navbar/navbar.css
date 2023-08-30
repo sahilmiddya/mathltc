@@ -13,9 +13,11 @@
   gap: 30px;
 }
 .nright {
+  background-color: #36e2a9;
   display: flex;
   gap: 10px;
   align-items: center;
+  justify-content: center;
 }
 img {
   width: 40px;
@@ -23,6 +25,8 @@ img {
   border-radius: 50%;
 }
 .setdelete{
+  background-color: #c452ab;
   display: flex;
+  background-color: inherit;
   align-items: center;justify-content: center;
 }

@@ -62,7 +62,7 @@ export const updateProfilePicasync = //dispatched in avatar in wardrobe
   (authToken, bodydata,callsuccess, callerror) => async (dispatch) => {
     try {
       const response = await axios.post(
-        `${baseURL}/accounts/delete-account`,
+        `${baseURL}/accounts/delete-account/`,
         bodydata,
         {
           headers: { Authorization: `JWT ${authToken}` },
