@@ -518,6 +518,6 @@ function PasswordResetModal({ onClose }) {
 // }
 
 function ReactivateAccountModal() {
-  console.log('mnvidljodgkbi');
-  return(<></>)
+  console.log("mnvidljodgkbi");
+  return <></>;
 }
