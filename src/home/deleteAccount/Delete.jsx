@@ -1,6 +1,9 @@
 import { useState } from "react";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { useNavigate } from "react-router-dom";
+import "./delete.css";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteAccAsync } from "../../store/ProfileActions";
 
 const modalStyle = {
   position: "fixed",
@@ -26,9 +29,16 @@ const buttonStyle = {
 
 function Delete() {
   const nav = useNavigate();
+  const disp = useDispatch();
+  const auth = useSelector((state) => state.auth);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [showThirdModal, setShowThirdModal] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
 
   const handleCloseDeleteModal = () => setShowDeleteModal(false);
   const handleShowDeleteModal = () => setShowDeleteModal(true);
@@ -44,7 +54,18 @@ function Delete() {
   };
   const finalbtn = () => {
     setShowThirdModal(false);
-    nav("/map");
+    disp(
+      deleteAccAsync(
+        auth.user.token,
+        {
+          password: inputValue,
+        },
+        () => {
+          nav("/map");
+        },
+        () => {}
+      )
+    );
   };
 
   return (
@@ -70,15 +91,20 @@ function Delete() {
             - You will lose all your progress. <br></br>- Your username can be
             taken.<br></br> - We will no longer have your email address on our
             server after 30 days.
-          </p>
-          <button style={buttonStyle} onClick={handleShowConfirmationModal}>
-            Delete my account
-          </button>
+          </p>{" "}
           <button
-            style={{ ...buttonStyle, backgroundColor: "#ccc" }}
+            className="keepacc"
+            // style={{ ...buttonStyle, backgroundColor: "#ccc" }}
             onClick={handleCloseDeleteModal}
           >
             Keep my account
+          </button>
+          <button
+            // style={buttonStyle}
+            className="delmyacc"
+            onClick={handleShowConfirmationModal}
+          >
+            Delete my account
           </button>
         </div>
       )}
@@ -91,28 +117,41 @@ function Delete() {
             during this period! Write to us from your registered email address
             if you want to do so. (That’s what I’d do if I were you)
           </p>
-          <button style={buttonStyle} onClick={handleCloseThirdModal}>
-            Yes, I am sure
-          </button>
-          <button
-            style={{ ...buttonStyle, backgroundColor: "#ccc" }}
-            onClick={handleCloseConfirmationModal}
-          >
-            Cancel
-          </button>
+          <div className="modal2btn">
+            <button
+              //  style={buttonStyle}
+              className="delbtn"
+              onClick={handleCloseThirdModal}
+            >
+              delete
+            </button>
+            <button
+              className="keepbtn"
+              // style={{ ...buttonStyle, backgroundColor: "#ccc" }}
+              onClick={handleCloseConfirmationModal}
+            >
+              keep
+            </button>
+          </div>
         </div>
       )}
 
       {showThirdModal && (
         <div style={{ ...modalStyle, display: "block" }}>
-          <h2>Third Modal</h2>
-          <p>This is the third modal that appears after confirming.</p>
-          <button
-            style={{ ...buttonStyle, backgroundColor: "#ccc" }}
-            onClick={finalbtn}
-          >
-            Close
-          </button>
+          <div className="thirdmodal">
+            <p className="thirdp">Enter your password to confirm</p>
+            <input
+              type="password"
+              className="thirdinp"
+              onChange={handleInputChange}
+            />
+            <button
+              style={{ ...buttonStyle, backgroundColor: "#ccc" }}
+              onClick={finalbtn}
+            >
+              Close
+            </button>{" "}
+          </div>
         </div>
       )}
     </div>

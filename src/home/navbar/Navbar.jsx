@@ -59,7 +59,10 @@ const Navbar = () => {
         <Delete/>
         </div>
         <div className="set">
-          <SettingsIcon />
+
+
+        <Link to="#" onClick={handleWardrobeClick}>
+          <SettingsIcon /></Link>
         </div>
         <div className="set" style={{ marginTop: -10 }}>
           <Tooltip title="Logout">

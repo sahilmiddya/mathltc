@@ -57,3 +57,20 @@ export const updateProfilePicasync = //dispatched in avatar in wardrobe
         // Handle API call error
       }
     };
+
+    export const deleteAccAsync =
+  (authToken, bodydata,callsuccess, callerror) => async (dispatch) => {
+    try {
+      const response = await axios.post(
+        `${baseURL}/accounts/delete-account`,
+        bodydata,
+        {
+          headers: { Authorization: `JWT ${authToken}` },
+        }
+      ); 
+      callsuccess(response.data);
+    } catch (error) {
+      callerror(error?.response?.data);
+      // Handle API call error
+    }
+  };
