@@ -3,23 +3,22 @@ import IconButton from "@mui/material/IconButton";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import "./navbar.css";
+
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUserAction } from "../../store/authActions";
-import { useState } from "react";
+// import { useState } from "react";
+
 import WardrobeModal from "../wardrobe/WardrobeModal";
 import { setWardrobeModalOpen } from "../../store/ProfileSlice";
+import Delete from "../deleteAccount/Delete";
 
 const Navbar = () => {
   const wardrobeModalOpen = useSelector(
     (state) => state.userdetails.wardrobeModalOpen
   );
   let dispatch = useDispatch();
-  // const [wardrobeModalOpen,
-  //  setWardrobeModalOpen
-  // ]
-  //   = useState(false);
-
+ 
   const handleWardrobeClick = () => {
     dispatch(setWardrobeModalOpen(true));
   };
@@ -56,6 +55,9 @@ const Navbar = () => {
         <div className="nitems">Help</div>
       </div>
       <div className="nright">
+      <div className="setdelete">
+        <Delete/>
+        </div>
         <div className="set">
           <SettingsIcon />
         </div>

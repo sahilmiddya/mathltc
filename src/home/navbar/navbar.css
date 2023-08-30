@@ -22,3 +22,7 @@ img {
   height: 40px;
   border-radius: 50%;
 }
+.setdelete{
+  display: flex;
+  align-items: center;justify-content: center;
+}

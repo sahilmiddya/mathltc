@@ -13,8 +13,7 @@ import {
 // import "./avatar.css";
 import { useNavigate } from "react-router-dom";
 import { baseURL } from "../../constants/baseURL";
-import { setstate } from "../../store/regFlowslice";
-import Bgav from "../../avatar/Bgav";
+import { setstate } from "../../store/regFlowslice"; 
 import {
   profiledetailsasync,
   updateProfilePicasync,

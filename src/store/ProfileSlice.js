@@ -1,5 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice } from "@reduxjs/toolkit"; 
 
 const profileslice = createSlice({
   name: "profiledetails",
@@ -8,7 +7,7 @@ const profileslice = createSlice({
     userprofile: (state, action) => {
       state.user = action.payload;
     },
-    setWardrobeModalOpen:(state,action) =>{
+    setWardrobeModalOpen:(state) =>{
       state.wardrobeModalOpen= !state.wardrobeModalOpen;
     }
   },
