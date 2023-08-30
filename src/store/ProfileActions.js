@@ -58,8 +58,8 @@ export const updateProfilePicasync = //dispatched in avatar in wardrobe
       }
     };
 
-    export const deleteAccAsync =
-  (authToken, bodydata,callsuccess, callerror) => async (dispatch) => {
+export const deleteAccAsync =
+  (authToken, bodydata, callsuccess, callerror) => async (dispatch) => {
     try {
       const response = await axios.post(
         `${baseURL}/accounts/delete-account/`,
@@ -67,7 +67,21 @@ export const updateProfilePicasync = //dispatched in avatar in wardrobe
         {
           headers: { Authorization: `JWT ${authToken}` },
         }
-      ); 
+      );
+      callsuccess(response.data);
+    } catch (error) {
+      callerror(error?.response?.data);
+      // Handle API call error
+    }
+  };
+
+export const activateAccAsync =
+  (bodydata, callsuccess, callerror) => async (dispatch) => {
+    try {
+      const response = await axios.post(
+        `${baseURL}/accounts/reactivate-account/`,
+        bodydata
+      );
       callsuccess(response.data);
     } catch (error) {
       callerror(error?.response?.data);
