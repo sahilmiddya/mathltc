@@ -14,9 +14,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 // import Otp from "../otp/Otp";
 import { setOtp } from "../store/otpSlice";
-// import { Toast } from "react-toastify/dist/components";
-// import { loginuser } from "../store/loginslice";
-// import New from './New';
 const Login = () => {
   const [credentials, setCredentials] = useState({
     username: "",
@@ -28,11 +25,8 @@ const Login = () => {
     password: "",
   });
 
-  // const validateEmail = (email) => {
-  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  //   return emailRegex.test(email);
-  // };
   const [modalOpen, setModalOpen] = useState(false);
+  const [reactivateModalopen, setreactivatemodalopen] = useState(false);
 
   const openModal = () => {
     setModalOpen(true);
@@ -41,9 +35,13 @@ const Login = () => {
   const closeModal = () => {
     setModalOpen(false);
   };
-
+  const openReactivate = () => {
+    setreactivatemodalopen(true);
+  };
+  const closeReactivate = () => {
+    setreactivatemodalopen(false);
+  };
   const validatePassword = (password) => {
-    // Add your password validation rules here
     return password.length >= 4; // For example, requiring a minimum of 6 characters
   };
   const dispatch = useDispatch();
@@ -56,12 +54,6 @@ const Login = () => {
   const handleLogin = () => {
     let newErrors = { ...errors };
 
-    // if (!validateEmail(credentials.username)) {
-    //   newErrors.username = "Please enter a valid email address.";
-    // } else {
-    //   newErrors.username = "";
-    // }
-
     if (!validatePassword(credentials.password)) {
       newErrors.password = "Password should be at least 6 characters long.";
     } else {
@@ -73,13 +65,24 @@ const Login = () => {
       return;
     }
 
-    dispatch(loginUserAsync(credentials));
-    // navig("/home");
-
-    console.log({ handleLogin: auth });
-    if (auth?.user?.token) {
-      console.log("This user has token");
-    }
+    dispatch(
+      loginUserAsync(
+        credentials,
+        () => {
+          // toast;
+          openModal();
+        },
+        (err) => {
+          toast.error(err);
+          console.log(err);
+          if (err.detail === "Inactive account.") {
+            openReactivate();
+            console.log("inv cred");
+          }
+          // openModal()
+        }
+      )
+    );
   };
 
   return (
@@ -88,7 +91,6 @@ const Login = () => {
         <div className="cont">
           <div className="body">
             <h2 style={{ margin: 0, fontSize: "1.5rem" }}>Login</h2>
-            {/* // Inside your Login component */}
             <div className="inps">
               <div className="left">Username or Email</div>
               <input
@@ -122,6 +124,11 @@ const Login = () => {
             <button onClick={handleLogin} className="login">
               Login
             </button>
+            {openReactivate && (
+              <ReactivateAccountModal
+              // onClose={closeReactivate}
+              />
+            )}
             <div className="left">Or login with...</div>
             <div className="btns">
               <button className="fb">
@@ -288,13 +295,13 @@ function PasswordResetModal({ onClose }) {
   };
 
   const handlePasswordChange = () => {
-    if (newPassword === '' || confirmPassword === '') {
+    if (newPassword === "" || confirmPassword === "") {
       // Display an error message for empty fields
-      toast.error('Please fill in both password fields.');
+      toast.error("Please fill in both password fields.");
     } else if (newPassword === confirmPassword) {
       // Passwords match, proceed with API call
       setPasswordsMatch(true);
-  
+
       dispatch(
         newpwAsync(
           {
@@ -315,10 +322,10 @@ function PasswordResetModal({ onClose }) {
     } else {
       // Passwords do not match
       setPasswordsMatch(false);
-      toast.error('Passwords do not match. Please enter matching passwords.');
+      toast.error("Passwords do not match. Please enter matching passwords.");
     }
   };
-  
+
   // const renderStepOne = () => (
   //   <div className="step1">
   //     <h2>Forgot Password</h2>
@@ -509,3 +516,8 @@ function PasswordResetModal({ onClose }) {
 //     </div>
 //   );
 // }
+
+function ReactivateAccountModal() {
+  console.log('mnvidljodgkbi');
+  return(<></>)
+}

@@ -30,7 +30,7 @@ const buttonStyle = {
 };
 
 function Delete() {
-  const nav = useNavigate();
+  // const nav = useNavigate();
   const disp = useDispatch();
   const auth = useSelector((state) => state.auth);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -78,6 +78,8 @@ function Delete() {
     <div>
       <nav>
         <button
+        className="deleteicon"
+
           // style={buttonStyle}
           onClick={handleShowDeleteModal}
         >
@@ -152,10 +154,12 @@ function Delete() {
               onChange={handleInputChange}
             />
             <button
-              style={{ ...buttonStyle, backgroundColor: "#ccc" }}
+              // style={{ ...buttonStyle, backgroundColor: "#ccc" , }}
               onClick={finalbtn}
+              className="redbtns"
+
             >
-              Close
+              DELETE
             </button>{" "}
           </div>
         </div>

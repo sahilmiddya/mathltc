@@ -21,7 +21,7 @@ export const registerUserAsync =
     }
   };
 
-export const loginUserAsync = (credentials) => async (dispatch) => {
+export const loginUserAsync = (credentials,success,err) => async (dispatch) => {
   console.log(credentials);
   try {
     const response = await axios.post(
@@ -30,12 +30,14 @@ export const loginUserAsync = (credentials) => async (dispatch) => {
     );
     if (response.status === 200) {
       const user = response.data;
-      dispatch(loginUser(user)); // Update Redux state with the logged-in user
+      dispatch(loginUser(user));
+      success() // Update Redux state with the logged-in user
     } else {
       // Handle login failure
     }
   } catch (error) {
     // Handle API call error
+    err(error?.response?.data)
   }
 };
 

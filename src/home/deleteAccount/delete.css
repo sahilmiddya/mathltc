@@ -46,13 +46,28 @@ padding: .5rem;
     padding: .7rem;
 }
 .delbtn{
-    background-color: #b3a7a7;
-    padding: .7rem;
+    /* background-color: #b3a7a7; */
+    /* padding: .7rem; */
     font-weight: 800;
     margin-left: 0.4rem;
 }
-
-
+.delbtn:hover{
+    background-color: red;
+    color: #ffffff;
+}
+.deleteicon{
+background-color: inherit;
+align-self: center;
+}
+.redbtns{
+    padding: .6rem;
+    margin: 0.5rem;
+    border-radius: 1.5rem;
+}
+.redbtns:hover{
+    background-color: red;
+    color: #ffffff;
+}
 
 
 
