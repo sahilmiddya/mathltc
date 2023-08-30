@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 // import Otp from "../otp/Otp";
 import { setOtp } from "../store/otpSlice";
+import ReactivateAccount from "./ReactivateAccount";
 const Login = () => {
   const [credentials, setCredentials] = useState({
     username: "",
@@ -68,10 +69,7 @@ const Login = () => {
     dispatch(
       loginUserAsync(
         credentials,
-        () => {
-          // toast;
-          openModal();
-        },
+        () => {},
         (err) => {
           toast.error(err);
           console.log(err);
@@ -79,79 +77,80 @@ const Login = () => {
             openReactivate();
             console.log("inv cred");
           }
-          // openModal()
         }
       )
     );
   };
 
   return (
-    <div className="parent2">
-      <div className="loginx">
-        <div className="cont">
-          <div className="body">
-            <h2 style={{ margin: 0, fontSize: "1.5rem" }}>Login</h2>
-            <div className="inps">
-              <div className="left">Username or Email</div>
-              <input
-                type="text"
-                className="inp2"
-                placeholder="enter email..."
-                value={credentials.username}
-                onChange={(e) =>
-                  setCredentials({ ...credentials, username: e.target.value })
-                }
-              />
+    <>
+      <ReactivateAccount
+        reactivateModalopen={reactivateModalopen}
+        closeReactivate={closeReactivate}
+      />
 
-              <div className="left"> Password</div>
-              <input
-                type="password"
-                className="inp2"
-                placeholder="enter password..."
-                value={credentials.password}
-                onChange={(e) =>
-                  setCredentials({ ...credentials, password: e.target.value })
-                }
-              />
-              {errors.password && (
-                <div className="error-message">{errors.password}</div>
-              )}
-            </div>
-            <div className="right" onClick={openModal}>
-              Forget password
-            </div>
-            {modalOpen && <PasswordResetModal onClose={closeModal} />}
-            <button onClick={handleLogin} className="login">
-              Login
-            </button>
-            {openReactivate && (
-              <ReactivateAccountModal
-              // onClose={closeReactivate}
-              />
-            )}
-            <div className="left">Or login with...</div>
-            <div className="btns">
-              <button className="fb">
-                <span className="fbsvg">
-                  <AiFillFacebook />
-                </span>
-                Facebook
+      <div className="parent2">
+        <div className="loginx">
+          <div className="cont">
+            <div className="body">
+              <h2 style={{ margin: 0, fontSize: "1.5rem" }}>Login</h2>
+              <div className="inps">
+                <div className="left">Username or Email</div>
+                <input
+                  type="text"
+                  className="inp2"
+                  placeholder="enter email..."
+                  value={credentials.username}
+                  onChange={(e) =>
+                    setCredentials({ ...credentials, username: e.target.value })
+                  }
+                />
+
+                <div className="left"> Password</div>
+                <input
+                  type="password"
+                  className="inp2"
+                  placeholder="enter password..."
+                  value={credentials.password}
+                  onChange={(e) =>
+                    setCredentials({ ...credentials, password: e.target.value })
+                  }
+                />
+                {errors.password && (
+                  <div className="error-message">{errors.password}</div>
+                )}
+              </div>
+              <div className="right" onClick={openModal}>
+                Forget password
+              </div>
+              {modalOpen && <PasswordResetModal onClose={closeModal} />}
+              <button onClick={handleLogin} className="login">
+                Login
               </button>
-              <button className="gg">
-                <span className="ggsvg">
-                  <AiOutlineGoogle />
-                </span>
-                Google
-              </button>
+              <div className="left">Or login with...</div>
+              <div className="btns">
+                <button className="fb">
+                  <span className="fbsvg">
+                    <AiFillFacebook />
+                  </span>
+                  Facebook
+                </button>
+                <button className="gg">
+                  <span className="ggsvg">
+                    <AiOutlineGoogle />
+                  </span>
+                  Google
+                </button>
+              </div>
+              <hr />
+              <Link to="/">
+                <button className="signup">Sign up</button>
+              </Link>{" "}
             </div>
-            <hr />
-            <Link to="/">
-              <button className="signup">Sign up</button>
-            </Link>{" "}
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
@@ -516,8 +515,3 @@ function PasswordResetModal({ onClose }) {
 //     </div>
 //   );
 // }
-
-function ReactivateAccountModal() {
-  console.log('mnvidljodgkbi');
-  return(<></>)
-}
