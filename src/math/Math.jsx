@@ -24,7 +24,7 @@ const Math = () => {
   const quizQuestions = useSelector((state) => state.quiz.quizQuestions);
 
   const questionAnswerList = quizQuestions?.question_answer_list;
-  console.log(questionAnswerList);
+  // console.log(questionAnswerList);
 // 
   const answer = questionAnswerList?.[count]?.answer; //from api
   console.log(count);
