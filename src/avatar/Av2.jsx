@@ -30,7 +30,6 @@
 //     axios
 //       .get(backgroundApiUrl)
 //       .then((response) => {
-//         console.log(response);
 //         setBackgroundImage(response.data); // Assuming the API returns an object with a "url" property
 //       })
 //       .catch((error) => {
@@ -38,8 +37,6 @@
 //       });
 //   }, []);
 
-//   // console.log(data);
-//   console.log("bg", backgroundImage);
 
 //   const handleFilter = (type) => {
 //     setFilterType(type);

@@ -22,7 +22,6 @@ const Hear = () => {
   const handleBoxClick = (value) => {
     // setSelectedValue(value);
 
-    console.log(value);
     if (value === "Other") {
       setShowInput(true);
       dispatch(

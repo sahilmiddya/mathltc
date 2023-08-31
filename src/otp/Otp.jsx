@@ -7,7 +7,6 @@ import { useRef } from "react";
 import { baseURL } from "../constants/baseURL";
 
 const Otp = () => {
-  // console.log('gbvfds');
 
   const userEmail = useSelector((state) => state.regnflow);
 
@@ -100,7 +99,6 @@ const Otp = () => {
   };
   const send = async () => {
     // nav("/avtr");
-    console.log("nhtgrfedwsa");
 
     let isEmptyField = false;
     for (let i = 0; i < otp.length; i++) {
@@ -113,7 +111,6 @@ const Otp = () => {
 
     if (isEmptyField) {
       alert("fvdc");
-      console.log("gbfvdcsxz");
       // dispatch(setVerificationStatus("Please fill in all OTP fields"));
       // return;
     }

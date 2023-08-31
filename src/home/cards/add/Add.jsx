@@ -13,10 +13,8 @@ const Add = () => {
   const quiz = useSelector((state) => state.quiz);
   const auth = useSelector((state) => state.auth);
   const selectedquiztype = useSelector((state) => state.quiz.selectedQuizType);
-  console.log(selectedquiztype);
   const quizFormat = Array.isArray(quiz?.quizFormat) && quiz?.quizFormat;
   // const rev = quizFormat.reverse();
-  console.log({ quizFormat, quiz });
   const goto = (id) => {
     disp(getQuizLevelAsync(auth?.user?.token, selectedquiztype.slug, id)); //from browser
     nav("/level");
