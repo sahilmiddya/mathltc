@@ -6,12 +6,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { setcount } from "../store/quizes/quizSlice";
 import { setcorrect, setwrong } from "../store/userAnswerslice";
 import { useNavigate } from "react-router-dom";
-import { getQuestionsAsync, updateUserstatsAsync } from "../store/quizes/quizAction";
+import {
+  getQuestionsAsync,
+  updateUserstatsAsync,
+} from "../store/quizes/quizAction";
 
 const Math = () => {
   const auth = useSelector((state) => state.auth);
   const selectQuizLevel = useSelector((state) => state.quiz.selectQuizLevel);
-  // const quiz = useSelector((state) => state.quiz);
+  const quiz = useSelector((state) => state.quiz);
   const attempans = useSelector((state) => state.userans);
   const count = useSelector((state) => state.quiz.count);
   const dispatch = useDispatch();
@@ -25,7 +28,7 @@ const Math = () => {
 
   const questionAnswerList = quizQuestions?.question_answer_list;
   console.log(questionAnswerList);
-// 
+  //
   const answer = questionAnswerList?.[count]?.answer; //from api
   console.log(count);
 
@@ -34,12 +37,16 @@ const Math = () => {
   const userans = useSelector((state) => state.userans);
   console.log(userans);
 
-
-  useEffect(() => { 
-    if (count === 25) {
+  useEffect(() => {
+    if (count === quiz?.quizQuestions?.question_answer_list?.length - 5) {
       dispatch(getQuestionsAsync(auth.user.token, selectQuizLevel.id));
     }
-  }, [dispatch, auth.user.token, selectQuizLevel.id, count]);
+  }, [
+    auth.user.token,
+    selectQuizLevel.id,
+    count,
+    quiz?.quizQuestions?.question_answer_list,
+  ]);
 
   const handleButtonClick = (value) => {
     setUserInput((prev) => prev + value);

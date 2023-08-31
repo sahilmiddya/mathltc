@@ -54,51 +54,49 @@ export const getQuizLevelAsync = (authToken, type, id) => async (dispatch) => {
 };
 // quiz/generate-questions/quiz_type?quiz_format=integer&quiz_level=level-1
 
-// export const getQuestionsAsync =
-//   (authToken, qtype, quizformat, quizlevel) => async (dispatch) => {
-//     console.log("madhu");
-//     try {
-//       const { data, status } = await axios.get(
-//         `${baseURL}/quiz/generate-questions/${qtype}?quiz_format=${quizformat}&quiz_level=${quizlevel}`,
-//         {
-//           headers: { Authorization: `JWT ${authToken}` },
-//         }
-//       );
+export const getQuestionsAsync =
+  (authToken, qtype, quizformat, quizlevel, callback) => async (dispatch) => {
+    console.log("madhu");
+    try {
+      const { data, status } = await axios.get(
+        `${baseURL}/quiz/generate-questions/${qtype}?quiz_format=${quizformat}&quiz_level=${quizlevel}`,
+        {
+          headers: { Authorization: `JWT ${authToken}` },
+        }
+      );
 
-//       if (status === 200) {
-//         dispatch(quizQuestions(data));
-//       }
-//     } catch (error) {
-//       // jhgh
-//     }
-//   };
-// ====================================================================================================
-export const getQuestionsAsync = (authToken, qtype, quizformat, quizlevel) => async (dispatch, getState) => {
-  const state = getState().quiz;
-  console.log(state);
-  const shouldRefetch = state.quizQuestions.length >= 25;
-
-  try {
-    const { data, status } = await axios.get(
-      `${baseURL}/quiz/generate-questions/${qtype}?quiz_format=${quizformat}&quiz_level=${quizlevel}`,
-      {
-        headers: { Authorization: `JWT ${authToken}` },
+      if (status === 200) {
+        callback && callback();
+        dispatch(quizQuestions(data));
       }
-    );
-
-    if (status === 200) {
-      const mergedQuestions = shouldRefetch ? data : [...state.quizQuestions, ...data];
-      dispatch(quizQuestions(mergedQuestions));
+    } catch (error) {
+      // jhgh
     }
-  } catch (error) {
-    // Handle error
-  }
-};
+  };
+// ====================================================================================================
+// export const getQuestionsAsync = (authToken, qtype, quizformat, quizlevel) => async (dispatch, getState) => {
+//   const state = getState().quiz;
+//   console.log(state);
+//   const shouldRefetch = state.quizQuestions.length >= 25;
+
+//   try {
+//     const { data, status } = await axios.get(
+//       `${baseURL}/quiz/generate-questions/${qtype}?quiz_format=${quizformat}&quiz_level=${quizlevel}`,
+//       {
+//         headers: { Authorization: `JWT ${authToken}` },
+//       }
+//     );
+
+//     if (status === 200) {
+//       const mergedQuestions = shouldRefetch ? data : [...state.quizQuestions, ...data];
+//       dispatch(quizQuestions(mergedQuestions));
+//     }
+//   } catch (error) {
+//     // Handle error
+//   }
+// };
 
 // ======================================================================================================
-
-
-
 
 export const getUsersAnsAsync =
   (authToken, qtype, quizformat, quizlevel) => async (dispatch) => {
