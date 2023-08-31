@@ -19,11 +19,9 @@ const quizSlice = createSlice({
       state.quizTypes = action.payload;
     },
     selectQuizType: (state, action) => {
-      // console.log({ action });
       state.selectedQuizType = action.payload;
     },
     selectQuizLevel: (state, action) => {
-      // console.log({ action });
       state.selectQuizLevel = action.payload;
     },
 
@@ -31,15 +29,23 @@ const quizSlice = createSlice({
       state.quizFormat = action.payload;
     },
     quizLevel: (state, action) => {
-      // console.log({ action, state });
       state.quizLevel = action.payload;
     },
     quizQuestions: (state, actions) => {
-      // console.log(actions);
-      state.quizQuestions = actions.payload;
+      if (Array.isArray(state.quizQuestions?.question_answer_list)) {
+        state.quizQuestions = {
+          ...state.quizQuestions,
+          question_answer_list: [
+            ...state.quizQuestions.question_answer_list,
+            ...actions.payload.question_answer_list,
+          ],
+        };
+      } else {
+        state.quizQuestions = actions.payload;
+      }
     },
-    setcount: (state,action) => {
-      state.count =action.payload
+    setcount: (state, action) => {
+      state.count = action.payload;
     },
   },
 });

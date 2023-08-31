@@ -18,7 +18,6 @@ export const getQuizTypesAsync = (authToken) => async (dispatch) => {
 };
 
 export const getQuizFormatAsync = (authToken, type) => async (dispatch) => {
-  // console.log("madhu");
   try {
     const { data, status } = await axios.get(
       `${baseURL}/quiz/formats/${type}`,
@@ -36,7 +35,6 @@ export const getQuizFormatAsync = (authToken, type) => async (dispatch) => {
 };
 
 export const getQuizLevelAsync = (authToken, type, id) => async (dispatch) => {
-  // console.log("madhu");
   try {
     const { data, status } = await axios.get(
       `${baseURL}/quiz/levels/${type}?quiz_format=${id}`,
@@ -56,7 +54,6 @@ export const getQuizLevelAsync = (authToken, type, id) => async (dispatch) => {
 
 export const getQuestionsAsync =
   (authToken, qtype, quizformat, quizlevel, callback) => async (dispatch) => {
-    console.log("madhu");
     try {
       const { data, status } = await axios.get(
         `${baseURL}/quiz/generate-questions/${qtype}?quiz_format=${quizformat}&quiz_level=${quizlevel}`,
@@ -76,7 +73,6 @@ export const getQuestionsAsync =
 // ====================================================================================================
 // export const getQuestionsAsync = (authToken, qtype, quizformat, quizlevel) => async (dispatch, getState) => {
 //   const state = getState().quiz;
-//   console.log(state);
 //   const shouldRefetch = state.quizQuestions.length >= 25;
 
 //   try {
@@ -100,7 +96,6 @@ export const getQuestionsAsync =
 
 export const getUsersAnsAsync =
   (authToken, qtype, quizformat, quizlevel) => async (dispatch) => {
-    // console.log("helo");
     try {
       const { data, status } = await axios.get(
         `${baseURL}/quiz/generate-questions/${qtype}?quiz_format=${quizformat}&quiz_level=${quizlevel}`,
@@ -119,7 +114,6 @@ export const getUsersAnsAsync =
 
 export const updateUserstatsAsync =
   (authToken, username, body, callb) => async (dispatch) => {
-    console.log("updateUserstatsAsync1234");
     try {
       const { status, data } = await axios.post(
         `${baseURL}/quiz/game/user-statistics/${username}`,

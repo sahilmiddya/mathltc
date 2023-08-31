@@ -27,35 +27,44 @@ const Math = () => {
   const quizQuestions = useSelector((state) => state.quiz.quizQuestions);
 
   const questionAnswerList = quizQuestions?.question_answer_list;
-  console.log(questionAnswerList);
   //
   const answer = questionAnswerList?.[count]?.answer; //from api
-  console.log(count);
 
   const [userInput, setUserInput] = useState("");
 
   const userans = useSelector((state) => state.userans);
-  console.log(userans);
-
-  useEffect(() => {
-    if (count === quiz?.quizQuestions?.question_answer_list?.length - 5) {
-      dispatch(getQuestionsAsync(auth.user.token, selectQuizLevel.id));
-    }
-  }, [
-    auth.user.token,
-    selectQuizLevel.id,
-    count,
-    quiz?.quizQuestions?.question_answer_list,
-  ]);
 
   const handleButtonClick = (value) => {
     setUserInput((prev) => prev + value);
   };
+
   const clearExpression = () => {
     setUserInput("");
   };
+
+  console.log({ quiz, count });
+
   const checkAnswer = () => {
+    if (userInput === "") {
+      if (count === quiz.quizQuestions?.question_answer_list?.length - 5) {
+        dispatch(
+          getQuestionsAsync(
+            auth?.user?.token,
+            quiz?.selectQuizLevel?.quiz_type?.slug,
+            quiz?.selectQuizLevel?.quiz_format?.slug,
+            quiz?.selectQuizLevel?.title,
+            () => {
+              return dispatch(setcount(count + 1));
+            }
+          )
+        );
+      } else {
+        return dispatch(setcount(count + 1));
+      }
+    }
+
     const userNumber = parseInt(userInput);
+
     if (userNumber === answer) {
       setcolor("green");
       dispatch(setcorrect());
@@ -64,28 +73,38 @@ const Math = () => {
       dispatch(setwrong());
       setrightans(answer);
     }
-    if (userInput === "") {
-      if (count < 29) {
-        dispatch(setcount(count + 1));
-      } else {
-        dispatch(setcount(0));
-      }
+
+    if (count === quiz.quizQuestions?.question_answer_list?.length - 5) {
+      dispatch(
+        getQuestionsAsync(
+          auth?.user?.token,
+          quiz?.selectQuizLevel?.quiz_type?.slug,
+          quiz?.selectQuizLevel?.quiz_format?.slug,
+          quiz?.selectQuizLevel?.title,
+          () => {
+            return dispatch(setcount(count + 1));
+          }
+        )
+      );
     }
+
     let timeout;
 
     timeout = setTimeout(() => {
       setcolor("");
       setUserInput("");
 
-      if (count < 29) {
-        dispatch(setcount(count + 1));
-      } else {
+      if (count >= 29) {
         dispatch(setcount(0));
+      } else {
+        dispatch(setcount(count + 1));
       }
+
       setrightans(null);
       clearTimeout(timeout);
     }, 600);
   };
+
   const handleInputChange = (event) => {
     setUserInput(event.target.value);
   };
@@ -101,7 +120,7 @@ const Math = () => {
       clearInterval(timerInterval);
     };
   }, [remainingTime]);
-  // console.log(selectQuizLevel);
+
   useEffect(() => {
     if (remainingTime === 0) {
       dispatch(
@@ -127,17 +146,6 @@ const Math = () => {
       // clearInterval(timerInterval); // Stop the timer interval when remainingTime reaches 0
     }
   }, [remainingTime]);
-
-  // const callApi = async () => {
-  //   try {
-  //     console.log("hfgdsfbjh");
-  //     const response = await fetch("YOUR_API_URL_HERE");
-  //     const data = await response.json();
-  //     console.log("API Response:", data);
-  //   } catch (error) {
-  //     console.error("Error calling API:", error);
-  //   }
-  // };
 
   return (
     <div>
@@ -258,3 +266,15 @@ const Math = () => {
 };
 
 export default Math;
+
+// if (count === quiz?.quizQuestions?.question_answer_list?.length - 5) {
+//   dispatch(
+//     getQuestionsAsync(
+//       auth.user.token,
+//       quiz?.selectQuizLevel?.quiz_type?.slug,
+//       quiz?.selectQuizLevel?.quiz_format?.slug,
+//       quiz?.selectQuizLevel?.title
+//     )
+//   );
+//   console.log("-----------------------------------");
+// }

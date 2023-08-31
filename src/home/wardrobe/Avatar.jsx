@@ -83,7 +83,6 @@ function Avatar2() {
           background_solid_color: "",
         }, //bodydata
         () => {
-          console.log("gfbdzgbbtn 5646");
           dispatch(setWardrobeModalOpen());
 
           dispatch(
@@ -191,7 +190,6 @@ export const BgAvatar = ({ setBackgroundURL }) => {
 
   useEffect(() => {
     const bgapiUrl = `${baseURL}/accounts/background/list`;
-    // console.log(bgapiUrl +"gbgbgbngnb");
     //
     axios
       .get(bgapiUrl)

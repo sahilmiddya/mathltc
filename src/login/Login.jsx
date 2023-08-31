@@ -46,7 +46,6 @@ const Login = () => {
   // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const auth = useSelector((state) => state.auth);
 
-  console.log({ auth });
   const openReactivate = () => {
     setreactivatemodalopen(true);
   };
@@ -76,10 +75,8 @@ const Login = () => {
         () => {},
         (err) => {
           toast.error(err);
-          console.log(err);
           if (err.detail === "Inactive account.") {
             openReactivate();
-            console.log("inv cred");
           }
         }
       )
@@ -87,7 +84,6 @@ const Login = () => {
   };
 
   const activate_account = () => {
-    console.log("fhdtjtryi6tre4tz");
     dispatch(
       activateAccAsync(
         {
@@ -237,7 +233,6 @@ function PasswordResetModal({ onClose }) {
             setStep(step + 1);
           },
           (msg) => {
-            console.log(msg);
             toast.error(msg.detail);
           }
         )
@@ -259,7 +254,6 @@ function PasswordResetModal({ onClose }) {
           setStep(step + 1);
         },
         (msg) => {
-          console.log(msg);
           toast.error(msg.detail);
         }
       )
@@ -267,7 +261,6 @@ function PasswordResetModal({ onClose }) {
   };
 
   // const handlePasswordSubmit = () => {
-  //   console.log("Password changed successfully");
   //   onClose();
   // };
   const handleInputChange = (e, index) => {
@@ -351,7 +344,6 @@ function PasswordResetModal({ onClose }) {
             onClose(); // Close the password reset modal
           },
           (msg) => {
-            console.log(msg);
             toast.error(msg.detail);
           }
         )
@@ -481,7 +473,6 @@ function PasswordResetModal({ onClose }) {
 //   };
 
 //   const handlePasswordSubmit = () => {
-//     console.log("Password changed successfully");
 //     onClose();
 //   };
 

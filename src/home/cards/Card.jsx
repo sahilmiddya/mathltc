@@ -21,7 +21,6 @@ const Card = () => {
   const quizTypes =
     Array.isArray(quiz?.quizTypes) && reverseArrayAsc(quiz?.quizTypes);
 
-  console.log({ quizTypes });
 
   const prev = () => {
     // alert("nhbgvfcd");

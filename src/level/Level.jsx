@@ -12,13 +12,13 @@ const Level = () => {
   const selectedQuizType = useSelector((state) => state.quiz.selectedQuizType);
 
   const auth = useSelector((state) => state.auth);
-  console.log(quizLevel);
   let nav = useNavigate();
   let dispatch = useDispatch();
 
   const goto = (slug, quizlevel, quizFormat) => {
     // dispatch(getQuizLevelAsync(auth?.user?.token, slug));
-    console.log("akjdhchbjhk");
+    dispatch(selectQuizLevel(quizlevel));
+
     dispatch(
       getQuestionsAsync(
         auth.user.token,
@@ -30,7 +30,6 @@ const Level = () => {
         }
       )
     );
-    // dispatch(selectQuizLevel(quizlevel));
   };
   return (
     <div>

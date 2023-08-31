@@ -15,10 +15,8 @@ function Bgav() {
 
   const [background, setBackground] = useState("");
 
-  console.log({ background });
 
   const [showSelectedImage, setShowSelectedImage] = useState(false); // New state
-  console.log(selectedImage);
   useEffect(() => {
     const apiUrl = `${baseURL}/accounts/background/list`;
 

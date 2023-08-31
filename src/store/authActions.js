@@ -22,7 +22,6 @@ export const registerUserAsync =
   };
 
 export const loginUserAsync = (credentials,success,err) => async (dispatch) => {
-  console.log(credentials);
   try {
     const response = await axios.post(
       `${baseURL}/accounts/login/`,
