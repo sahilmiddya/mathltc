@@ -6,11 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { setcount } from "../store/quizes/quizSlice";
 import { setcorrect, setwrong } from "../store/userAnswerslice";
 import { useNavigate } from "react-router-dom";
-import { updateUserstatsAsync } from "../store/quizes/quizAction";
+import { getQuestionsAsync, updateUserstatsAsync } from "../store/quizes/quizAction";
 
 const Math = () => {
   const auth = useSelector((state) => state.auth);
-  const selectQuizLevel=useSelector((state)=>state.quiz.selectQuizLevel)
+  const selectQuizLevel = useSelector((state) => state.quiz.selectQuizLevel);
   // const quiz = useSelector((state) => state.quiz);
   const attempans = useSelector((state) => state.userans);
   const count = useSelector((state) => state.quiz.count);
@@ -25,7 +25,7 @@ const Math = () => {
 
   const questionAnswerList = quizQuestions?.question_answer_list;
   console.log(questionAnswerList);
-
+// 
   const answer = questionAnswerList?.[count]?.answer; //from api
   console.log(count);
 
@@ -33,6 +33,13 @@ const Math = () => {
 
   const userans = useSelector((state) => state.userans);
   console.log(userans);
+
+
+  useEffect(() => { 
+    if (count === 25) {
+      dispatch(getQuestionsAsync(auth.user.token, selectQuizLevel.id));
+    }
+  }, [dispatch, auth.user.token, selectQuizLevel.id, count]);
 
   const handleButtonClick = (value) => {
     setUserInput((prev) => prev + value);
@@ -87,7 +94,7 @@ const Math = () => {
       clearInterval(timerInterval);
     };
   }, [remainingTime]);
-console.log(selectQuizLevel);
+  // console.log(selectQuizLevel);
   useEffect(() => {
     if (remainingTime === 0) {
       dispatch(
@@ -97,10 +104,11 @@ console.log(selectQuizLevel);
 
           {
             user: auth.user?.id,
-            total_ques_attempted: attempans?.correct+attempans?.wrong,
+            total_ques_attempted: attempans?.correct + attempans?.wrong,
             total_correct_ans: attempans?.correct,
             total_wrong_ans: attempans?.wrong,
-            total_points: selectQuizLevel?.point_per_question * attempans?.correct,
+            total_points:
+              selectQuizLevel?.point_per_question * attempans?.correct,
             animal_status: "beginner",
             total_seconds_played: "60",
           },
@@ -137,7 +145,7 @@ console.log(selectQuizLevel);
             {questionAnswerList?.[count]?.question_list?.[0]?.question} =
             <span>
               <input
-              className="inpmath"
+                className="inpmath"
                 type="number"
                 value={rightans || userInput}
                 onChange={handleInputChange}

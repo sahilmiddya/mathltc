@@ -29,7 +29,7 @@ const Navbar = () => {
 
   const userprofile = useSelector((state) => state.userdetails.user);
 
-  console.log(userprofile);
+  // console.log(userprofile);
 
   return (
     <div className="nav">
