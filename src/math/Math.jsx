@@ -82,7 +82,7 @@ const Math = () => {
           quiz?.selectQuizLevel?.quiz_format?.slug,
           quiz?.selectQuizLevel?.title,
           () => {
-            return dispatch(setcount(count + 1));
+            dispatch(setcount(count + 1));
           }
         )
       );
