@@ -25,8 +25,14 @@
 .setbtn3hover{
     background-color: #c449c9;
 }
-
-
+.timers{
+    display: flex;
+}
+.set_btn1{
+    border: 2px solid #c449c9;
+    padding: 0.4rem;
+    margin: 0.4rem;
+}
 
 
 
