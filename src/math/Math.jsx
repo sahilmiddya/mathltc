@@ -233,7 +233,7 @@ const Math = () => {
             <div className="buttonrow">
               <button
                 className="buttons btn1"
-                onClick={() => handleButtonClick("")}
+                onClick={() => handleButtonClick(".")}
               >
                 .
               </button>
@@ -245,7 +245,7 @@ const Math = () => {
               </button>
               <button
                 className="buttons btn1"
-                onClick={() => handleButtonClick("")}
+                onClick={() => handleButtonClick(".")}
               >
                 .
               </button>
