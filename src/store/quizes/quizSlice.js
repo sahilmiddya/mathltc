@@ -32,6 +32,8 @@ const quizSlice = createSlice({
       state.quizLevel = action.payload;
     },
     quizQuestions: (state, actions) => {
+      console.log({ question: actions.payload });
+
       if (Array.isArray(state.quizQuestions?.question_answer_list)) {
         state.quizQuestions = {
           ...state.quizQuestions,
@@ -44,6 +46,11 @@ const quizSlice = createSlice({
         state.quizQuestions = actions.payload;
       }
     },
+
+    resetQuizQuestions: (state, action) => {
+      state.quizQuestions = null;
+    },
+
     setcount: (state, action) => {
       state.count = action.payload;
     },
@@ -58,6 +65,7 @@ export const {
   selectQuizLevel,
   quizQuestions,
   setcount,
+  resetQuizQuestions,
 } = quizSlice.actions;
 
 export default quizSlice.reducer;

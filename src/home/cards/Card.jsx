@@ -10,7 +10,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { reverseArrayAsc } from "../../utils/reverseArrayAsc";
 // import { quizFormat } from "../../store/quizes/quizSlice";
 import { getQuizFormatAsync } from "../../store/quizes/quizAction";
-import { selectQuizType } from "../../store/quizes/quizSlice";
+import {
+  quizQuestions,
+  resetQuizQuestions,
+  selectQuizType,
+  setcount,
+} from "../../store/quizes/quizSlice";
 
 const Card = () => {
   const nav = useNavigate();
@@ -21,12 +26,14 @@ const Card = () => {
   const quizTypes =
     Array.isArray(quiz?.quizTypes) && reverseArrayAsc(quiz?.quizTypes);
 
-
   const prev = () => {
     // alert("nhbgvfcd");
     nav(-1);
   };
   const goto = (slug, quizType) => {
+    dispatch(setcount(0));
+    dispatch(resetQuizQuestions());
+
     dispatch(getQuizFormatAsync(auth?.user?.token, slug));
     dispatch(selectQuizType(quizType));
     nav("/add");

@@ -16,7 +16,6 @@ const Home = () => {
   const auth = useSelector((state) => state.auth);
   const quiz = useSelector((state) => state.quiz);
 
-
   useEffect(() => {
     dispatch(getQuizTypesAsync(auth?.user?.token));
     dispatch(
