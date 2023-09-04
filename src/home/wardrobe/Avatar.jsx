@@ -112,7 +112,7 @@ function Avatar2() {
           Back
         </button>
         <button className="nxt" onClick={nxtmodal}>
-          Next
+          Close
         </button>
       </div>
       {/* {selectedImage && ( */}

@@ -29,13 +29,17 @@ const Navbar = () => {
     dispatch(setWardrobeModalOpen(true));
   };
 
-  const handleWardrobeModalClose = () => {
-    dispatch(setWardrobeModalOpen(false));
-  };
+  // const handleWardrobeModalClose = () => {
+  //   dispatch(setWardrobeModalOpen(false));
+  // };
   const onsettingModal = () => {
     console.log("RGBsbjnvkj");
-    dispatch(setsettingModalOpen());
+    dispatch(setsettingModalOpen(true));
   };
+
+  // const settingmodalclose=()=>{
+  //   dispatch(setsettingModalOpen(false))
+  // }
 
   const userprofile = useSelector((state) => state.userdetails.user);
 
@@ -56,7 +60,7 @@ const Navbar = () => {
         </div>
         <WardrobeModal
           open={wardrobeModalOpen}
-          handleClose={handleWardrobeModalClose}
+          // handleClose={handleWardrobeModalClose}
         />
         <div className="nitems">Leaderboard</div>
         <div className="nitems">Help</div>
@@ -66,7 +70,9 @@ const Navbar = () => {
           <Delete />
         </div>
         <div className="set">
-          <SettingModal open={settingmodalopen} />
+          <SettingModal open={settingmodalopen} 
+          // handleClose={settingmodalclose} 
+          />
           <Link to="#" onClick={onsettingModal}>
             <SettingsIcon />
           </Link>

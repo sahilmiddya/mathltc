@@ -1,0 +1,49 @@
+.settingbody{
+    height: 70vh;
+    background-color: #e79c9c;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.right{
+    background-color: #fce5e5;
+    border: 2px solid rgb(195, 102, 214);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.setbtn3{
+    background-color: #eb95e3;
+    color: #ffffff;
+    padding: .4rem;
+    margin: 0.3rem;
+}
+.setbtn3hover{
+    background-color: #c449c9;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

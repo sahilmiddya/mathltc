@@ -1,21 +1,24 @@
-// avatarSlice.js
-import { createSlice } from '@reduxjs/toolkit';
+// // avatarSlice.js
+// import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
+// const initialState = {
   
-};
+// };
 
-const deleteSlice = createSlice({
-  name: 'avatar',
-  initialState,
-  reducers: {
-    deleteAcc:(state,action) =>{
-        state
-    }
+// const deleteSlice = createSlice({
+//   name: 'avatar',
+//   initialState,
+//   reducers: {
+//     deleteAcc:(state,action) =>{
+//         state
+//     }
   
-  },
-});
+//   },
+// });
 
-export const {  deleteAcc} = deleteSlice.actions;
+// export const {  deleteAcc} = deleteSlice.actions;
 
-export default deleteSlice.reducer;
+// export default deleteSlice.reducer;
+
+
+///delete in profile action s
