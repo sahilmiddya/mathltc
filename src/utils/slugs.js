@@ -6,6 +6,9 @@ export const slugs = {
   algebra: "algebra",
   wordsIntoNumbers: "words-into-numbers",
   bidmas: "bidmas",
+
+
+  // .
   numberMachines: "number-machines",
   romanNumerals: "roman-numerals",
   comparingNumbers: "comparing-numbers",
