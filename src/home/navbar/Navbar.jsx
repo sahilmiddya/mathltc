@@ -10,15 +10,21 @@ import { logoutUserAction } from "../../store/authActions";
 // import { useState } from "react";
 
 import WardrobeModal from "../wardrobe/WardrobeModal";
+import SettingModal from "../../settings/settingModal";
 import { setWardrobeModalOpen } from "../../store/ProfileSlice";
 import Delete from "../deleteAccount/Delete";
+import { setsettingModalOpen } from "../../store/settingslice";
 
 const Navbar = () => {
   const wardrobeModalOpen = useSelector(
     (state) => state.userdetails.wardrobeModalOpen
   );
+
+  const settingmodalopen = useSelector(
+    (state) => state.setting.setsettingModalOpen
+  );
   let dispatch = useDispatch();
- 
+  console.log(settingmodalopen);
   const handleWardrobeClick = () => {
     dispatch(setWardrobeModalOpen(true));
   };
@@ -26,9 +32,12 @@ const Navbar = () => {
   const handleWardrobeModalClose = () => {
     dispatch(setWardrobeModalOpen(false));
   };
+  const onsettingModal = () => {
+    console.log("RGBsbjnvkj");
+    dispatch(setsettingModalOpen());
+  };
 
   const userprofile = useSelector((state) => state.userdetails.user);
-
 
   return (
     <div className="nav">
@@ -42,7 +51,6 @@ const Navbar = () => {
         </div>
         <div className="nitems">
           <Link to="#" onClick={handleWardrobeClick}>
-            {" "}
             Wardrobe
           </Link>
         </div>
@@ -54,18 +62,19 @@ const Navbar = () => {
         <div className="nitems">Help</div>
       </div>
       <div className="nright">
-      <div className="setdelete">
-        <Delete/>
+        <div className="setdelete">
+          <Delete />
         </div>
         <div className="set">
-
-
-        <Link to="#" onClick={handleWardrobeClick}>
-          <SettingsIcon /></Link>
+          <SettingModal open={settingmodalopen} />
+          <Link to="#" onClick={onsettingModal}>
+            <SettingsIcon />
+          </Link>
         </div>
-        <div className="set"
-        //  style={{ marginTop: -10 }}
-         >
+        <div
+          className="set"
+          //  style={{ marginTop: -10 }}
+        >
           <Tooltip title="Logout">
             <IconButton
               onClick={() => {
@@ -91,7 +100,7 @@ const Navbar = () => {
           }}
         >
           <img
-          // className="navimg"
+            // className="navimg"
 
             src={userprofile?.avatar?.image}
             style={

@@ -21,7 +21,7 @@ const Math = () => {
   const nav = useNavigate();
   const [rightans, setrightans] = useState(null);
 
-  const [remainingTime, setRemainingTime] = useState(40); // Timer set to 10 seconds
+  const [remainingTime, setRemainingTime] = useState(140); // Timer set to 10 seconds
 
   const [inputcolor, setcolor] = useState("");
   const quizQuestions = useSelector((state) => state.quiz.quizQuestions);
@@ -32,7 +32,7 @@ const Math = () => {
 
   const [userInput, setUserInput] = useState("");
 
-  const userans = useSelector((state) => state.userans);
+  // const userans = useSelector((state) => state.userans);
 
   const handleButtonClick = (value) => {
     setUserInput((prev) => prev + value);
@@ -82,7 +82,7 @@ const Math = () => {
           quiz?.selectQuizLevel?.quiz_format?.slug,
           quiz?.selectQuizLevel?.title,
           () => {
-            dispatch(setcount(count + 1));
+            return dispatch(setcount(count + 1));
           }
         )
       );
