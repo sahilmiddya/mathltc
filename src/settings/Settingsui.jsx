@@ -5,6 +5,7 @@ import { deleteAccAsync } from "../store/ProfileActions";
 import { toast } from "react-toastify";
 import { logoutUser } from "../store/authSlice";
 import { logoutUserAction } from "../store/authActions";
+import Delete from "../home/deleteAccount/Delete";
 
 const Settingsui = () => {
   const auth = useSelector((state) => state.auth);
@@ -13,8 +14,8 @@ const Settingsui = () => {
   const closemodal = () => {
     dispatch(setsettingModalOpen(false));
   };
- 
-  const deleteac =()=>{
+
+  const deleteac = () => {
     dispatch(
       deleteAccAsync(
         auth.user.token,
@@ -23,28 +24,34 @@ const Settingsui = () => {
         },
         (msg) => {
           // nav("/map");
-          dispatch(logoutUser())
-          
-          toast.success(msg.detail)
+          dispatch(logoutUser());
+
+          toast.success(msg.detail);
         },
         (err) => {
-          toast.error(err.detail)
+          toast.error(err.detail);
         }
       )
     );
-  }
+  };
   return (
     <>
       <div className="settingbody">
         <div className="left">left</div>
         <div className="right">
-          <p>
-          avatar and usernames</p>
-          <button className="setbtn3"  onClick={() => {
-                dispatch(logoutUserAction());
-              }}>Logout</button>
+          <p>avatar and usernames</p>
+          <button
+            className="setbtn3"
+            onClick={() => {
+              dispatch(logoutUserAction());
+            }}
+          >
+            Logout
+          </button>
           <button className="setbtn3">Change Password</button>
-          <button className="setbtn3" onClick={deleteac}>Delete Account</button>
+          <button className="setbtn3" onClick={deleteac}>
+            Delete Account
+          </button>
         </div>
       </div>
 
