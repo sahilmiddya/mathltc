@@ -5,7 +5,7 @@ import { deleteAccAsync } from "../store/ProfileActions";
 import { toast } from "react-toastify";
 import { logoutUser } from "../store/authSlice";
 import { logoutUserAction } from "../store/authActions";
-import { useState } from "react";
+import Delete from "../home/deleteAccount/Delete";
 
 const Settingsui = () => {
   const [isOn, setIsOn] = useState(false);

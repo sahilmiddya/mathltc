@@ -33,6 +33,11 @@ function Delete() {
   // const nav = useNavigate();
   const disp = useDispatch();
   const auth = useSelector((state) => state.auth);
+  const openDeleteModal = useSelector(
+    (state) => state.userdetails.openDeleteModal
+  );
+  console.log({ openDeleteModal });
+
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [showThirdModal, setShowThirdModal] = useState(false);
@@ -63,12 +68,12 @@ function Delete() {
         },
         (msg) => {
           // nav("/map");
-          disp(logoutUser())
+          disp(logoutUser());
           setShowThirdModal(false);
-          toast.success(msg.detail)
+          toast.success(msg.detail);
         },
         (err) => {
-          toast.error(err.detail)
+          toast.error(err.detail);
         }
       )
     );
@@ -78,8 +83,7 @@ function Delete() {
     <div>
       <nav>
         <button
-        className="deleteicon"
-
+          className="deleteicon"
           // style={buttonStyle}
           onClick={handleShowDeleteModal}
         >
@@ -157,7 +161,6 @@ function Delete() {
               // style={{ ...buttonStyle, backgroundColor: "#ccc" , }}
               onClick={finalbtn}
               className="redbtns"
-
             >
               DELETE
             </button>{" "}
