@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit"; 
+import { createSlice } from "@reduxjs/toolkit";
 
 const settingSlice = createSlice({
   name: "setting",
@@ -7,12 +7,12 @@ const settingSlice = createSlice({
     userprofile: (state, action) => {
       state.user = action.payload;
     },
-    setsettingModalOpen:(state) =>{
-      state.settingModalOpen= !state.settingModalOpen;
-    }
+    setsettingModalOpen: (state) => {
+      state.settingModalOpen = !state.settingModalOpen;
+    },
   },
 });
 
-export const { userprofile ,setsettingModalOpen} = settingSlice.actions;
+export const { userprofile, setsettingModalOpen } = settingSlice.actions;
 
 export default settingSlice.reducer;
