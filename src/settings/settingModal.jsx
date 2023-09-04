@@ -1,5 +1,5 @@
 import Modal from "@mui/material/Modal";
-import "./settingModal.css"; 
+import "./settingModal.css";
 import Settingsui from "./Settingsui";
 
 const SettingModal = ({ open, handleClose }) => {

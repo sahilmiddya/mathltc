@@ -21,7 +21,7 @@ const Navbar = () => {
   );
 
   const settingmodalopen = useSelector(
-    (state) => state.setting.setsettingModalOpen
+    (state) => state.settings.settingModalOpen
   );
   let dispatch = useDispatch();
   console.log(settingmodalopen);
