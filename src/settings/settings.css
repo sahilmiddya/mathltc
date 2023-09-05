@@ -12,6 +12,7 @@
 .left {
   overflow-y: scroll;
   flex: 5;
+  height: 70vh;
 }
 .right {
   flex: 2;
@@ -80,10 +81,19 @@
 }
 .feedinp {
   width: 80%;
+  background-color: #fff;
+  color: #d7a6a6;
+  border: 2px solid #d7a6a6;
+  padding: 0.3rem;
+  margin: 0.4rem;
 }
 .feedtxt {
-  width: 80%;
-  align-self: center;
+    width: 80%;
+    background-color: #fff;
+    color: #d7a6a6;
+    border: 2px solid #d7a6a6;
+    padding: 0.3rem;
+    margin: 0.4rem;
   height: 3rem;
 }
 
