@@ -70,6 +70,7 @@ const Settingsui = () => {
             <div className="timers">
               <div
                 className="set_btn1"
+                style={{backgroundColor:settingsData.custom_timer===2?"#ffd0d0":""}}
                 onClick={() =>
                   setSettingsData({
                     ...settingsData,
@@ -77,10 +78,11 @@ const Settingsui = () => {
                   })
                 }
               >
-                2 min
+                2min
               </div>
               <div
                 className="set_btn1"
+                style={{backgroundColor:settingsData.custom_timer===3?"#ffd0d0":""}}
                 onClick={() =>
                   setSettingsData({
                     ...settingsData,
@@ -88,10 +90,11 @@ const Settingsui = () => {
                   })
                 }
               >
-                3 min
+                3min
               </div>
               <div
                 className="set_btn1"
+                style={{backgroundColor:settingsData.custom_timer===5?"#ffd0d0":""}}
                 onClick={() =>
                   setSettingsData({
                     ...settingsData,
@@ -99,7 +102,7 @@ const Settingsui = () => {
                   })
                 }
               >
-                5 min
+                5min
               </div>
             </div>
             <div className="range">
@@ -181,9 +184,9 @@ const Settingsui = () => {
           </div>
           <div className="keypad_theme" style={{ marginTop: 24 }}>
             <h3>KEYPAD COLORS</h3>
-            <div className="color_body">
+            <div className="color_body" >
               {Object.keys(numpadColors).map((key, idx) => (
-                <div className="ccbox color_combo_1" key={idx}>
+                <div className="ccbox color_combo_1" key={idx} onClick={()=>setSettingsData({...settingsData,numpad_color:key})}>
                   <div
                     className="cc_left"
                     style={{
