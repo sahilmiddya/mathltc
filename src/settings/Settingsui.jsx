@@ -8,6 +8,7 @@ import { logoutUserAction } from "../store/authActions";
 import Delete from "../home/deleteAccount/Delete";
 import { useState } from "react";
 import Toggle from "../togglebtn/Toggle";
+import { numpadColors } from "../constants/numpadColors";
 
 const Settingsui = () => {
   const [isOn, setIsOn] = useState(false);
@@ -37,6 +38,8 @@ const Settingsui = () => {
       )
     );
   };
+
+  console.log(numpadColors["one"].background);
   return (
     <>
       {" "}
@@ -72,42 +75,72 @@ const Settingsui = () => {
               <Toggle />
             </div>
           </div>{" "}
-          <h3>MUSIC</h3>
+          <h3 style={{ marginTop: 12 }}>MUSIC</h3>
           <div className="musicbtns">
             <div className="mus_btn1">Freedom</div>
             <div className="mus_btn2">Turkish</div>
           </div>
-          <h3>FONTS</h3>
+          <h3 style={{ marginTop: 24 }}>FONTS</h3>
           <div className="font_btns">
             <div className="font_btn1">Fredroka</div>
             <div className="font_btn2">Inter</div>
-            <div className="font_btn2">Fredroka One</div>
+            {/* <div className="font_btn3">Fredroka One</div> */}
           </div>
-          <div className="keypad_theme">
+          <div className="keypad_theme" style={{ marginTop: 24 }}>
             <h3>KEYPAD COLORS</h3>
             <div className="color_body">
-              <div className="ccbox color_combo_1">
-                <div className="cc_left"> </div>
-                <div className="cc_right"> </div>
-              </div>
-              <div className="ccbox color_combo_2">
-                <div className="cc_left2"> </div>
-                <div className="cc_right2"> </div>
-              </div>
+              {Object.keys(numpadColors).map((key, idx) => (
+                <div className="ccbox color_combo_1" key={idx}>
+                  <div
+                    className="cc_left"
+                    style={{
+                      backgroundColor: numpadColors[key].background,
+                      width: "100%",
+                    }}
+                  ></div>
+                  <div
+                    className="cc_right"
+                    style={{
+                      backgroundColor: numpadColors[key].foreground,
+                      width: "100%",
+                    }}
+                  ></div>
+                </div>
+              ))}
             </div>
           </div>
-          <div className="feedback_form">
+          <div
+            className="feedback_form"
+            style={{ display: "flex", flexDirection: "column", gap: 12 }}
+          >
             <h3>Feedback Form</h3>
-            <input type="text" className="feedinp" />
+            <input
+              type="text"
+              className="feedinp"
+              style={{
+                backgroundColor: "white",
+                border: "1px solid black",
+                padding: "0.5rem 1rem",
+                outline: "none",
+              }}
+            />
             <textarea
               name="text"
               className="feedtxt"
               id=""
               cols="30"
               rows="10"
+              style={{
+                backgroundColor: "white",
+                border: "1px solid black",
+                padding: "0.5rem 1rem",
+                outline: "none",
+                borderRadius: "10px",
+              }}
             ></textarea>
           </div>
         </div>
+
         <div className="right">
           <p>avatar and usernames</p>
           <button

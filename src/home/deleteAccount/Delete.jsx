@@ -81,7 +81,7 @@ function Delete() {
 
   return (
     <div>
-      <nav>
+      {/* <nav>
         <button
           className="deleteicon"
           // style={buttonStyle}
@@ -89,11 +89,10 @@ function Delete() {
         >
           <DeleteOutlineIcon />
         </button>
-      </nav>
+      </nav> */}
 
       {showDeleteModal && (
         <div style={{ ...modalStyle, display: "block" }}>
-          {" "}
           <h2>By deleting your account:</h2>
           <img
             src="https://images.pexels.com/photos/6408290/pexels-photo-6408290.jpeg?auto=compress&cs=tinysrgb&w=600"
