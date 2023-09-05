@@ -83,8 +83,21 @@ const Settingsui = () => {
             <div className="font_btn2">Inter</div>
             <div className="font_btn2">Fredroka One</div>
           </div>
-          <div className="keypad_theme">keypad colors</div>
+          <div className="keypad_theme">
+            <h3>KEYPAD COLORS</h3>
+            <div className="color_body">
+              <div className="color_combo_1">
+                <div className="cc_left"> </div>
+                <div className="cc_right"> </div>
+              </div>
+              <div className="color_combo_2">
+                <div className="cc_left2"> </div>
+                <div className="cc_right2"> </div>
+              </div>
+            </div>
+          </div>
           <div className="feedback_form">
+            <h3>Feedback Form</h3>
             <input type="text" className="feedinp" />
             <textarea
               name="text"
