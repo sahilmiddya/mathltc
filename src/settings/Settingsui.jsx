@@ -11,6 +11,20 @@ import Toggle from "../togglebtn/Toggle";
 import { numpadColors } from "../constants/numpadColors";
 
 const Settingsui = () => {
+  const [settingsData, setSettingsData] = useState({
+    active_font: null,
+    active_language: null,
+    background_music: null,
+    custom_timer: 0,
+    enable_background_music: true,
+    enable_sound_effects: true,
+    enable_practice_clock: true,
+    enable_vibrations: true,
+    numpad_color: null,
+    sound_effects: null,
+    invert_numpad: null,
+    // user: 56,
+  });
   const user_name = useSelector((state) => state.userdetails.user.username);
 
   const user_email = useSelector((state) => state.userdetails.user.email);
@@ -19,6 +33,7 @@ const Settingsui = () => {
   const auth = useSelector((state) => state.auth);
   let dispatch = useDispatch();
 
+  // console.log(settingsData.t);
   const closemodal = () => {
     dispatch(setsettingModalOpen(false));
   };
@@ -64,19 +79,51 @@ const Settingsui = () => {
           <div className="onoffbtns">
             <div className="toggler">
               <p>Practice Clock</p>
-              <Toggle />
+              <Toggle
+              checked={settingsData.enable_practice_clock}
+                onChange={(e) =>
+                  setSettingsData({
+                    ...settingsData,
+                    enable_practice_clock: e.target.checked,
+                  })
+                }
+              />
             </div>
             <div className="toggler">
               <p>Sound Effects</p>
-              <Toggle />
+        <Toggle
+              checked={settingsData.enable_sound_effects}
+                onChange={(e) =>
+                  setSettingsData({
+                    ...settingsData,
+                    enable_sound_effects: e.target.checked,
+                  })
+                }
+              />
             </div>
             <div className="toggler">
               <p>Background Music</p>
-              <Toggle />
+        <Toggle
+              checked={settingsData.enable_background_music}
+                onChange={(e) =>
+                  setSettingsData({
+                    ...settingsData,
+                    enable_background_music: e.target.checked,
+                  })
+                }
+              />
             </div>
             <div className="toggler">
               <p>Invert Numpad</p>
-              <Toggle />
+        <Toggle
+              checked={settingsData.invert_numpad}
+                onChange={(e) =>
+                  setSettingsData({
+                    ...settingsData,
+                    invert_numpad: e.target.checked,
+                  })
+                }
+              />
             </div>
           </div>{" "}
           <h3 style={{ marginTop: 12 }}>MUSIC</h3>
@@ -150,9 +197,10 @@ const Settingsui = () => {
 
         <div className="right">
           <div className="creds">
-          <p className="right_name">{user_name}</p>
-          <p className="right_email">{user_email}</p>
-          </div> <button
+            <p className="right_name">{user_name}</p>
+            <p className="right_email">{user_email}</p>
+          </div>{" "}
+          <button
             className="setbtn3"
             onClick={() => {
               dispatch(logoutUserAction());
