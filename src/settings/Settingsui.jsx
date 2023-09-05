@@ -66,7 +66,7 @@ const Settingsui = () => {
       <div className="settingbody">
         <div className="left">
           <div className="range_one">
-            <p>Select your timer (min)</p>
+            <p>Select your timer(min)</p>
             <div className="timers">
               <div
                 className="set_btn1"
