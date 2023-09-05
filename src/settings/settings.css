@@ -1,12 +1,20 @@
 .settingbody{
-    height: 70vh;
-    background-color: #e79c9c;
+    height: 70vh; 
+    overflow-y: scroll;
+    /* background-color: #fcdada; */
     display: flex;
+    font-weight: 800;
+    color: #d8093d;
+    font-size: 1.3em;
     align-items: center;
     justify-content: space-between;
 }
-
+.left{
+    overflow-y: scroll;
+    flex: 5;
+}
 .right{
+    flex: 2;
     background-color: #fce5e5;
     border: 2px solid rgb(195, 102, 214);
     border-radius: 1rem;
@@ -18,7 +26,7 @@
 
 .setbtn3{
     background-color: #eb95e3;
-    color: #ffffff;
+    color: #494343;
     padding: .4rem;
     margin: 0.3rem;
 }
@@ -27,15 +35,52 @@
 }
 .timers{
     display: flex;
+    background-color: #c0daa3;
+    margin:  1rem;
 }
 .set_btn1{
-    border: 2px solid #c449c9;
-    padding: 0.4rem;
-    margin: 0.4rem;
+    /* border: 2px solid #ce427c; */
+    background-color: #f1d2d2ec;
+    padding: 0.4rem 1em;
+    border-radius: 1em;
+    margin: 0.4rem; 
 }
-
-
-
+.toggler{
+    /* background-color: #e2b6b6; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.onoffbtns{
+    background-color: #afeeee;
+    padding: 0.5rem;
+}
+.range_one{
+    background-color: #b86161;
+    margin: 0.3rem;
+    margin-top: 1rem;
+}
+.musicbtns{
+    display: flex;
+    background-color: #a8cf7c;
+} 
+ 
+.font_btns{
+    display: flex;
+}
+.font_btn1,.mus_btn1{
+    border-radius: 1em;
+    padding: 0.5rem;
+    border: 2px solid #d8093d;
+}
+.feedinp{
+width: 80%;
+}
+.feedtxt{ 
+    width: 80%;
+    align-self: center;
+    height: 3rem;
+}
 
 
 

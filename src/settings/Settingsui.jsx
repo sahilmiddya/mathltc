@@ -6,6 +6,8 @@ import { toast } from "react-toastify";
 import { logoutUser } from "../store/authSlice";
 import { logoutUserAction } from "../store/authActions";
 import Delete from "../home/deleteAccount/Delete";
+import { useState } from "react";
+import Toggle from "../togglebtn/Toggle";
 
 const Settingsui = () => {
   const [isOn, setIsOn] = useState(false);
@@ -37,33 +39,60 @@ const Settingsui = () => {
   };
   return (
     <>
+      {" "}
+      <h2>SETTINGS</h2>
       <div className="settingbody">
         <div className="left">
           <div className="range_one">
-            <p>some heading</p>
+            <p>Select your timer (min)</p>
             <div className="timers">
-              <div className="set_btn1">btn1</div>
-              <div className="set_btn1">btn1</div>
-              <div className="set_btn1">btn1</div>
+              <div className="set_btn1">2 min</div>
+              <div className="set_btn1">3 min</div>
+              <div className="set_btn1">4 min</div>
             </div>
             <div className="range">
               <input type="range" />
             </div>
-            <div className="onoffbtns">
-              {/* ===============================================
-               */}
-
-              {/* <input
-                type="checkbox"
-                checked={isOn}
-                onClick={(e) => setIsOn(e.target.val)}
-              />
-              <br />
-              <button onClick={() => setIsOn((prevState) => !prevState)}>
-                Toggle
-              </button> */}
-              {/* =============================================== */}
+          </div>
+          <div className="onoffbtns">
+            <div className="toggler">
+              <p>Practice Clock</p>
+              <Toggle />
             </div>
+            <div className="toggler">
+              <p>Sound Effects</p>
+              <Toggle />
+            </div>
+            <div className="toggler">
+              <p>Background Music</p>
+              <Toggle />
+            </div>
+            <div className="toggler">
+              <p>Invert Numpad</p>
+              <Toggle />
+            </div>
+          </div>{" "}
+          <h3>MUSIC</h3>
+          <div className="musicbtns">
+            <div className="mus_btn1">Freedom</div>
+            <div className="mus_btn2">Turkish</div>
+          </div>
+          <h3>FONTS</h3>
+          <div className="font_btns">
+            <div className="font_btn1">Fredroka</div>
+            <div className="font_btn2">Inter</div>
+            <div className="font_btn2">Fredroka One</div>
+          </div>
+          <div className="keypad_theme">keypad colors</div>
+          <div className="feedback_form">
+            <input type="text" className="feedinp" />
+            <textarea
+              name="text"
+              className="feedtxt"
+              id=""
+              cols="30"
+              rows="10"
+            ></textarea>
           </div>
         </div>
         <div className="right">
@@ -82,7 +111,6 @@ const Settingsui = () => {
           </button>
         </div>
       </div>
-
       <button onClick={closemodal}>close</button>
     </>
   );
