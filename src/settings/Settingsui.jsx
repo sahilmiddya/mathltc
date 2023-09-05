@@ -86,11 +86,11 @@ const Settingsui = () => {
           <div className="keypad_theme">
             <h3>KEYPAD COLORS</h3>
             <div className="color_body">
-              <div className="color_combo_1">
+              <div className="ccbox color_combo_1">
                 <div className="cc_left"> </div>
                 <div className="cc_right"> </div>
               </div>
-              <div className="color_combo_2">
+              <div className="ccbox color_combo_2">
                 <div className="cc_left2"> </div>
                 <div className="cc_right2"> </div>
               </div>
