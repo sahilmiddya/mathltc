@@ -68,20 +68,51 @@ const Settingsui = () => {
           <div className="range_one">
             <p>Select your timer (min)</p>
             <div className="timers">
-              <div className="set_btn1">2 min</div>
-              <div className="set_btn1">3 min</div>
-              <div className="set_btn1">4 min</div>
+              <div
+                className="set_btn1"
+                onClick={() =>
+                  setSettingsData({
+                    ...settingsData,
+                    custom_timer: 2,
+                  })
+                }
+              >
+                2 min
+              </div>
+              <div
+                className="set_btn1"
+                onClick={() =>
+                  setSettingsData({
+                    ...settingsData,
+                    custom_timer: 3,
+                  })
+                }
+              >
+                3 min
+              </div>
+              <div
+                className="set_btn1"
+                onClick={() =>
+                  setSettingsData({
+                    ...settingsData,
+                    custom_timer: 5,
+                  })
+                }
+              >
+                5 min
+              </div>
             </div>
             <div className="range">
               <input
                 type="range"
                 step={1}
                 min={1}
+                value={settingsData.custom_timer}
                 max={15}
                 onChange={(e) =>
                   setSettingsData({
                     ...settingsData,
-                    custom_timer: e.target.value,
+                    custom_timer: Number(e.target.value),
                   })
                 }
               />
