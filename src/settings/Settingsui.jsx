@@ -28,7 +28,7 @@ const Settingsui = () => {
   const user_name = useSelector((state) => state.userdetails.user.username);
 
   const user_email = useSelector((state) => state.userdetails.user.email);
-  console.log(user_name, user_email);
+  console.log(settingsData.custom_timer);
   // const [isOn, setIsOn] = useState(false);
   const auth = useSelector((state) => state.auth);
   let dispatch = useDispatch();
@@ -73,14 +73,25 @@ const Settingsui = () => {
               <div className="set_btn1">4 min</div>
             </div>
             <div className="range">
-              <input type="range" />
+              <input
+                type="range"
+                step={1}
+                min={1}
+                max={15}
+                onChange={(e) =>
+                  setSettingsData({
+                    ...settingsData,
+                    custom_timer: e.target.value,
+                  })
+                }
+              />
             </div>
           </div>
           <div className="onoffbtns">
             <div className="toggler">
               <p>Practice Clock</p>
               <Toggle
-              checked={settingsData.enable_practice_clock}
+                checked={settingsData.enable_practice_clock}
                 onChange={(e) =>
                   setSettingsData({
                     ...settingsData,
@@ -91,8 +102,8 @@ const Settingsui = () => {
             </div>
             <div className="toggler">
               <p>Sound Effects</p>
-        <Toggle
-              checked={settingsData.enable_sound_effects}
+              <Toggle
+                checked={settingsData.enable_sound_effects}
                 onChange={(e) =>
                   setSettingsData({
                     ...settingsData,
@@ -103,8 +114,8 @@ const Settingsui = () => {
             </div>
             <div className="toggler">
               <p>Background Music</p>
-        <Toggle
-              checked={settingsData.enable_background_music}
+              <Toggle
+                checked={settingsData.enable_background_music}
                 onChange={(e) =>
                   setSettingsData({
                     ...settingsData,
@@ -115,8 +126,8 @@ const Settingsui = () => {
             </div>
             <div className="toggler">
               <p>Invert Numpad</p>
-        <Toggle
-              checked={settingsData.invert_numpad}
+              <Toggle
+                checked={settingsData.invert_numpad}
                 onChange={(e) =>
                   setSettingsData({
                     ...settingsData,
