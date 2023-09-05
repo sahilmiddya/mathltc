@@ -81,7 +81,7 @@ function Delete() {
 
   return (
     <div>
-      {/* <nav>
+      <nav>
         <button
           className="deleteicon"
           // style={buttonStyle}
@@ -89,7 +89,7 @@ function Delete() {
         >
           <DeleteOutlineIcon />
         </button>
-      </nav> */}
+      </nav>
 
       {showDeleteModal && (
         <div style={{ ...modalStyle, display: "block" }}>

@@ -11,7 +11,11 @@ import Toggle from "../togglebtn/Toggle";
 import { numpadColors } from "../constants/numpadColors";
 
 const Settingsui = () => {
-  const [isOn, setIsOn] = useState(false);
+  const user_name = useSelector((state) => state.userdetails.user.username);
+
+  const user_email = useSelector((state) => state.userdetails.user.email);
+  console.log(user_name, user_email);
+  // const [isOn, setIsOn] = useState(false);
   const auth = useSelector((state) => state.auth);
   let dispatch = useDispatch();
 
@@ -111,7 +115,7 @@ const Settingsui = () => {
           </div>
           <div
             className="feedback_form"
-            style={{ display: "flex", flexDirection: "column", }}
+            style={{ display: "flex", flexDirection: "column" }}
           >
             <h3 className="feed_form">Feedback Form</h3>
             <div className="feedback_form_body">
@@ -145,8 +149,10 @@ const Settingsui = () => {
         </div>
 
         <div className="right">
-          <p>avatar and usernames</p>
-          <button
+          <div className="creds">
+          <p className="right_name">{user_name}</p>
+          <p className="right_email">{user_email}</p>
+          </div> <button
             className="setbtn3"
             onClick={() => {
               dispatch(logoutUserAction());
@@ -155,12 +161,15 @@ const Settingsui = () => {
             Logout
           </button>
           <button className="setbtn3">Change Password</button>
-          <button className="setbtn3" onClick={deleteac}>
+          <button className="setbtn3 deletebtn" onClick={deleteac}>
             Delete Account
+            <Delete />
           </button>
         </div>
       </div>
-      <button onClick={closemodal}>close</button>
+      <button onClick={closemodal} className="close_btn">
+        close
+      </button>
     </>
   );
 };

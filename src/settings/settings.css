@@ -14,7 +14,8 @@
   padding-left: 0.5rem;
 }
 .right {
-  flex: 2;
+  flex: 2.5;
+
   background-color: #fce5e5;
   border: 2px solid rgb(195, 102, 214);
   border-radius: 1rem;
@@ -25,7 +26,7 @@
 }
 
 .setbtn3 {
-  background-color: #eb95e3;
+  background-color: #d7a6a6;
   color: #494343;
   padding: 0.4rem;
   margin: 0.3rem;
@@ -80,8 +81,6 @@
   gap: 5px;
   display: flex;
   gap: 12px;
-
-
 }
 .font_btn1,
 .font_btn2,
@@ -103,7 +102,8 @@
 
 .feedback_form_body {
   margin-top: 24px;
-  display: flex;flex-direction: column;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 .feedinp {
@@ -118,8 +118,8 @@
   width: 80%;
   height: 3rem;
 }
-.feed_form{
-    margin-top: 1rem;
+.feed_form {
+  margin-top: 1rem;
 }
 .color_body {
   display: grid;
@@ -150,12 +150,43 @@
   background-color: #e9c2c2;
   width: 3rem;
 }
-.feed_btn{
-    background-color: #f7d2d2;
-    width: 50%;
-    color: #d7a6a6ee;
-    font-weight: 700;
-    border-radius: 3rem;
-    margin: 1rem;
-    padding: .51rem;
+.feed_btn {
+  background-color: #f7d2d2;
+  width: 50%;
+  color: #d7a6a6ee;
+  font-weight: 700;
+  border-radius: 3rem;
+  margin: 1rem;
+  padding: 0.51rem;
+}
+.deletebtn {
+  display: flex;
+  align-items: center;
+}
+
+.close_btn {
+  padding: 1rem;
+  background-color: #d7a6a6;
+  color: #c00241;
+}
+
+.right_name {
+  color: #494343;
+  text-align: left;
+}
+.right_email {
+  color: #776f6f;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.creds {
+  /* background-color: #c00241; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  align-self: center;
+
+  padding: 1rem;
 }
