@@ -1,9 +1,8 @@
-import  './toggle.css'
+import "./toggle.css";
 
-import  { useState } from "react"; 
+import { useState } from "react";
 
- 
-const  Toggle  = () => {
+const Toggle = () => {
   const [isToggled, setIsToggled] = useState(false);
   const onToggle = () => setIsToggled(!isToggled);
   return (
@@ -12,6 +11,6 @@ const  Toggle  = () => {
       <span className="switch" />
     </label>
   );
-} 
+};
 
-export default Toggle
+export default Toggle;
