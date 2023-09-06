@@ -66,10 +66,8 @@ const Navbar = () => {
           <Delete />
         </div>
         <div className="set">
-          <SettingModal
-            open={settingmodalopen}
-            handleClose={() => dispatch(setsettingModalOpen())}
-          />
+          <SettingModal open={settingmodalopen}
+          handleClose={()=>dispatch(setsettingModalOpen())} />
           <Link to="#" onClick={onsettingModal}>
             <SettingsIcon />
           </Link>
