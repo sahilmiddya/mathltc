@@ -11,7 +11,7 @@
   overflow: hidden;
   outline: none;
   /* max-height: ; */
-  min-height: 100vh;
+  /* min-height: 80vh; */
 }
 
 .setting-modal-content {

@@ -122,12 +122,13 @@ const Settingsui = () => {
             </div>
             <div className="range">
               <input
+              // className="range_inp"
                 type="range"
                 step={1}
                 min={1}
                 value={settingsData.custom_timer}
                 max={15}
-                onChange={(e) =>
+                  onChange={(e) =>
                   setSettingsData({
                     ...settingsData,
                     custom_timer: Number(e.target.value),
@@ -268,8 +269,8 @@ const Settingsui = () => {
               className="avatar_setting"
               style={{
                 backgroundImage: `url(${user_bg})`,
-                width: "100px",
-                height: "100px",
+                width: "70px",
+                height: "70px",
                 borderRadius: "50%",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
