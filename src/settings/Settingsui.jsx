@@ -9,6 +9,7 @@ import Delete from "../home/deleteAccount/Delete";
 import { useState } from "react";
 import Toggle from "../togglebtn/Toggle";
 import { numpadColors } from "../constants/numpadColors";
+import CheckIcon from "@mui/icons-material/Check";
 
 const Settingsui = () => {
   const [settingsData, setSettingsData] = useState({
@@ -189,39 +190,43 @@ const Settingsui = () => {
           </div>{" "}
           <h3 style={{ marginTop: 12 }}>MUSIC</h3>
           <div className="musicbtns">
-            <div className="mus_btn1"  
-            
-            onClick={() =>
-              setSettingsData({
-                ...settingsData,
-                active_font: "Freedom",
-              })
-            }
-            style={{
-              backgroundColor:
-                settingsData.active_font === "Freedom" ? "#ffd0d0" : "",
-            }}
-            >Freedom</div>
-            <div className="mus_btn2"  
-             onClick={() =>
-              setSettingsData({
-                ...settingsData,
-                active_font: "Turkish",
-              })
-            }
-            style={{
-              backgroundColor:
-                settingsData.active_font === "Turkish" ? "#ffd0d0" : "",
-            }}
-            
-            >Turkish</div>
+            <div
+              className="mus_btn1"
+              onClick={() =>
+                setSettingsData({
+                  ...settingsData,
+                  active_font: "Freedom",
+                })
+              }
+              style={{
+                backgroundColor:
+                  settingsData.active_font === "Freedom" ? "#ffd0d0" : "",
+              }}
+            >
+              Freedom
+            </div>
+            <div
+              className="mus_btn2"
+              onClick={() =>
+                setSettingsData({
+                  ...settingsData,
+                  active_font: "Turkish",
+                })
+              }
+              style={{
+                backgroundColor:
+                  settingsData.active_font === "Turkish" ? "#ffd0d0" : "",
+              }}
+            >
+              Turkish
+            </div>
           </div>
           <h3 style={{ marginTop: 24 }}>FONTS</h3>
           <div className="font_btns">
             <div
               className="font_btn1"
               // ===========================================================================
-              // onclick for clicking the button AND saving in state, then style for active forn 
+              // onclick for clicking the button AND saving in state, then style for active forn
               onClick={() =>
                 setSettingsData({
                   ...settingsData,
@@ -236,44 +241,51 @@ const Settingsui = () => {
             >
               Fredroka
             </div>
-            <div className="font_btn2"
-            onClick={() =>
-              setSettingsData({
-                ...settingsData,
-                active_font: "Inter",
-              })
-            }
-            style={{
-              backgroundColor:
-                settingsData.active_font === "Inter" ? "#ffd0d0" : "",
-            }}
-            >Inter</div> 
+            <div
+              className="font_btn2"
+              onClick={() =>
+                setSettingsData({
+                  ...settingsData,
+                  active_font: "Inter",
+                })
+              }
+              style={{
+                backgroundColor:
+                  settingsData.active_font === "Inter" ? "#ffd0d0" : "",
+              }}
+            >
+              Inter
+            </div>
           </div>
           <div className="keypad_theme" style={{ marginTop: 24 }}>
             <h3>Keypad Theme</h3>
+
             <div className="color_body">
               {Object.keys(numpadColors).map((key, idx) => (
-                <div
-                  className="ccbox color_combo_1"
-                  key={idx}
-                  onClick={() =>
-                    setSettingsData({ ...settingsData, numpad_color: key })
-                  }
-                >
+                <div className="numpad_cover" key={idx}>
                   <div
-                    className="cc_left"
-                    style={{
-                      backgroundColor: numpadColors[key].background,
-                      width: "100%",
-                    }}
-                  ></div>
-                  <div
-                    className="cc_right"
-                    style={{
-                      backgroundColor: numpadColors[key].foreground,
-                      width: "100%",
-                    }}
-                  ></div>
+                    className="ccbox color_combo_1"
+                    onClick={() =>
+                      setSettingsData({ ...settingsData, numpad_color: key })
+                    }
+                  >
+                    <div
+                      className="cc_left"
+                      style={{
+                        backgroundColor: numpadColors[key].background,
+                        width: "100%",
+                      }}
+                    ></div>
+                    <div
+                      className="cc_right"
+                      style={{
+                        backgroundColor: numpadColors[key].foreground,
+                        width: "100%",
+                      }}
+                    ></div>
+                  </div>
+
+                  {settingsData.numpad_color===key&& <CheckIcon className="icon_tick" />}
                 </div>
               ))}
             </div>

@@ -72,8 +72,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div
-          className="set"
-          //  style={{ marginTop: -10 }}
+          className="set" 
         >
           <Tooltip title="Logout">
             <IconButton
