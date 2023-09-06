@@ -9,6 +9,11 @@ const SettingModal = ({ open, handleClose }) => {
       onClose={handleClose}
       aria-labelledby="setting-modal-title"
       aria-describedby="setting-modal-description"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
     >
       <div className="setting-modal">
         <div className="setting-modal-content">
