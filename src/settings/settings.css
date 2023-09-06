@@ -21,9 +21,9 @@
 }
 .right {
   /* flex: 2.5; */
-  max-width: 300px;
+  max-width: 400px;
   /* background-color: #fce5e5; */
-  border: 2px solid rgb(195, 102, 214);
+  border: 2px solid rgba(168, 166, 168, 0.897);
   border-radius: 1rem;
   padding: 1rem;
   margin: 1rem;
@@ -215,3 +215,9 @@
 
   padding: 1rem;
 }
+.right_top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
