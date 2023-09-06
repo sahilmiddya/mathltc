@@ -147,13 +147,13 @@
 .feedinp {
   width: 80%;
   background-color: #fff;
-  color: #d7a6a6;
-  border: 2px solid #d7a6a6;
+  
   padding: 0.3rem;
+  border: 2px solid #e491ad !important;
   margin: 0.4rem;
 }
-.feedtxt {
-  border: 2px solid #d7a6a6;
+.feedtxt { 
+  border: 2px solid #e6a1b8 !important;
   width: 80%;
   height: 3rem;
   margin-top: 1rem;
@@ -213,11 +213,14 @@
 .feed_btn {
   background-color: #f7d2d2;
   width: 50%;
-  color: #d7a6a6ee;
+  color: #ffffffee;
   font-weight: 700;
   border-radius: 3rem;
   margin: 1rem;
   padding: 0.51rem;
+}
+.feed_btn:hover{
+  background-color: #f1b7b7;
 }
 .deletebtn {
   display: flex;
@@ -228,6 +231,9 @@
   padding: 1rem;
   background-color: #d7a6a6;
   color: #c00241;
+  width: fit-content;
+  justify-content: start;
+  margin: 1rem;
 }
 
 .right_name {

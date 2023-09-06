@@ -10,6 +10,7 @@ import { useState } from "react";
 import Toggle from "../togglebtn/Toggle";
 import { numpadColors } from "../constants/numpadColors";
 import CheckIcon from "@mui/icons-material/Check";
+import Feedback from "./feedback/Feedback";
 
 const Settingsui = () => {
   const [settingsData, setSettingsData] = useState({
@@ -41,10 +42,7 @@ const Settingsui = () => {
   const auth = useSelector((state) => state.auth);
   let dispatch = useDispatch();
 
-  // console.log(settingsData.t);
-  const closemodal = () => {
-    dispatch(setsettingModalOpen(false));
-  };
+ 
 
   const deleteac = () => {
     dispatch(
@@ -290,40 +288,7 @@ const Settingsui = () => {
               ))}
             </div>
           </div>
-          <div
-            className="feedback_form"
-            style={{ display: "flex", flexDirection: "column" }}
-          >
-            <div className="feedback_form_body">
-              {" "}
-              <h3 className="feed_form">Feedback </h3>
-              <input
-                type="text"
-                className="feedinp"
-                style={{
-                  backgroundColor: "white",
-                  border: "1px solid black",
-                  padding: "0.5rem 1rem",
-                  outline: "none",
-                }}
-              />
-              <textarea
-                name="text"
-                className="feedtxt"
-                id=""
-                cols="30"
-                rows="10"
-                style={{
-                  backgroundColor: "white",
-                  border: "1px solid black",
-                  padding: "0.5rem 1rem",
-                  outline: "none",
-                  borderRadius: "10px",
-                }}
-              ></textarea>
-              <button className="feed_btn">submit</button>
-            </div>
-          </div>
+          <Feedback/>
         </div>
 
         <div className="right">
@@ -373,9 +338,7 @@ const Settingsui = () => {
           </button>
         </div>
       </div>
-      <button onClick={closemodal} className="close_btn">
-        close
-      </button>
+     
     </div>
   );
 };
