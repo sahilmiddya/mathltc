@@ -16,7 +16,6 @@
 .left {
   max-height: 70vh;
   overflow-y: scroll;
-  flex: 6;
   padding-right: 1.5rem;
   padding-left: 0.5rem;
 }
