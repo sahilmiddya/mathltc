@@ -34,30 +34,33 @@
   /* align-items: center; */
   flex-direction: column;
 }
-.right_top{
+.right_top {
   padding: 1rem;
   width: 90%;
   /* background-color: #eb2020; */
 }
-.avatar_setting{
+.avatar_setting {
   width: 90px;
   height: 36px;
   padding: 12px;
+  cursor: pointer;
 }
 .setbtn3 {
   background-color: #fff9f9;
   color: #494343;
-  padding: .6rem 1rem;
+  padding: 0.6rem 1rem;
   border-radius: 1.2rem;
   text-align: center;
   font-weight: 900;
   font-size: 19px;
   color: #d7a6a6;
+  cursor: pointer;
   margin: 0.3rem;
 }
 .setbtn3:hover {
   /* background-  */
   background-color: #fff4f4;
+  cursor: pointer;
 }
 .timers {
   display: flex;
@@ -69,15 +72,18 @@
   padding: 0.4rem 0.6rem;
   border-radius: 1em;
   width: 100%;
+  cursor: pointer;
   font-size: 0.9em;
 }
 .toggler {
   /* background-color: #e2b6b6; */
   display: flex;
   align-items: center;
+  cursor: pointer;
   justify-content: space-between;
 }
 .onoffbtns {
+  cursor: pointer;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -98,6 +104,7 @@
 .mus_btn2 {
   width: 100%;
   text-align: center;
+  cursor: pointer;
   background-color: #fff4f4;
   border-radius: 1em;
   padding: 0.5rem;
@@ -105,6 +112,7 @@
 
 .font_btns {
   gap: 5px;
+  cursor: pointer;
   display: flex;
   gap: 12px;
 }
@@ -115,6 +123,7 @@
   padding: 0.5rem;
   background-color: #fff4f4;
   width: 100%;
+  cursor: pointer;
   text-align: center;
 }
 
@@ -129,7 +138,7 @@
 .feedback_form_body {
   margin-top: 24px;
   display: flex;
-  width: 80%;
+  width: 60%;
   background-color: #fff4f4;
   border-radius: 1rem;
   flex-direction: column;
@@ -147,19 +156,20 @@
   border: 2px solid #d7a6a6;
   width: 80%;
   height: 3rem;
+  margin-top: 1rem;
 }
 .feed_form {
   margin-top: 1rem;
 }
 .keypad_theme {
   background-color: #fff4f4;
-  width: 80%;
+  width: 60%;
   text-align: center;
   padding: 0.41rem;
   border-radius: 1rem;
 }
 .color_body {
-  padding: 0.6em;
+  padding: 0.6em;cursor: pointer;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 12px;
@@ -188,7 +198,6 @@
   background-color: #9a905d;
   color: #a33a3a;
 } */
-
 
 .color_combo_2 {
   display: flex;
@@ -223,12 +232,12 @@
 
 .right_name {
   color: #494343;
-  font-size: .8rem;
+  font-size: 0.8rem;
   text-align: left;
 }
 .right_email {
   color: #776f6f;
-  font-size: .7rem;
+  font-size: 0.7rem;
   margin-bottom: 1rem;
 }
 
@@ -240,11 +249,22 @@
   justify-content: center;
   align-self: center;
 
-  padding: .31rem;
+  padding: 0.31rem;
 }
 .right_top {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
+.numpad_cover{
+  position: relative; 
+}
+.icon_tick{
+  position: absolute; 
+  color: #07991a;
+  font-size: 2.2rem !important;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}

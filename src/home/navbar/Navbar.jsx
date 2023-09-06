@@ -72,8 +72,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div
-          className="set"
-          //  style={{ marginTop: -10 }}
+          className="set" 
         >
           <Tooltip title="Logout">
             <IconButton
@@ -101,15 +100,14 @@ const Navbar = () => {
         >
           <img
             // className="navimg"
-
+            onClick={handleWardrobeClick}
             src={userprofile?.avatar?.image}
             style={
               {
                 // height:'80%,'
               }
             }
-            // src="https://images.pexels.com/photos/341970/pexels-photo-341970.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt=""
+             alt=""
           />
         </div>
       </div>
