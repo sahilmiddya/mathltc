@@ -28,6 +28,13 @@ const Settingsui = () => {
   const user_name = useSelector((state) => state.userdetails.user.username);
 
   const user_email = useSelector((state) => state.userdetails.user.email);
+
+  const user_avatar = useSelector(
+    (state) => state.userdetails.user.avatar.image
+  );
+  const user_bg = useSelector(
+    (state) => state.userdetails.user.background.image
+  );
   console.log(settingsData.custom_timer);
   // const [isOn, setIsOn] = useState(false);
   const auth = useSelector((state) => state.auth);
@@ -65,7 +72,7 @@ const Settingsui = () => {
       <div className="settingbody">
         <div className="left">
           <div className="range_one">
-            <p>Select your-timer(min)</p>
+            <p>Select your timer (min)</p>
             <div className="timers">
               <div
                 className="set_btn1"
@@ -256,10 +263,15 @@ const Settingsui = () => {
         </div>
 
         <div className="right">
-          <div className="creds">
-            <p className="right_name">{user_name}</p>
-            <p className="right_email">{user_email}</p>
-          </div>{" "}
+          <div className="right_top">
+            <div className="avatar_setting" style={{backgroundImage:`url(${user_bg})`}}>
+              <img src={user_avatar} alt="" />
+            </div>
+            <div className="creds">
+              <p className="right_name">{user_name}</p>
+              <p className="right_email">{user_email}</p>
+            </div>{" "}
+          </div>
           <button
             className="setbtn3"
             onClick={() => {
