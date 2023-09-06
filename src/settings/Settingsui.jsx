@@ -122,13 +122,13 @@ const Settingsui = () => {
             </div>
             <div className="range">
               <input
-              // className="range_inp"
+                // className="range_inp"
                 type="range"
                 step={1}
                 min={1}
                 value={settingsData.custom_timer}
                 max={15}
-                  onChange={(e) =>
+                onChange={(e) =>
                   setSettingsData({
                     ...settingsData,
                     custom_timer: Number(e.target.value),
@@ -189,14 +189,65 @@ const Settingsui = () => {
           </div>{" "}
           <h3 style={{ marginTop: 12 }}>MUSIC</h3>
           <div className="musicbtns">
-            <div className="mus_btn1">Freedom</div>
-            <div className="mus_btn2">Turkish</div>
+            <div className="mus_btn1"  
+            
+            onClick={() =>
+              setSettingsData({
+                ...settingsData,
+                active_font: "Freedom",
+              })
+            }
+            style={{
+              backgroundColor:
+                settingsData.active_font === "Freedom" ? "#ffd0d0" : "",
+            }}
+            >Freedom</div>
+            <div className="mus_btn2"  
+             onClick={() =>
+              setSettingsData({
+                ...settingsData,
+                active_font: "Turkish",
+              })
+            }
+            style={{
+              backgroundColor:
+                settingsData.active_font === "Turkish" ? "#ffd0d0" : "",
+            }}
+            
+            >Turkish</div>
           </div>
           <h3 style={{ marginTop: 24 }}>FONTS</h3>
           <div className="font_btns">
-            <div className="font_btn1">Fredroka</div>
-            <div className="font_btn2">Inter</div>
-            {/* <div className="font_btn3">Fredroka One</div> */}
+            <div
+              className="font_btn1"
+              // ===========================================================================
+              // onclick for clicking the button AND saving in state, then style for active forn 
+              onClick={() =>
+                setSettingsData({
+                  ...settingsData,
+                  active_font: "Fredroka",
+                })
+              }
+              style={{
+                backgroundColor:
+                  settingsData.active_font === "Fredroka" ? "#ffd0d0" : "",
+              }}
+              // ======================================================================/////////////////////
+            >
+              Fredroka
+            </div>
+            <div className="font_btn2"
+            onClick={() =>
+              setSettingsData({
+                ...settingsData,
+                active_font: "Inter",
+              })
+            }
+            style={{
+              backgroundColor:
+                settingsData.active_font === "Inter" ? "#ffd0d0" : "",
+            }}
+            >Inter</div> 
           </div>
           <div className="keypad_theme" style={{ marginTop: 24 }}>
             <h3>Keypad Theme</h3>
@@ -275,7 +326,7 @@ const Settingsui = () => {
                 borderRadius: "50%",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
-                display: "flex", 
+                display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
               }}
