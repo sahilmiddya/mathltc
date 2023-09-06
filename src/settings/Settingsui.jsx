@@ -269,8 +269,9 @@ const Settingsui = () => {
               className="avatar_setting"
               style={{
                 backgroundImage: `url(${user_bg})`,
-                width: "70px",
-                height: "70px",
+                // width: "70px",
+                // padding:'12px',
+                // height: "40px",
                 borderRadius: "50%",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",

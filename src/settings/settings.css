@@ -21,7 +21,9 @@
 }
 .right {
   /* flex: 2.5; */
-  max-width: 400px;
+  /* max-width: 400px; */
+  width: 30%;
+  /* width: fit-content; */
   /* background-color: #fce5e5; */
   border: 2px solid rgba(168, 166, 168, 0.897);
   border-radius: 1rem;
@@ -32,15 +34,24 @@
   /* align-items: center; */
   flex-direction: column;
 }
-
+.right_top{
+  padding: 1rem;
+  width: 90%;
+  /* background-color: #eb2020; */
+}
+.avatar_setting{
+  width: 90px;
+  height: 36px;
+  padding: 12px;
+}
 .setbtn3 {
   background-color: #fff9f9;
   color: #494343;
-  padding: 1rem;
+  padding: .6rem 1rem;
   border-radius: 1.2rem;
   text-align: center;
-  font-weight: 700;
-  font-size: 15px;
+  font-weight: 900;
+  font-size: 19px;
   color: #d7a6a6;
   margin: 0.3rem;
 }
@@ -212,11 +223,12 @@
 
 .right_name {
   color: #494343;
+  font-size: .8rem;
   text-align: left;
 }
 .right_email {
   color: #776f6f;
-  font-size: 1rem;
+  font-size: .7rem;
   margin-bottom: 1rem;
 }
 
@@ -228,7 +240,7 @@
   justify-content: center;
   align-self: center;
 
-  padding: 1rem;
+  padding: .31rem;
 }
 .right_top {
   display: flex;
