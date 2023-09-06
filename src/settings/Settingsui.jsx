@@ -122,13 +122,13 @@ const Settingsui = () => {
             </div>
             <div className="range">
               <input
-              // className="range_inp"
+                // className="range_inp"
                 type="range"
                 step={1}
                 min={1}
                 value={settingsData.custom_timer}
                 max={15}
-                  onChange={(e) =>
+                onChange={(e) =>
                   setSettingsData({
                     ...settingsData,
                     custom_timer: Number(e.target.value),
@@ -275,7 +275,7 @@ const Settingsui = () => {
                 borderRadius: "50%",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
-                display: "flex", 
+                display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
               }}
