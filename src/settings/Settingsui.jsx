@@ -60,17 +60,19 @@ const Settingsui = () => {
 
   console.log(numpadColors["one"].background);
   return (
-    <>
-      {" "}
+    <div className="full_settings">
       <h2>SETTINGS</h2>
       <div className="settingbody">
         <div className="left">
           <div className="range_one">
-            <p>Select your timer(min)</p>
+            <p>Select your-timer(min)</p>
             <div className="timers">
               <div
                 className="set_btn1"
-                style={{backgroundColor:settingsData.custom_timer===2?"#ffd0d0":""}}
+                style={{
+                  backgroundColor:
+                    settingsData.custom_timer === 2 ? "#ffd0d0" : "",
+                }}
                 onClick={() =>
                   setSettingsData({
                     ...settingsData,
@@ -82,7 +84,10 @@ const Settingsui = () => {
               </div>
               <div
                 className="set_btn1"
-                style={{backgroundColor:settingsData.custom_timer===3?"#ffd0d0":""}}
+                style={{
+                  backgroundColor:
+                    settingsData.custom_timer === 3 ? "#ffd0d0" : "",
+                }}
                 onClick={() =>
                   setSettingsData({
                     ...settingsData,
@@ -94,7 +99,10 @@ const Settingsui = () => {
               </div>
               <div
                 className="set_btn1"
-                style={{backgroundColor:settingsData.custom_timer===5?"#ffd0d0":""}}
+                style={{
+                  backgroundColor:
+                    settingsData.custom_timer === 5 ? "#ffd0d0" : "",
+                }}
                 onClick={() =>
                   setSettingsData({
                     ...settingsData,
@@ -183,10 +191,16 @@ const Settingsui = () => {
             {/* <div className="font_btn3">Fredroka One</div> */}
           </div>
           <div className="keypad_theme" style={{ marginTop: 24 }}>
-            <h3>KEYPAD COLORS</h3>
-            <div className="color_body" >
+            <h3>Keypad Theme</h3>
+            <div className="color_body">
               {Object.keys(numpadColors).map((key, idx) => (
-                <div className="ccbox color_combo_1" key={idx} onClick={()=>setSettingsData({...settingsData,numpad_color:key})}>
+                <div
+                  className="ccbox color_combo_1"
+                  key={idx}
+                  onClick={() =>
+                    setSettingsData({ ...settingsData, numpad_color: key })
+                  }
+                >
                   <div
                     className="cc_left"
                     style={{
@@ -209,8 +223,9 @@ const Settingsui = () => {
             className="feedback_form"
             style={{ display: "flex", flexDirection: "column" }}
           >
-            <h3 className="feed_form">Feedback Form</h3>
             <div className="feedback_form_body">
+              {" "}
+              <h3 className="feed_form">Feedback </h3>
               <input
                 type="text"
                 className="feedinp"
@@ -263,7 +278,7 @@ const Settingsui = () => {
       <button onClick={closemodal} className="close_btn">
         close
       </button>
-    </>
+    </div>
   );
 };
 

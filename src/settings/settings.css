@@ -1,5 +1,12 @@
+/* .full_settings{
+  background-color: #363232;
+  width: 100%;
+} */
+
 .settingbody {
   display: flex;
+  /* background-color: #5c4c4c; */
+  /* width: 23rem; */
   font-weight: 800;
   color: #d7a6a6;
   font-size: 1.3em;
@@ -15,7 +22,7 @@
 }
 .right {
   /* flex: 2.5; */
-max-width: 400px;
+  /* max-width: 300px; */
   background-color: #fce5e5;
   border: 2px solid rgb(195, 102, 214);
   border-radius: 1rem;
@@ -104,6 +111,8 @@ max-width: 400px;
 .feedback_form_body {
   margin-top: 24px;
   display: flex;
+  background-color: #fff4f4;
+  border-radius: 1rem;
   flex-direction: column;
   align-items: center;
 }
@@ -116,18 +125,29 @@ max-width: 400px;
   margin: 0.4rem;
 }
 .feedtxt {
+  border: 2px solid #d7a6a6;
   width: 80%;
   height: 3rem;
 }
 .feed_form {
   margin-top: 1rem;
 }
+.keypad_theme {
+  background-color: #fff4f4;
+  text-align: center;
+  padding: 0.41rem;
+  border-radius: 1rem;
+}
 .color_body {
+  /* padding: 0.4em; */
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+  /* padding-right: 0.5em; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 12px;
   max-width: min-content;
-  margin-left: 12px;
+  margin-left: 6px;
 }
 .ccbox {
   border-radius: 0.8rem;

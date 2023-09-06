@@ -6,13 +6,15 @@
   height: 90vh;
   margin: auto;
   border-radius: 2em;
+  /* background-color: #da7272; */
+  width: 50vw;
   overflow: hidden;
   margin-top: 1rem;
   /* width: 65rem;
     margin-left: 13rem;
     /* align-self: center; */
   /* text-align: center; */
-  overflow: auto;
+  overflow: hidden;
 }
 
 .setting-modal-content {
