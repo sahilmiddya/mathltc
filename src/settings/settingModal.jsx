@@ -2,6 +2,7 @@ import Modal from "@mui/material/Modal";
 import "./settingModal.css";
 import Settingsui from "./Settingsui";
 import { useState } from "react";
+import { settingAsync } from "../store/settingActions";
 
 const SettingModal = ({ open, handleClose }) => {
   const [settingsData, setSettingsData] = useState({
@@ -19,10 +20,39 @@ const SettingModal = ({ open, handleClose }) => {
     // user: 56,
   });
 
+const settingupdate=()=>{
+  dispatch(
+    settingAsync(
+      auth.user.token,
+      {
+        // ""user"": 1,
+        // ""enable_vibrations"": true,
+        // ""enable_sound_effects"": true,
+        // ""sound_effects"": """",
+        // ""enable_background_music"": true,
+        // ""background_music"": """",
+        // ""numpad_color"": """",
+        // ""active_font"": """",
+        // ""custom_timer"": 120,
+        // ""active_language"": """",
+        // ""clock_type"": """"
+    },
+      (msg) => {  
+
+        toast.success(msg.detail);
+      },
+      (err) => {
+        toast.error(err.detail);
+      }
+    )
+  );
+}
+
+
   return (
     <Modal
       open={open}
-      onClose={handleClose}
+      onClose={settingupdate}
       aria-labelledby="setting-modal-title"
       aria-describedby="setting-modal-description"
       style={{
