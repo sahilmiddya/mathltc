@@ -269,9 +269,17 @@ const Settingsui = () => {
             Logout
           </button>
           <button className="setbtn3">Change Password</button>
-          <button className="setbtn3 deletebtn" onClick={deleteac}>
-            Delete Account
+          <button
+            className="setbtn3 deletebtn"
+            onClick={deleteac}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <Delete />
+            Delete Account
           </button>
         </div>
       </div>

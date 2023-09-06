@@ -11,7 +11,7 @@ const SettingModal = ({ open, handleClose }) => {
       aria-describedby="setting-modal-description"
     >
       <div className="setting-modal">
-        <div className="setting-modal-content"> 
+        <div className="setting-modal-content">
           <Settingsui close={handleClose} />
         </div>
       </div>

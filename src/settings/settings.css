@@ -21,7 +21,7 @@
 }
 .right {
   /* flex: 2.5; */
-  /* max-width: 300px; */
+  max-width: 300px;
   /* background-color: #fce5e5; */
   border: 2px solid rgb(195, 102, 214);
   border-radius: 1rem;
@@ -145,10 +145,8 @@
   border-radius: 1rem;
 }
 .color_body {
-  /* padding: 0.4em; */
   padding-bottom: 0.5em;
   padding-top: 0.5em;
-  /* padding-right: 0.5em; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 12px;
