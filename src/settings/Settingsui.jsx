@@ -285,7 +285,7 @@ const Settingsui = () => {
                     ></div>
                   </div>
 
-                  {settingsData.numpad_color===key&& <CheckIcon className="icon_tick" />}
+                  {settingsData.numpad_color===key && <CheckIcon className="icon_tick" />}
                 </div>
               ))}
             </div>
