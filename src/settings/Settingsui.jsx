@@ -23,12 +23,12 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
   const user_bg = useSelector(
     (state) => state.userdetails.user.background.image
   );
-  console.log(settingsData.custom_timer);
+  // console.log(settingsData.custom_timer);
   // const [isOn, setIsOn] = useState(false);
   const auth = useSelector((state) => state.auth);
   let dispatch = useDispatch();
 
- 
+ console.log(numpadColors[settingsData.numpad_color]);
 
   const deleteac = () => {
     dispatch(
