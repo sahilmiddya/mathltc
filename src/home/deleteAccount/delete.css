@@ -57,7 +57,7 @@ padding: .5rem;
 }
 .deleteicon{
 background-color: inherit;
-align-self: center;
+align-self: center; 
 }
 .redbtns{
     padding: .6rem;
