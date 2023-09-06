@@ -66,14 +66,15 @@ const Navbar = () => {
           <Delete />
         </div>
         <div className="set">
-          <SettingModal open={settingmodalopen} />
+          <SettingModal
+            open={settingmodalopen}
+            handleClose={() => dispatch(setsettingModalOpen())}
+          />
           <Link to="#" onClick={onsettingModal}>
             <SettingsIcon />
           </Link>
         </div>
-        <div
-          className="set" 
-        >
+        <div className="set">
           <Tooltip title="Logout">
             <IconButton
               onClick={() => {
@@ -107,7 +108,7 @@ const Navbar = () => {
                 // height:'80%,'
               }
             }
-             alt=""
+            alt=""
           />
         </div>
       </div>

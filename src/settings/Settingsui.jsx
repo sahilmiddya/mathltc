@@ -11,21 +11,7 @@ import Toggle from "../togglebtn/Toggle";
 import { numpadColors } from "../constants/numpadColors";
 import CheckIcon from "@mui/icons-material/Check";
 
-const Settingsui = () => {
-  const [settingsData, setSettingsData] = useState({
-    active_font: null,
-    active_language: null,
-    background_music: null,
-    custom_timer: 0,
-    enable_background_music: true,
-    enable_sound_effects: true,
-    enable_practice_clock: true,
-    enable_vibrations: true,
-    numpad_color: null,
-    sound_effects: null,
-    invert_numpad: null,
-    // user: 56,
-  });
+const Settingsui = ({ settingsData, setSettingsData }) => {
   const user_name = useSelector((state) => state.userdetails.user.username);
 
   const user_email = useSelector((state) => state.userdetails.user.email);
@@ -285,7 +271,9 @@ const Settingsui = () => {
                     ></div>
                   </div>
 
-                  {settingsData.numpad_color===key && <CheckIcon className="icon_tick" />}
+                  {settingsData.numpad_color === key && (
+                    <CheckIcon className="icon_tick" />
+                  )}
                 </div>
               ))}
             </div>
