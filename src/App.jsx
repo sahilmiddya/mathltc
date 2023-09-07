@@ -15,6 +15,7 @@ import Hear from "./hear/Hear";
 import Home from "./home/Home";
 import Add from "./home/cards/add/Add";
 
+import Leaderboard from "./leaderboard/Leaderborad";
 import Map from "./home/map/Map";
 import Level from "./level/Level";
 import Math from "./math/Math";
@@ -22,7 +23,7 @@ import Result from "./result/Result";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useSelector } from "react-redux";
+import { useSelector } from "react-redux"; 
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -48,6 +49,10 @@ function App() {
           <Route
             path="/hear"
             element={<PublicRoute component={<Hear />} redirectUrl="/home" />}
+          />
+           <Route
+            path="/leaderboard"
+            element={<PrivateRoute component={<Leaderboard />} redirectUrl="/login" />}
           />
           <Route
             path="/otp"

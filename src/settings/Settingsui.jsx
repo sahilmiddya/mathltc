@@ -206,7 +206,7 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
               Turkish
             </div>
           </div>
-          <h3 style={{ marginTop: 24 , marginBottom: 8 }}>FONTS</h3>
+          <h3 style={{ marginTop: 24, marginBottom: 8 }}>FONTS</h3>
           <div className="font_btns">
             <div
               className="font_btn1"

@@ -58,7 +58,10 @@ const Navbar = () => {
           open={wardrobeModalOpen}
           handleClose={handleWardrobeModalClose}
         />
-        <div className="nitems">Leaderboard</div>
+        <div className="nitems">
+         
+          <Link to="/leaderboard">Leaderboard</Link>
+        </div>
         <div className="nitems">Help</div>
       </div>
       <div className="nright">
@@ -66,8 +69,10 @@ const Navbar = () => {
           <Delete />
         </div>
         <div className="set">
-          <SettingModal open={settingmodalopen}
-          handleClose={()=>dispatch(setsettingModalOpen())} />
+          <SettingModal
+            open={settingmodalopen}
+            handleClose={() => dispatch(setsettingModalOpen())}
+          />
           <Link to="#" onClick={onsettingModal}>
             <SettingsIcon />
           </Link>

@@ -12,6 +12,7 @@ import regnSlice from "./regFlowslice";
 import  profiledetailsasync  from "./ProfileSlice";
 import globalsettingSlice from "./globalsettingSlice";
 import settingslice from "./settingslice";
+import leaderSlice from "./leader_slice";
 
 const reducers = combineReducers({
   // form:loginslice.reducer,
@@ -24,6 +25,7 @@ const reducers = combineReducers({
   userdetails: profiledetailsasync,
   globalsettings: globalsettingSlice,
   settings: settingslice,
+  leaderboard:leaderSlice,
 });
 
 const persistConfig = {
