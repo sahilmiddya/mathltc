@@ -19,7 +19,7 @@
 }
 .lb_table_body {
   /* background-color: #8ee69c; */
-  width: 32rem;
+  width: 39rem;
 
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@
 
 .lb_row {
   /* background-color: #ffebeb; */
-  padding:.3rem 1rem ;
+  padding:.3rem 2rem ;
   border-radius: 1rem;
   display: flex;
   align-items: center;
