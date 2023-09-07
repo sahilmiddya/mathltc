@@ -15,7 +15,7 @@ import Hear from "./hear/Hear";
 import Home from "./home/Home";
 import Add from "./home/cards/add/Add";
 
-import Leaderboard from "./leaderboard/Leaderborad";
+import Leaderboard from "./leaderboard/Leaderboard";
 import Map from "./home/map/Map";
 import Level from "./level/Level";
 import Math from "./math/Math";
