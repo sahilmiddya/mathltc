@@ -11,13 +11,14 @@
   color: #d7a6a6;
   font-size: 1.3em;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 .left {
   max-height: 70vh;
   overflow-y: scroll;
   padding-right: 1.5rem;
   padding-left: 0.5rem;
+  width: 100%;
 }
 .right {
   /* flex: 2.5; */
@@ -28,7 +29,7 @@
   border: 2px solid rgba(168, 166, 168, 0.897);
   border-radius: 1rem;
   padding: 1rem;
-  margin: 1rem;
+  margin: 1rem 1.5rem;
   display: flex;
   color: #d7a6a6;
   /* align-items: center; */
@@ -193,7 +194,7 @@
   background-color: #754141 !important;
 } */
 input[type='range'] { 
-  width: 100%;
+  width: 95%;
   height: .3rem;
   -webkit-appearance: none;
   appearance: none;

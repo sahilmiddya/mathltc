@@ -28,7 +28,7 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
   const auth = useSelector((state) => state.auth);
   let dispatch = useDispatch();
 
- console.log(numpadColors[settingsData.numpad_color]);
+  console.log(numpadColors[settingsData.numpad_color]);
 
   const deleteac = () => {
     dispatch(
@@ -173,7 +173,7 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
               />
             </div>
           </div>{" "}
-          <h3 style={{ marginTop: 12 }}>MUSIC</h3>
+          <h3 style={{ marginTop: 24, marginBottom: 8 }}>MUSIC</h3>
           <div className="musicbtns">
             <div
               className="mus_btn1"
@@ -206,7 +206,7 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
               Turkish
             </div>
           </div>
-          <h3 style={{ marginTop: 24 }}>FONTS</h3>
+          <h3 style={{ marginTop: 24 , marginBottom: 8 }}>FONTS</h3>
           <div className="font_btns">
             <div
               className="font_btn1"
@@ -277,7 +277,7 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
               ))}
             </div>
           </div>
-          <Feedback/>
+          <Feedback />
         </div>
 
         <div className="right">
@@ -327,7 +327,6 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
           </button>
         </div>
       </div>
-     
     </div>
   );
 };

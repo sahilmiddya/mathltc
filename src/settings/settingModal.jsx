@@ -80,7 +80,7 @@ const SettingModal = ({ open, handleClose }) => {
     );
   };
 
-  const active_font=useSelector((state)=>state.settings.settingData.active_font)
+  const active_font=useSelector((state)=>state.settings.settingData?.active_font)
   return (
     <Modal
       open={open}
