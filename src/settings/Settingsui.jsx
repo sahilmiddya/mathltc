@@ -34,6 +34,7 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
     dispatch(
       deleteAccAsync(
         auth.user.token,
+
         {
           password: inputValue,
         },
@@ -179,12 +180,12 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
               onClick={() =>
                 setSettingsData({
                   ...settingsData,
-                  active_font: "Freedom",
+                  background_music: "Freedom",
                 })
               }
               style={{
                 backgroundColor:
-                  settingsData.active_font === "Freedom" ? "#ffd0d0" : "",
+                  settingsData.background_music === "Freedom" ? "#ffd0d0" : "",
               }}
             >
               Freedom
@@ -194,12 +195,12 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
               onClick={() =>
                 setSettingsData({
                   ...settingsData,
-                  active_font: "Turkish",
+                  background_music: "Turkish",
                 })
               }
               style={{
                 backgroundColor:
-                  settingsData.active_font === "Turkish" ? "#ffd0d0" : "",
+                  settingsData.background_music === "Turkish" ? "#ffd0d0" : "",
               }}
             >
               Turkish
@@ -214,12 +215,12 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
               onClick={() =>
                 setSettingsData({
                   ...settingsData,
-                  active_font: "Fredroka",
+                  active_font: "Fredoka",
                 })
               }
               style={{
                 backgroundColor:
-                  settingsData.active_font === "Fredroka" ? "#ffd0d0" : "",
+                  settingsData.active_font === "Fredoka" ? "#ffd0d0" : "",
               }}
               // ======================================================================/////////////////////
             >

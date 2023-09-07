@@ -22,12 +22,14 @@ import Result from "./result/Result";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useSelector } from "react-redux";
 
 function App() {
   // const [count, setCount] = useState(0)
+  const active_font=useSelector((state)=>state.settings.settingData.active_font)
 
   return (
-    <>
+    <div style={{fontFamily:`${active_font},serif`}}>
       <ToastContainer />
       <BrowserRouter>
         <Routes>
@@ -87,7 +89,7 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 
