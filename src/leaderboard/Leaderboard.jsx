@@ -25,7 +25,7 @@ const Leaderboard = () => {
         () => {}
       )
     );
-  }, );
+  });
 
   return (
     <div>
@@ -74,7 +74,8 @@ const Leaderboard = () => {
                   className="cols col1"
                   style={{ minWidth: 150, color: "#87454d" }}
                 >
-                  {loggedIn_user.user.username} <span className="yo">(You)</span>
+                  {loggedIn_user.user.username}{" "}
+                  <span className="yo">(You)</span>
                 </div>
               </div>
               <div className="col_right">
@@ -156,16 +157,16 @@ const Leaderboard = () => {
                         alt="gtfh"
                       />
                     </div>
-                    <div
-                      className="cols col1"
-                      style={{ minWidth: 150 }}
-                    >
+                    <div className="cols col1" style={{ minWidth: 150 }}>
                       {item.user.username}
                     </div>
                   </div>
                   <div className="col_right">
-                    <div className="cols col1"> {item.animal_status.toLowerCase()}</div>
-                    <div className="cols col1"> {item.total_points} XP</div>
+                    <div className="cols col1">
+                      {" "}
+                      {item.animal_status.toLowerCase()}
+                    </div>
+                    <div className="cols col1 "> {item.total_points} XP</div>
                   </div>
                 </div>
               ))}
