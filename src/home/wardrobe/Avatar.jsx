@@ -29,6 +29,7 @@ function Avatar2() {
   const nav = useNavigate();
 
   const [backgroundURL, setBackgroundURL] = useState("");
+  const [selected_btn, setselected_btn] = useState(0)
 
   const {
     // data,
@@ -57,11 +58,13 @@ function Avatar2() {
   const handleShowAnimals = () => {
     setshowbg(false);
     dispatch(setShowAnimals());
+    setselected_btn( 0)
   };
 
   const handleShowHumans = () => {
     setshowbg(false);
     dispatch(setShowHumans());
+    setselected_btn(1)
   };
 
   const handleImageClick = (imageSrc, avatar) => {
@@ -103,6 +106,7 @@ function Avatar2() {
   };
   const handleShowBG = () => {
     setshowbg(true);
+    setselected_btn(2)
   };
 
   return (
@@ -144,15 +148,13 @@ function Avatar2() {
         </div>
       </div>
       <div className="btnav">
-        <button className="btnavtr_wr" onClick={handleShowAnimals}>
+        <button className="btnavtr_wr" onClick={handleShowAnimals} style={{backgroundColor:selected_btn===0?"#3aa6b9":''}}>
           Animal
-        </button>
-        {/* <hr className="hr_wr" /> */}
-        <button className="btnavtr_wr" onClick={handleShowHumans}>
+        </button> 
+        <button className="btnavtr_wr" onClick={handleShowHumans} style={{backgroundColor:selected_btn===1?"#3aa6b9":''}}>
           Human
-        </button>
-        {/* <hr className="hr_wr" /> */}
-        <button className="btnavtr_wr" onClick={handleShowBG}>
+        </button> 
+        <button className="btnavtr_wr" onClick={handleShowBG} style={{backgroundColor:selected_btn===2?"#3aa6b9":''}}>
           Background
         </button>
       </div>
