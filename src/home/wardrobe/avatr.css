@@ -25,6 +25,7 @@
   margin: 1rem;
   justify-content: center;
   gap: 2rem;
+  border-radius: 10px;
 }
 
 .btnavtr_wr {
@@ -32,7 +33,7 @@
   padding: 0.6rem;
   margin: 0.61rem;
   border-radius: 0.6rem;
-  color: #fff;
+  /* color: #fff; */
   width: 8rem;
   /* background-color: #3aa6b9; */
 }

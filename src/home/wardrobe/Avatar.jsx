@@ -13,7 +13,7 @@ import {
 // import "./avatar.css";
 import { useNavigate } from "react-router-dom";
 import { baseURL } from "../../constants/baseURL";
-import { setstate } from "../../store/regFlowslice"; 
+import { setstate } from "../../store/regFlowslice";
 import {
   profiledetailsasync,
   updateProfilePicasync,
@@ -29,7 +29,7 @@ function Avatar2() {
   const nav = useNavigate();
 
   const [backgroundURL, setBackgroundURL] = useState("");
-  const [selected_btn, setselected_btn] = useState(0)
+  const [selected_btn, setselected_btn] = useState(0);
 
   const {
     // data,
@@ -58,13 +58,13 @@ function Avatar2() {
   const handleShowAnimals = () => {
     setshowbg(false);
     dispatch(setShowAnimals());
-    setselected_btn( 0)
+    setselected_btn(0);
   };
 
   const handleShowHumans = () => {
     setshowbg(false);
     dispatch(setShowHumans());
-    setselected_btn(1)
+    setselected_btn(1);
   };
 
   const handleImageClick = (imageSrc, avatar) => {
@@ -106,7 +106,7 @@ function Avatar2() {
   };
   const handleShowBG = () => {
     setshowbg(true);
-    setselected_btn(2)
+    setselected_btn(2);
   };
 
   return (
@@ -148,13 +148,34 @@ function Avatar2() {
         </div>
       </div>
       <div className="btnav">
-        <button className="btnavtr_wr" onClick={handleShowAnimals} style={{backgroundColor:selected_btn===0?"#3aa6b9":''}}>
+        <button
+          className="btnavtr_wr"
+          onClick={handleShowAnimals}
+          style={{
+            backgroundColor: selected_btn === 0 ? "#3aa6b9" : "transparent",
+            color: selected_btn === 0 ? "#C1ECE4" : "#3AA6B9",
+          }}
+        >
           Animal
-        </button> 
-        <button className="btnavtr_wr" onClick={handleShowHumans} style={{backgroundColor:selected_btn===1?"#3aa6b9":''}}>
+        </button>
+        <button
+          className="btnavtr_wr"
+          onClick={handleShowHumans}
+          style={{
+            backgroundColor: selected_btn === 1 ? "#3aa6b9" : "transparent",
+            color: selected_btn === 1 ? "#C1ECE4" : "#3AA6B9",
+          }}
+        >
           Human
-        </button> 
-        <button className="btnavtr_wr" onClick={handleShowBG} style={{backgroundColor:selected_btn===2?"#3aa6b9":''}}>
+        </button>
+        <button
+          className="btnavtr_wr"
+          onClick={handleShowBG}
+          style={{
+            backgroundColor: selected_btn === 2 ? "#3aa6b9" : "transparent",
+            color: selected_btn === 2 ? "#C1ECE4" : "#3AA6B9",
+          }}
+        >
           Background
         </button>
       </div>
@@ -171,7 +192,11 @@ function Avatar2() {
                     className="avatar-item"
                     onClick={() => handleImageClick(item.image, item)}
                   >
-                    <img src={item.image} className="img_animals" alt={item.name} />
+                    <img
+                      src={item.image}
+                      className="img_animals"
+                      alt={item.name}
+                    />
                   </div>
                 ))}
               </ul>
@@ -217,7 +242,7 @@ export const BgAvatar = ({ setBackgroundURL }) => {
           className="filter"
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1fr 1fr 1fr" ,
+            gridTemplateColumns: "1fr 1fr 1fr 1fr",
           }}
         >
           {background?.map(
