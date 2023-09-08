@@ -65,7 +65,7 @@ const Leaderboard = () => {
                   }}
                 >
                   <img
-                    // style={{height:'80%',width:'60%'}}
+                    style={{height:'80%',width:'80%'}}
                     src={baseURL + loggedIn_user?.user?.avatar?.image}
                     alt="gtfh"
                   />
@@ -74,7 +74,8 @@ const Leaderboard = () => {
                   className="cols col1"
                   style={{ minWidth: 150, color: "#87454d" }}
                 >
-                  {loggedIn_user.user.username}{" "}
+                  {loggedIn_user.user.username}
+
                   <span className="yo">(You)</span>
                 </div>
               </div>
@@ -108,7 +109,8 @@ const Leaderboard = () => {
                 >
                   <div className="col_left">
                     {/* ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] */}
-                    {/* <div className="cols col1">{index + 1}</div>{" "}
+                    {/* <div className="cols col1">{index + 1}</div>
+
                     
                     
                     */}
@@ -152,7 +154,7 @@ const Leaderboard = () => {
                       }}
                     >
                       <img
-                        // style={{height:'80%',width:'60%'}}
+                       style={{height:'80%',width:'80%'}}
                         src={baseURL + item?.user?.avatar?.image}
                         alt="gtfh"
                       />
@@ -163,7 +165,8 @@ const Leaderboard = () => {
                   </div>
                   <div className="col_right">
                     <div className="cols col1">
-                      {" "}
+                      
+
                       {item.animal_status.toLowerCase()}
                     </div>
                     <div className="cols col1 "> {item.total_points} XP</div>
