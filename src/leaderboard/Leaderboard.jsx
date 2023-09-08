@@ -102,7 +102,7 @@ const Leaderboard = () => {
                         : "",
                     backgroundColor:
                       auth.user.displayName === item.user.username
-                        ? "#ffe9e9"
+                        ? "#fff2f2"
                         : "",
                   }}
                 >

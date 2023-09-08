@@ -65,9 +65,9 @@ const Navbar = () => {
         <div className="nitems">Help</div>
       </div>
       <div className="nright">
-        <div className="setdelete">
+        {/* <div className="setdelete">
           <Delete />
-        </div>
+        </div> */}
         <div className="set">
           <SettingModal
             open={settingmodalopen}
