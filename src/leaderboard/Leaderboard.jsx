@@ -4,6 +4,7 @@ import "./leader.css";
 import { leader_Async } from "../store/leaderaction";
 import { useDispatch, useSelector } from "react-redux";
 import { baseURL } from "../constants/baseURL";
+import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
 
 const Leaderboard = () => {
   const dispatch = useDispatch();
@@ -13,10 +14,7 @@ const Leaderboard = () => {
   const loggedIn_user = useSelector(
     (state) => state.leaderboard?.leaderboard_data?.loggedIn_user
   );
-  // console.log(leaderboard_data.id);
-  // const user_avatar = useSelector(
-  //   (state) => state.userdetails.user.avatar.image
-  // );
+
   const auth = useSelector((state) => state.auth);
   useEffect(() => {
     dispatch(
@@ -34,7 +32,7 @@ const Leaderboard = () => {
       <Navbar />
       <div className="lb_body">
         <div className="lb_heading">Leaderboard</div>
-        {/* <hr /> */}
+
         <div className="lb_table">
           <div className="lb_table_body">
             {/* =[=====================================================] */}
@@ -43,8 +41,8 @@ const Leaderboard = () => {
               style={{
                 display: "flex",
                 justifyContent: "space-between",
-                backgroundColor:"#ffd0d0" 
-                  // auth.user.displayName === item.user.username ? : "",
+                backgroundColor: "#ffd0d0",
+                // auth.user.displayName === item.user.username ? : "",
               }}
             >
               <div className="col_left">
@@ -55,9 +53,9 @@ const Leaderboard = () => {
                     backgroundImage: `url(${
                       baseURL + loggedIn_user?.user?.background?.image
                     })`,
-                    width: "40px",
+                    width: "30px",
                     padding: "2px",
-                    height: "40px",
+                    height: "30px",
                     borderRadius: "50%",
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
@@ -72,13 +70,20 @@ const Leaderboard = () => {
                     alt="gtfh"
                   />
                 </div>
-                <div className="cols col1" style={{ minWidth: 150 ,color:"#555"}}>
-                  {loggedIn_user.user.username} (you)
+                <div
+                  className="cols col1"
+                  style={{ minWidth: 150, color: "#555" }}
+                >
+                  {loggedIn_user.user.username} (You)
                 </div>
               </div>
               <div className="col_right">
-                <div className="cols col1"> {loggedIn_user.userStats.animal_status}</div>
-                <div className="cols col1"> {loggedIn_user.userStats.total_points}</div>
+                <div className="cols col1">
+                  {loggedIn_user.userStats.animal_status}
+                </div>
+                <div className="cols col1">
+                  {loggedIn_user.userStats.total_points} XP
+                </div>
               </div>
             </div>
             {/* =====================///////////////////////========================= */}
@@ -97,16 +102,42 @@ const Leaderboard = () => {
                   }}
                 >
                   <div className="col_left">
-                    <div className="cols col1">{index + 1}</div>
+                    {/* ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] */}
+                    {/* <div className="cols col1">{index + 1}</div>{" "}
+                    
+                    
+                    */}
+
+                    {index + 1 <= 3 ? (
+                      // Render an icon for ranks 1, 2, and 3
+                      <div className="cols col1" style={{ minWidth: 10 }}>
+                        {
+                          index + 1 === 1 && <MilitaryTechIcon />
+                          // <img src="icon_1.png" alt="  1" />
+                        }
+                        {
+                          index + 1 === 2 && <MilitaryTechIcon />
+                          // <img src="icon_2.png" alt="  2" />
+                        }
+                        {
+                          index + 1 === 3 && <MilitaryTechIcon />
+                          // <img src="icon_3.png" alt="  3" />
+                        }
+                      </div>
+                    ) : (
+                      // Render the rank number for other ranks
+                      <div className="cols col1">{index + 1}</div>
+                    )}
+                    {/* //////////////////////////////////////////////////////////////////////////// */}
                     <div
                       className="cols col1"
                       style={{
                         backgroundImage: `url(${
                           baseURL + item?.user?.background?.image
                         })`,
-                        width: "40px",
+                        width: "30px",
                         padding: "2px",
-                        height: "40px",
+                        height: "30px",
                         borderRadius: "50%",
                         backgroundSize: "cover",
                         backgroundRepeat: "no-repeat",
@@ -127,7 +158,7 @@ const Leaderboard = () => {
                   </div>
                   <div className="col_right">
                     <div className="cols col1"> {item.animal_status}</div>
-                    <div className="cols col1"> {item.total_points}</div>
+                    <div className="cols col1"> {item.total_points} XP</div>
                   </div>
                 </div>
               ))}
