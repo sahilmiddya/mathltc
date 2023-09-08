@@ -25,7 +25,7 @@ const Leaderboard = () => {
         () => {}
       )
     );
-  }, []);
+  }, );
 
   return (
     <div>
@@ -46,7 +46,7 @@ const Leaderboard = () => {
               }}
             >
               <div className="col_left">
-                <div className="cols col1">{loggedIn_user.rank}</div>
+                <div className="cols col_1">{loggedIn_user.rank}</div>
                 <div
                   className="cols col1"
                   style={{
@@ -72,16 +72,16 @@ const Leaderboard = () => {
                 </div>
                 <div
                   className="cols col1"
-                  style={{ minWidth: 150, color: "#555" }}
+                  style={{ minWidth: 150, color: "#87454d" }}
                 >
-                  {loggedIn_user.user.username} (You)
+                  {loggedIn_user.user.username} <span className="yo">(You)</span>
                 </div>
               </div>
               <div className="col_right">
-                <div className="cols col1">
-                  {loggedIn_user.userStats.animal_status}
+                <div className="cols col1" style={{ color: "#87454d" }}>
+                  {loggedIn_user.userStats.animal_status.toLowerCase()}
                 </div>
-                <div className="cols col1">
+                <div className="cols col1" style={{ color: "#87454d" }}>
                   {loggedIn_user.userStats.total_points} XP
                 </div>
               </div>
@@ -95,6 +95,10 @@ const Leaderboard = () => {
                   style={{
                     display: "flex",
                     justifyContent: "space-between",
+                    color:
+                      auth.user.displayName === item.user.username
+                        ? "#87454d"
+                        : "",
                     backgroundColor:
                       auth.user.displayName === item.user.username
                         ? "#ffe9e9"
@@ -110,7 +114,7 @@ const Leaderboard = () => {
 
                     {index + 1 <= 3 ? (
                       // Render an icon for ranks 1, 2, and 3
-                      <div className="cols col1" style={{ minWidth: 10 }}>
+                      <div className="cols col_1" style={{ minWidth: 10 }}>
                         {
                           index + 1 === 1 && <MilitaryTechIcon />
                           // <img src="icon_1.png" alt="  1" />
@@ -126,7 +130,7 @@ const Leaderboard = () => {
                       </div>
                     ) : (
                       // Render the rank number for other ranks
-                      <div className="cols col1">{index + 1}</div>
+                      <div className="cols col_1">{index + 1}</div>
                     )}
                     {/* //////////////////////////////////////////////////////////////////////////// */}
                     <div
@@ -152,12 +156,15 @@ const Leaderboard = () => {
                         alt="gtfh"
                       />
                     </div>
-                    <div className="cols col1" style={{ minWidth: 150 }}>
+                    <div
+                      className="cols col1"
+                      style={{ minWidth: 150, color: "#87454d" }}
+                    >
                       {item.user.username}
                     </div>
                   </div>
                   <div className="col_right">
-                    <div className="cols col1"> {item.animal_status}</div>
+                    <div className="cols col1"> {item.animal_status.toLowerCase()}</div>
                     <div className="cols col1"> {item.total_points} XP</div>
                   </div>
                 </div>

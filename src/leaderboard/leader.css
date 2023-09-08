@@ -38,7 +38,8 @@
 
 .lb_row {
   /* background-color: #ffebeb; */
-  padding:.3rem 2rem ;
+  margin: 0.2rem 0;
+  padding:.5rem 2rem ;
   border-radius: 1rem;
   display: flex;
   align-items: center;
@@ -47,3 +48,25 @@
 .lb_row:hover{
     background-color: #ffe4e4;
 }
+
+ 
+
+.col_1{
+  /* background-color: #fcd7d7; */
+  min-width: 2.3rem;
+  align-self: center;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.yo{
+  font-weight: 800;
+}
+
+
+
+
+
+
+
