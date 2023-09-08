@@ -105,12 +105,12 @@
   /* overflow: hidden; */
   
   place-items: center;
-  /* background-color: #834646; */
-  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #834646;
+  /* grid-template-columns: 1fr 1fr 1fr; */
 }
 .img_bg_wr{
-  /* margin: 1rem; */
+  margin: .4rem;
   border-radius: 0;
-  background-color: #a54747;
+  /* background-color: #a54747; */
   place-items: center;
 }
