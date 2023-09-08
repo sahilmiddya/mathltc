@@ -116,8 +116,8 @@ function Avatar2() {
         </button>
       </div>
       {/* {selectedImage && ( */}
-      <div className="selimagex">
-        <h2>Selected Image:</h2>
+      <div className="selimage_wr">
+        <h2 className="h2_wr">Selected Image:</h2>
         <div
           className="bgimg"
           style={{
@@ -128,8 +128,8 @@ function Avatar2() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: 150,
-            width: 150,
+            height: 120,
+            width: 120,
             borderRadius: "50%",
           }}
         >
@@ -144,13 +144,15 @@ function Avatar2() {
         </div>
       </div>
       <div className="btnav">
-        <button className="btnavtr" onClick={handleShowAnimals}>
+        <button className="btnavtr_wr" onClick={handleShowAnimals}>
           Animal
         </button>
-        <button className="btnavtr" onClick={handleShowHumans}>
+        {/* <hr className="hr_wr" /> */}
+        <button className="btnavtr_wr" onClick={handleShowHumans}>
           Human
         </button>
-        <button className="btnavtr" onClick={handleShowBG}>
+        {/* <hr className="hr_wr" /> */}
+        <button className="btnavtr_wr" onClick={handleShowBG}>
           Background
         </button>
       </div>
@@ -167,7 +169,7 @@ function Avatar2() {
                     className="avatar-item"
                     onClick={() => handleImageClick(item.image, item)}
                   >
-                    <img src={item.image} className="img" alt={item.name} />
+                    <img src={item.image} className="img_animals" alt={item.name} />
                   </div>
                 ))}
               </ul>
@@ -213,7 +215,7 @@ export const BgAvatar = ({ setBackgroundURL }) => {
           className="filter"
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1fr 1fr 1fr",
+            gridTemplateColumns: "1fr 1fr 1fr 1fr" ,
           }}
         >
           {background?.map(
@@ -222,10 +224,10 @@ export const BgAvatar = ({ setBackgroundURL }) => {
             ) => (
               <div
                 key={item.id}
-                className="avatar-item"
+                className="avatar-item_bg"
                 onClick={() => handleImageClick(item.image, item)}
               >
-                <img src={item.image} className="img" alt={item.name} />
+                <img src={item.image} className="img_bg_wr" alt={item.name} />
               </div>
             )
           )}
