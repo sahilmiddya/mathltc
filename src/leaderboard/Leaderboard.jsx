@@ -158,7 +158,7 @@ const Leaderboard = () => {
                     </div>
                     <div
                       className="cols col1"
-                      style={{ minWidth: 150, color: "#87454d" }}
+                      style={{ minWidth: 150 }}
                     >
                       {item.user.username}
                     </div>
