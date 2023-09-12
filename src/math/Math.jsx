@@ -79,10 +79,11 @@ const Math = () => {
       }
     }
 
-    const userNumber = parseInt(userInput);
+    const userNumber = Number(userInput);
+    // const userNumber =  (userInput);
 
     if (userNumber === answer) {
-      setcolor("green");
+      setcolor("green"); 
       dispatch(setcorrect());
     } else {
       setcolor("red");
