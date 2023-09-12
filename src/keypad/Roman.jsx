@@ -1,7 +1,7 @@
 import "./basic.css"; 
 
-function BasicKeypad({ onButtonClick }) {
-  const buttons = ['1', '2', '3', '4', '5', '6' , '7', '8', '9',   ' ', '0', '.'];
+function Roman({ onButtonClick }) {
+  const buttons = [ 'I','V','X','L','C','D',' ', 'M',''];
 
   return (
     <div className="keypad">
@@ -14,4 +14,4 @@ function BasicKeypad({ onButtonClick }) {
   );
 }
 
-export default BasicKeypad; 
+export default Roman; 
