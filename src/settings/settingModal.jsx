@@ -12,7 +12,6 @@ const SettingModal = ({ open, handleClose }) => {
   const auth = useSelector((state) => state.auth);
 
   const settingsInfo = useSelector((state) => state.settings.settingData);
-  console.log(settingsInfo);
   const [settingsData, setSettingsData] = useState({
     active_font: null,
     active_language: null,
