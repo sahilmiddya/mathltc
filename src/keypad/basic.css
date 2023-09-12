@@ -5,14 +5,14 @@
   /* background-color: #c92424; */
   /* align-items: center; */
   grid-template-columns: 1fr 1fr 1fr;
-  max-width: 750px;
+  max-width: 550px;
   margin: auto;
-  gap: 12px;
+  gap: 8px;
   width: 100%;
 }
 
 .keys {
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
   font-size: 1.75rem;
   width: 100%;
   background-color: #92D3F5;

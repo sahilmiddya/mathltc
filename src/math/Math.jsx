@@ -12,9 +12,9 @@ import {
 } from "../store/quizes/quizAction";
 import BasicKeypad from "../keypad/BasicKeypad";
 
-import backicon from '../asset/back.png'
+import backicon from "../asset/back.png";
 
-import checkicon from '../asset/check.svg'
+import checkicon from "../asset/check.svg";
 
 const Math = () => {
   const auth = useSelector((state) => state.auth);
@@ -185,17 +185,16 @@ const Math = () => {
             </span>
           </div>
 
-          <div style={{ marginTop: 18 }}>
+          <div style={{ marginTop: 8 }}>
             <BasicKeypad onButtonClick={handleButtonClick} />
           </div>
 
-          <div className="bottompart" style={{ marginTop: 12 }}>
+          <div className="bottompart" style={{ marginTop: 8 }}>
             <button className="back btnm" onClick={clearExpression}>
-            
-            <img src={backicon} className="back_icon" alt="" />
+              <img src={backicon} className="back_icon" alt="" />
             </button>
             <button className="check btnm" onClick={checkAnswer}>
-              <img src={checkicon} alt=""  className="back_icon" />
+              <img src={checkicon} alt="" className="back_icon" />
             </button>
           </div>
         </div>
