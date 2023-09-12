@@ -1,6 +1,4 @@
-import { useState } from "react";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react"; 
 import "./delete.css";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteAccAsync } from "../../store/ProfileActions";
@@ -20,14 +18,14 @@ const modalStyle = {
   padding: "2rem",
 };
 
-const buttonStyle = {
-  backgroundColor: "pink",
-  color: "white",
-  border: "none",
-  padding: "0.5rem 1rem",
-  cursor: "pointer",
-  margin: "1rem",
-};
+// const buttonStyle = {
+//   backgroundColor: "pink",
+//   color: "white",
+//   border: "none",
+//   padding: "0.5rem 1rem",
+//   cursor: "pointer",
+//   margin: "1rem",
+// };
 
 function Delete() {
   // const nav = useNavigate();
