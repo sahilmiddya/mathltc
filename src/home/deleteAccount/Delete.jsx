@@ -87,7 +87,11 @@ function Delete() {
           // style={buttonStyle}
           onClick={handleShowDeleteModal}
         >
-          <DeleteOutlineIcon />
+          {/* <DeleteOutlineIcon /> */}
+          <div className="setbtn4 ">
+
+          Delete Account
+          </div>
         </button>
       </nav>
 

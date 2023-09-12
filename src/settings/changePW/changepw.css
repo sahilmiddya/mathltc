@@ -1,0 +1,57 @@
+/* Modal */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Open Modal Button */
+  .open-modal {
+    cursor: pointer;
+    /* padding: 10px; */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    text-align: center;
+    width: 200px;
+    margin: 20px auto;
+  }
+  
+  .open-modal:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Input and Button Styles (you can customize as needed) */
+  .inp_pw {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .setbtn5{
+    color: #494343;
+    padding: 0.6rem  ;
+    /* height: 2.6rem; */
+    border-radius: 1.2rem;
+    text-align: center;
+    font-weight: 900;
+    font-size: 19px;
+    color: #d7a6a6;
+    cursor: pointer;
+    margin: 0.3rem;
+  }

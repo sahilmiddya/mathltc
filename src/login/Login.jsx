@@ -92,13 +92,13 @@ const Login = () => {
         (succ) => {
           closeReactivate();
           toast.success(succ.detail);
-          dispatch( //forrr going to homepage
+          dispatch(
+            //forrr going to homepage
             loginUserAsync(
               credentials,
               () => {},
               (err) => {
-                toast.error(err); 
-                
+                toast.error(err);
               }
             )
           );
@@ -179,7 +179,7 @@ const Login = () => {
               <hr />
               <Link to="/">
                 <button className="signup">Sign up</button>
-              </Link>{" "}
+              </Link> 
             </div>
           </div>
         </div>
@@ -187,8 +187,6 @@ const Login = () => {
     </>
   );
 };
-
-export default Login;
 
 // import React, { useState } from "react";
 
@@ -549,14 +547,24 @@ const ReactivateModal = ({ onClose, onActivate }) => (
   <div>
     <div className="modal-overlayreactivate">
       <div className="modalreactivate">
-        <h1 className="h1login">ARE YOU SURE ??</h1>
-        <button className="modal-buttonreactivate" onClick={onClose}>
-          Close
-        </button>
-        <button className="modal-buttonreactivate2" onClick={onActivate}>
-          Activate
-        </button>
+        <h4 className="h1login">
+          You have deleted your account. If you want to re-activate your
+          account, press "Activate". Otherwise, press "Cancel" and your data
+          will be deleted in 30 days (unless you come back and change your
+          mind).
+        </h4>
+
+        <div className="btn_reactive">
+          <button className="modal-buttonreactivate" onClick={onClose}>
+          Cancel
+          </button>
+          <button className="modal-buttonreactivate2" onClick={onActivate}>
+            Activate
+          </button> 
+        </div>
       </div>
     </div>
   </div>
 );
+
+export default Login;

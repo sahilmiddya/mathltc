@@ -194,7 +194,6 @@ h2 {
   padding: 0.4rem;
 }
 
-
 /* Modal.css */
 .modal-overlayreactivate {
   position: fixed;
@@ -222,25 +221,25 @@ h2 {
 }
 
 .modal-buttonreactivate {
-  background-color: rgb(206, 142, 231);
-  color: white;
+  background-color: rgb(133, 128, 134);
+  color: rgb(39, 34, 34);
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem  ;
   margin: 0.5rem;
   cursor: pointer;
 }
 
-.modal-buttonreactivate:last-child {
-  background-color: rgb(147, 28, 202);
-}
-.h1login{
+.h1login {
   color: #000;
 }
+
+.btn_reactive {
+  display: flex;
+}
 .modal-buttonreactivate2 {
-  background-color: rgb(201, 8, 72);
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
+  color: rgb(8, 109, 8);
+  background-color: rgb(144, 236, 144);
+  padding: 0.5rem  ;
   margin: 0.5rem;
   cursor: pointer;
 }

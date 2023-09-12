@@ -11,6 +11,7 @@ import Toggle from "../togglebtn/Toggle";
 import { numpadColors } from "../constants/numpadColors";
 import CheckIcon from "@mui/icons-material/Check";
 import Feedback from "./feedback/Feedback";
+import MyComponent from "./changePW/ChangePw";
 
 const Settingsui = ({ settingsData, setSettingsData }) => {
   const user_name = useSelector((state) => state.userdetails.user.username);
@@ -22,35 +23,13 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
   );
   const user_bg = useSelector(
     (state) => state.userdetails.user.background.image
-  );
-  // console.log(settingsData.custom_timer);
-  // const [isOn, setIsOn] = useState(false);
-  const auth = useSelector((state) => state.auth);
+  ); 
+  // const auth = useSelector((state) => state.auth);
   let dispatch = useDispatch();
 
   console.log(numpadColors[settingsData.numpad_color]);
 
-  const deleteac = () => {
-    dispatch(
-      deleteAccAsync(
-        auth.user.token,
-
-        {
-          password: inputValue,
-        },
-        (msg) => {
-          // nav("/map");
-          dispatch(logoutUser());
-
-          toast.success(msg.detail);
-        },
-        (err) => {
-          toast.error(err.detail);
-        }
-      )
-    );
-  };
-
+ 
   console.log(numpadColors["one"].background);
   return (
     <div className="full_settings">
@@ -312,10 +291,14 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
           >
             Logout
           </button>
-          <button className="setbtn3">Change Password</button>
+          <button className="setbtn3">
+            {/* Change Password */}
+          <MyComponent/>
+          
+          </button>
           <button
             className="setbtn3 deletebtn"
-            onClick={deleteac}
+            // onClick={deleteac}
             style={{
               display: "flex",
               justifyContent: "center",
@@ -323,7 +306,6 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
             }}
           >
             <Delete />
-            Delete Account
           </button>
         </div>
       </div>

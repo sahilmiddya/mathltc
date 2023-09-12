@@ -68,7 +68,19 @@ align-self: center;
     background-color: red;
     color: #ffffff;
 }
-
+.setbtn4{
+    /* background-color: #fff9f9; */
+    color: #494343;
+    padding: 0.6rem  ;
+    /* height: 2.6rem; */
+    border-radius: 1.2rem;
+    text-align: center;
+    font-weight: 900;
+    font-size: 19px;
+    color: #d7a6a6;
+    cursor: pointer;
+    margin: 0.3rem;
+}
 
 
 
