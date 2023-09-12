@@ -1,33 +1,24 @@
-.keypad{
-    display: flex;
-    /* flex-direction: column; */
-    /* flex-direction: column-reverse; */
-    background-color: #c92424;
-    /* align-items: center; */
-    justify-content: center;
+.keypad {
+  display: grid;
+  /* flex-direction: column; */
+  /* flex-direction: column-reverse; */
+  /* background-color: #c92424; */
+  /* align-items: center; */
+  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 750px;
+  margin: auto;
+  gap: 12px;
+  width: 100%;
 }
 
-.keys{
-    padding: .61rem;
-    margin: 1rem;
+.keys {
+  padding: 0.5rem 1rem;
+  font-size: 1.75rem;
+  width: 100%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.row1 .row2 .row3 {
+  display: flex;
+  align-items: center;
+  gap: 18px !important;
+}

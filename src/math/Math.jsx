@@ -46,7 +46,7 @@ const Math = () => {
     // } else if (value === 'C') {
     //   setUserInput('');
     // } else {
-      setUserInput((prevValue) => prevValue + value);
+    setUserInput((prevValue) => prevValue + value);
     // }
   };
 
@@ -180,8 +180,12 @@ const Math = () => {
               />
             </span>
           </div>
-          <BasicKeypad onButtonClick={handleButtonClick} />
-          <div className="bottompart">
+
+          <div style={{ marginTop: 18 }}>
+            <BasicKeypad onButtonClick={handleButtonClick} />
+          </div>
+
+          <div className="bottompart" style={{ marginTop: 12 }}>
             <button className="back btnm" onClick={clearExpression}>
               C
             </button>

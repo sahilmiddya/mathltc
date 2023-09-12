@@ -20,12 +20,15 @@
 
 .mtop {
   background-color: #d9d9d9;
-  border-radius: .3rem;
+  border-radius: 0.3rem;
   display: flex;
-  justify-content: space-evenly;
-  padding: 1rem;
+  gap: 18px;
+  justify-content: center;
+  padding: 1rem 0rem;
   font-size: 1.4rem;
-  margin: 1rem 14.5rem;
+  max-width: 750px;
+  width: 100%;
+  margin: auto;
 }
 .inpmath {
   background-color: #fff !important;
@@ -63,11 +66,11 @@
 }
 .bottompart {
   padding: 1rem 0;
-
-  margin: 0 14.5rem;
   display: flex;
   gap: 5px;
-  /* background-color: #a9ce22; */
+  max-width: 750px;
+  margin: auto;
+  width: 100%;
 }
 .back {
   background-color: #ff9292;
