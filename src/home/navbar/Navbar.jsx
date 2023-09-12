@@ -24,7 +24,6 @@ const Navbar = () => {
     (state) => state.settings.settingModalOpen
   );
   let dispatch = useDispatch();
-  console.log(settingmodalopen);
   const handleWardrobeClick = () => {
     dispatch(setWardrobeModalOpen(true));
   };

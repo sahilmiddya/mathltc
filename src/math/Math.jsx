@@ -37,6 +37,8 @@ const Math = () => {
 
   const [userInput, setUserInput] = useState("");
 
+  console.log({ userInput });
+
   // const userans = useSelector((state) => state.userans);
 
   const handleButtonClick = (value) => {
@@ -57,8 +59,6 @@ const Math = () => {
   const clearExpression = () => {
     setUserInput("");
   };
-
-  console.log({ quiz, count });
 
   const checkAnswer = () => {
     if (userInput === "") {
@@ -177,7 +177,7 @@ const Math = () => {
             <span>
               <input
                 className="inpmath"
-                type="number"
+                // type="number"
                 value={rightans || userInput}
                 onChange={handleInputChange}
                 style={{ color: inputcolor, padding: "5px" }}
