@@ -12,6 +12,10 @@ import {
 } from "../store/quizes/quizAction";
 import BasicKeypad from "../keypad/BasicKeypad";
 
+import backicon from '../asset/back.png'
+
+import checkicon from '../asset/check.svg'
+
 const Math = () => {
   const auth = useSelector((state) => state.auth);
   const selectQuizLevel = useSelector((state) => state.quiz.selectQuizLevel);
@@ -187,10 +191,11 @@ const Math = () => {
 
           <div className="bottompart" style={{ marginTop: 12 }}>
             <button className="back btnm" onClick={clearExpression}>
-              C
+            
+            <img src={backicon} className="back_icon" alt="" />
             </button>
             <button className="check btnm" onClick={checkAnswer}>
-              =
+              <img src={checkicon} alt=""  className="back_icon" />
             </button>
           </div>
         </div>
