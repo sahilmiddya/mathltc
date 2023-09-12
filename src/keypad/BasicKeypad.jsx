@@ -1,25 +1,50 @@
-// import React from 'react';
+import "./basic.css";
 
 function BasicKeypad({ onButtonClick }) {
   return (
     <div className="keypad">
-      <button onClick={() => onButtonClick('1')}>1</button>
-      <button onClick={() => onButtonClick('2')}>2</button>
-      <button onClick={() => onButtonClick('3')}>3</button>
-      <button onClick={() => onButtonClick('+')}>+</button>
-      <br></br>
-      <button onClick={() => onButtonClick('4')}>4</button>
-      <button onClick={() => onButtonClick('5')}>5</button>
-      <button onClick={() => onButtonClick('6')}>6</button>
-      <button onClick={() => onButtonClick('-')}>-</button> <br></br>
-      <button onClick={() => onButtonClick('7')}>7</button>
-      <button onClick={() => onButtonClick('8')}>8</button>
-      <button onClick={() => onButtonClick('9')}>9</button>
-      <button onClick={() => onButtonClick('*')}>*</button> <br></br>
-      <button onClick={() => onButtonClick('C')}>C</button>
-      <button onClick={() => onButtonClick('0')}>0</button>
-      <button onClick={() => onButtonClick('=')}>=</button>
-      <button onClick={() => onButtonClick('/')}>/</button>
+      <div className="row1">
+        <button className="keys" onClick={() => onButtonClick("1")}>
+          1
+        </button> <button className="keys" onClick={() => onButtonClick("4")}>
+          4
+        </button>
+        <button className="keys" onClick={() => onButtonClick("7")}>
+          7
+        </button>
+        <button className="keys" onClick={() => onButtonClick(".")}>
+          .
+        </button>
+       
+      </div>
+      <div className="row2">
+        <button className="keys" onClick={() => onButtonClick("2")}>
+          2
+        </button>
+        <button className="keys" onClick={() => onButtonClick("5")}>
+          5
+        </button>
+        <button className="keys" onClick={() => onButtonClick("8")}>
+          8
+        </button>
+        <button className="keys" onClick={() => onButtonClick("0")}>
+          0
+        </button>
+      </div>
+      <div className="row3">
+        <button className="keys" onClick={() => onButtonClick("3")}>
+          3
+        </button>
+        <button className="keys" onClick={() => onButtonClick("6")}>
+          6
+        </button>{" "}
+        <button className="keys" onClick={() => onButtonClick("9")}>
+          9
+        </button>
+        <button className="keys" onClick={() => onButtonClick("/")}>
+          /
+        </button>
+      </div>
     </div>
   );
 }

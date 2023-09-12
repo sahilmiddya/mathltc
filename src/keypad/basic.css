@@ -1,0 +1,33 @@
+.keypad{
+    display: flex;
+    /* flex-direction: column; */
+    /* flex-direction: column-reverse; */
+    background-color: #c92424;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.keys{
+    padding: .61rem;
+    margin: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

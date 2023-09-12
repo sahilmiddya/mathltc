@@ -22,7 +22,7 @@ const Math = () => {
   const nav = useNavigate();
   const [rightans, setrightans] = useState(null);
 
-  const [remainingTime, setRemainingTime] = useState(140); // Timer set to 10 seconds
+  const [remainingTime, setRemainingTime] = useState(740); // Timer set to 10 seconds
 
   const [inputcolor, setcolor] = useState("");
   const quizQuestions = useSelector((state) => state.quiz.quizQuestions);
@@ -36,18 +36,18 @@ const Math = () => {
   // const userans = useSelector((state) => state.userans);
 
   const handleButtonClick = (value) => {
-    if (value === '=') {
-      try {
-        const result = eval(userInput);
-        setUserInput(result.toString());
-      } catch (error) {
-        setUserInput('Error');
-      }
-    } else if (value === 'C') {
-      setUserInput('');
-    } else {
+    // if (value === '=') {
+    //   try {
+    //     const result = eval(userInput);
+    //     setUserInput(result.toString());
+    //   } catch (error) {
+    //     setUserInput('Error');
+    //   }
+    // } else if (value === 'C') {
+    //   setUserInput('');
+    // } else {
       setUserInput((prevValue) => prevValue + value);
-    }
+    // }
   };
 
   const clearExpression = () => {
