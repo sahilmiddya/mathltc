@@ -36,8 +36,8 @@ function BasicKeypad({ onButtonClick }) {
       <button className="keys" onClick={() => onButtonClick("0")}>
         0
       </button> 
-      <button className="keys" onClick={() => onButtonClick("/")}>
-        /
+      <button className="keys" onClick={() => onButtonClick("-")}>
+        -
       </button>
     </div>
   );
