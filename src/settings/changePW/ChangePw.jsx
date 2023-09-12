@@ -73,9 +73,9 @@ function ChangePw() {
       changePWasync(
         auth.user.token,
         {
-          old_password: initialFormData.oldPassword,
-          new_password: initialFormData.newPassword,
-          confirm_password: initialFormData.retypePassword,
+          old_password: formData.oldPassword,
+          new_password: formData.newPassword,
+          confirm_password: formData.retypePassword,
         },
         (msg) => {
           toast.success(msg.detail);
