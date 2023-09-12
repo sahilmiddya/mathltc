@@ -11,7 +11,7 @@ import Toggle from "../togglebtn/Toggle";
 import { numpadColors } from "../constants/numpadColors";
 import CheckIcon from "@mui/icons-material/Check";
 import Feedback from "./feedback/Feedback";
-import MyComponent from "./changePW/ChangePw";
+import ChangePw from "./changePW/ChangePw";
 
 const Settingsui = ({ settingsData, setSettingsData }) => {
   const user_name = useSelector((state) => state.userdetails.user.username);
@@ -292,7 +292,7 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
           </button>
           <button className="setbtn3">
             {/* Change Password */}
-            <MyComponent />
+            <ChangePw />
           </button>
           <button
             className="setbtn3 deletebtn"
