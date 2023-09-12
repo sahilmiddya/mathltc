@@ -23,13 +23,12 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
   );
   const user_bg = useSelector(
     (state) => state.userdetails.user.background.image
-  ); 
+  );
   // const auth = useSelector((state) => state.auth);
   let dispatch = useDispatch();
 
   console.log(numpadColors[settingsData.numpad_color]);
 
- 
   console.log(numpadColors["one"].background);
   return (
     <div className="full_settings">
@@ -293,8 +292,7 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
           </button>
           <button className="setbtn3">
             {/* Change Password */}
-          <MyComponent/>
-          
+            <MyComponent />
           </button>
           <button
             className="setbtn3 deletebtn"

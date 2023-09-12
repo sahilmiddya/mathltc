@@ -41,7 +41,7 @@ function MyComponent() {
   return (
     <div>
       <div 
-      className="setbtn5" 
+      // className="setbtn5" 
     //   className="open-modal" 
       onClick={openModal}>
       Change Password
