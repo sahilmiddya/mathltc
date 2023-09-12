@@ -36,7 +36,18 @@ const Math = () => {
   // const userans = useSelector((state) => state.userans);
 
   const handleButtonClick = (value) => {
-    setUserInput((prev) => prev + value);
+    if (value === '=') {
+      try {
+        const result = eval(userInput);
+        setUserInput(result.toString());
+      } catch (error) {
+        setUserInput('Error');
+      }
+    } else if (value === 'C') {
+      setUserInput('');
+    } else {
+      setUserInput((prevValue) => prevValue + value);
+    }
   };
 
   const clearExpression = () => {
