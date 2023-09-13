@@ -37,7 +37,7 @@ const Math = () => {
 
   const [userInput, setUserInput] = useState("");
 
-  console.log({ userInput });
+  console.log({userInput},answer );
 
   // const userans = useSelector((state) => state.userans);
 
@@ -79,8 +79,8 @@ const Math = () => {
       }
     }
 
-    const userNumber = Number(userInput);
-    // const userNumber =  (userInput);
+    // const userNumber = Number(userInput);
+    const userNumber =  (userInput);
 
     if (userNumber === answer) {
       setcolor("green"); 
