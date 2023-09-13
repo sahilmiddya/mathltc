@@ -148,7 +148,7 @@ const Login = () => {
                   <div className="error-message">{errors.password}</div>
                 )}
               </div>
-              <div className="right" onClick={openModal}>
+              <div className="rights" onClick={openModal}>
                 Forget password
               </div>
               {modalOpen && <PasswordResetModal onClose={closeModal} />}

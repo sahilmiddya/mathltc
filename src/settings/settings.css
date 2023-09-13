@@ -76,6 +76,9 @@
   width: 100%;
   cursor: pointer;
   font-size: 0.9em;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 .toggler {
   /* background-color: #e2b6b6; */

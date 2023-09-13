@@ -27,7 +27,7 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
   // const auth = useSelector((state) => state.auth);
   let dispatch = useDispatch();
 
-  console.log(numpadColors[settingsData.numpad_color]);
+  // console.log(numpadColors[settingsData.numpad_color]);
 
   console.log(numpadColors["one"].background);
   return (
@@ -51,7 +51,7 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
                   })
                 }
               >
-                2min
+                2 min
               </div>
               <div
                 className="set_btn1"
@@ -66,11 +66,11 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
                   })
                 }
               >
-                3min
+                3 min
               </div>
               <div
                 className="set_btn1"
-                style={{
+                style={{ 
                   backgroundColor:
                     settingsData.custom_timer === 5 ? "#ffd0d0" : "",
                 }}
@@ -81,7 +81,7 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
                   })
                 }
               >
-                5min
+                5 min
               </div>
             </div>
             <div className="range">
@@ -295,8 +295,7 @@ const Settingsui = ({ settingsData, setSettingsData }) => {
             <ChangePw />
           </button>
           <button
-            className="setbtn3 deletebtn"
-            // onClick={deleteac}
+            className="setbtn3 deletebtn" 
             style={{
               display: "flex",
               justifyContent: "center",

@@ -15,14 +15,18 @@ import BasicKeypad from "../keypad/BasicKeypad";
 import backicon from "../asset/back.png";
 
 import checkicon from "../asset/check.svg";
+import Roman from "../keypad/Roman";
 
 const Math = () => {
   const auth = useSelector((state) => state.auth);
   const selectQuizLevel = useSelector((state) => state.quiz.selectQuizLevel);
+
   const quiz = useSelector((state) => state.quiz);
   const attempans = useSelector((state) => state.userans);
+
   const count = useSelector((state) => state.quiz.count);
   const dispatch = useDispatch();
+
   const nav = useNavigate();
   const [rightans, setrightans] = useState(null);
 
@@ -30,14 +34,14 @@ const Math = () => {
 
   const [inputcolor, setcolor] = useState("");
   const quizQuestions = useSelector((state) => state.quiz.quizQuestions);
-
+  console.log(quiz.quizTypes);
   const questionAnswerList = quizQuestions?.question_answer_list;
   //
   const answer = questionAnswerList?.[count]?.answer; //from api
 
   const [userInput, setUserInput] = useState("");
 
-  console.log({userInput},answer );
+  // console.log({userInput},answer );
 
   // const userans = useSelector((state) => state.userans);
 
@@ -80,10 +84,10 @@ const Math = () => {
     }
 
     // const userNumber = Number(userInput);
-    const userNumber =  (userInput);
+    const userNumber = userInput;
 
     if (userNumber === answer) {
-      setcolor("green"); 
+      setcolor("green");
       dispatch(setcorrect());
     } else {
       setcolor("red");
@@ -187,7 +191,9 @@ const Math = () => {
           </div>
 
           <div style={{ marginTop: 8 }}>
-            <BasicKeypad onButtonClick={handleButtonClick} />
+            {/* <BasicKeypad onButtonClick={handleButtonClick} /> */}
+            {quiz.quizTypes[45] ? <Roman /> : <BasicKeypad />}
+
           </div>
 
           <div className="bottompart" style={{ marginTop: 8 }}>
@@ -205,15 +211,3 @@ const Math = () => {
 };
 
 export default Math;
-
-// if (count === quiz?.quizQuestions?.question_answer_list?.length - 5) {
-//   dispatch(
-//     getQuestionsAsync(
-//       auth.user.token,
-//       quiz?.selectQuizLevel?.quiz_type?.slug,
-//       quiz?.selectQuizLevel?.quiz_format?.slug,
-//       quiz?.selectQuizLevel?.title
-//     )
-//   );
-//   console.log("-----------------------------------");
-// }
